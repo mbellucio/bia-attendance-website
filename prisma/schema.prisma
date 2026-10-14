@@ -19,6 +19,7 @@ enum LogLineType {
 model User {
   id          String   @id @default(cuid())
   steamId     String   @unique @map("steam_id")
+  admin       Boolean  @default(false)
   email       String?
   displayName String?  @map("display_name")
   avatarUrl   String?  @map("avatar_url")

@@ -12,6 +12,7 @@ type E = { key:string; file:string; sha:string; code:string; title:string; date:
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const logs=path.resolve(process.env.LOG_ARCHIVE_DIR??path.join(project,"data","archive","logs"));
 const root=path.dirname(logs), apply=process.argv.includes("--apply"), valid=/^\d{17}$/;
+const adminSeeds=JSON.parse(await readFile(path.join(project,"data","admin-users.json"),"utf8")) as {steamId:string;displayName:string}[];
 const keyName=(s:string)=>s.normalize("NFKC").replace(/\s*\[bia\]\s*/gi," ").replace(/\s+/g," ").trim().toLowerCase();
 const clean=(s:string)=>s.normalize("NFKC").replace(/\s*\[bia\]\s*/gi," ").replace(/\s+/g," ").trim();
 async function walk(dir:string,suffix:string):Promise<string[]>{let es;try{es=await readdir(dir,{withFileTypes:true})}catch{return []}const a=await Promise.all(es.map(async e=>e.isDirectory()?walk(path.join(dir,e.name),suffix):e.isFile()&&e.name.toLowerCase().endsWith(suffix)?[path.join(dir,e.name)]:[]));return a.flat()}
@@ -50,7 +51,8 @@ async function main(){
   const prev=await db.event.findMany({select:{sourceKey:true,sourceSha256:true}}),byKey=new Map(prev.map(x=>[x.sourceKey,x.sourceSha256]));
   const changed=events.filter(e=>byKey.has(e.key)&&byKey.get(e.key)!==e.sha);if(changed.length)throw Error("Existing source files changed; no log rows imported. Reconcile first: "+changed.slice(0,8).map(e=>e.key).join(", "));
   const pending=events.filter(e=>!byKey.has(e.key));if(!pending.length)console.log("All archive events already imported.")
-  const playerIds=new Map<string,string>();for(const[id,x]of identities){const profileUrl="https://steamcommunity.com/profiles/"+id,user=await db.user.upsert({where:{steamId:id},update:{displayName:x.name,profileUrl},create:{steamId:id,displayName:x.name,profileUrl},select:{id:true}}),p=await db.player.upsert({where:{userId:user.id},update:{nickname:x.name},create:{userId:user.id,nickname:x.name},select:{id:true}});playerIds.set(id,p.id)}
+  const adminIds=new Set(adminSeeds.map(x=>x.steamId));for(const seed of adminSeeds){if(!valid.test(seed.steamId)||!identities.has(seed.steamId))throw Error("Admin bootstrap SteamID is not present in the archive: "+seed.displayName);identities.set(seed.steamId,{name:seed.displayName,seen:Number.MAX_SAFE_INTEGER})}
+  const playerIds=new Map<string,string>();for(const[id,x]of identities){const isAdmin=adminIds.has(id),profileUrl="https://steamcommunity.com/profiles/"+id,user=await db.user.upsert({where:{steamId:id},update:{displayName:x.name,profileUrl,...(isAdmin?{admin:true}:{})},create:{steamId:id,displayName:x.name,profileUrl,admin:isAdmin},select:{id:true}}),p=await db.player.upsert({where:{userId:user.id},update:{nickname:x.name},create:{userId:user.id,nickname:x.name},select:{id:true}});playerIds.set(id,p.id)}
   let done=0;for(const e of pending){await db.$transaction(async tx=>{
    const eventId=randomUUID(),participants=new Map<string,string>(),totals=new Map<string,number>(),complete=new Map<string,boolean>();
    for(const s of e.sessions){const p=playerIds.get(s.steam);if(!p)continue;s.player=p;participants.set(p,participants.get(p)??randomUUID());totals.set(p,(totals.get(p)??0)+(s.seconds??0));complete.set(p,(complete.get(p)??true)&&s.seconds!==null)}
@@ -69,4 +71,3 @@ async function main(){
  }finally{await db.$disconnect()}
 }
 main().catch(e=>{console.error(e instanceof Error?e.message:e);process.exitCode=1});
-
