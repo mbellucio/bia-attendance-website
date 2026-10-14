@@ -1,0 +1,118 @@
+﻿18:47:01 Abramusas [BiA] uses modified data file
+18:47:01 Player Abramusas [BiA] connecting.
+18:47:03 Player Abramusas [BiA] connected (id=76561198066525742).
+18:47:25 Player Abramusas [BiA] disconnected.
+19:40:55 Orbit [BIA] uses modified data file
+19:40:55 Player Orbit [BIA] connecting.
+19:40:57 Player Orbit [BIA] connected (id=76561198240378644).
+19:45:05 Martis [BiA] uses modified data file
+19:45:05 Player Martis [BiA] connecting.
+19:45:07 Player Martis [BiA] connected (id=76561198283324701).
+19:45:52 Danny [BiA] uses modified data file
+19:45:52 Player Danny [BiA] connecting.
+19:45:54 Player Danny [BiA] connected (id=76561198066082706).
+19:46:07 Vlad [BiA] uses modified data file
+19:46:07 Player Vlad [BiA] connecting.
+19:46:08 Player Vlad [BiA] connected (id=76561198081436801).
+19:46:21 Admin logged in, player: Danny [BiA], playerUID: 76561198066082706
+19:46:41 Game restarted
+19:46:41 Waiting for next game.
+19:47:14 Mission Training for Operation Rolling Thunder read from bank.
+19:47:34 Abramusas [BiA] uses modified data file
+19:47:34 Player Abramusas [BiA] connecting.
+19:47:36 Player Abramusas [BiA] connected (id=76561198066525742).
+19:50:47 ViperX[BiA] uses modified data file
+19:50:47 Player ViperX[BiA] connecting.
+19:50:49 Player ViperX[BiA] connected (id=76561198142976449).
+19:52:31 Murdock [BIA] uses modified data file
+19:52:31 Player Murdock [BIA] connecting.
+19:52:32 Player Murdock [BIA] connected (id=76561197993956650).
+19:53:58 CDT D0CTOR uses modified data file
+19:53:58 Player CDT D0CTOR connecting.
+19:54:00 Player CDT D0CTOR connected (id=76561198039387405).
+19:54:01 Player CDT D0CTOR disconnected.
+19:55:08 Glenn [BiA] uses modified data file
+19:55:08 Player Glenn [BiA] connecting.
+19:55:09 Player Glenn [BiA] connected (id=76561199069019362).
+19:55:31 Spud [BiA] uses modified data file
+19:55:31 Player Spud [BiA] connecting.
+19:55:32 Player Spud [BiA] connected (id=76561198310446091).
+19:55:45 Roles assigned.
+19:55:45 Reading mission ...
+19:55:47 Mission read.
+19:55:57 Mo [BIA] uses modified data file
+19:55:57 Player Mo [BIA] connecting.
+19:55:58 Player Mo [BIA] connected (id=76561198811873436).
+19:57:06 Dr. Lexus [BiA] uses modified data file
+19:57:06 Player Dr. Lexus [BiA] connecting.
+19:57:08 Player Dr. Lexus [BiA] connected (id=76561198021858005).
+19:59:35 Imbalance [BIA] uses modified data file
+19:59:35 Player Imbalance [BIA] connecting.
+19:59:37 Player Imbalance [BIA] connected (id=76561198046393803).
+20:00:52 Game started.
+20:00:54 Zero [BiA] uses modified data file
+20:00:54 Player Zero [BiA] connecting.
+20:00:55 Player Zero [BiA] connected (id=76561198015579477).
+20:01:38 Bobi[BiA] uses modified data file
+20:01:38 Player Bobi[BiA] connecting.
+20:01:40 Player Bobi[BiA] connected (id=76561198155238046).
+20:01:45 Player Orbit [BIA] disconnected.
+20:01:53 Player Glenn [BiA] disconnected.
+20:03:10 Glenn [BiA] uses modified data file
+20:03:10 Player Glenn [BiA] connecting.
+20:03:11 Player Glenn [BiA] disconnected.
+20:03:22 Wolfmother [BiA] uses modified data file
+20:03:22 Player Wolfmother [BiA] connecting.
+20:03:24 Player Wolfmother [BiA] connected (id=76561198058213158).
+20:03:38 Glenn [BiA] uses modified data file
+20:03:38 Player Glenn [BiA] connecting.
+20:03:38 Player Glenn [BiA] disconnected.
+20:03:57 Orbit [BIA] uses modified data file
+20:03:57 Player Orbit [BIA] connecting.
+20:03:59 Player Orbit [BIA] connected (id=76561198240378644).
+20:05:23 Glenn [BiA] uses modified data file
+20:05:23 Player Glenn [BiA] connecting.
+20:05:23 Player Glenn [BiA] disconnected.
+20:06:57 Glenn [BiA] uses modified data file
+20:06:57 Player Glenn [BiA] connecting.
+20:06:58 Player Glenn [BiA] connected (id=76561199069019362).
+20:12:12 Lord[BiA] uses modified data file
+20:12:12 Player Lord[BiA] connecting.
+20:12:13 Player Lord[BiA] connected (id=76561197983877014).
+20:13:48 Player Danny [BiA] disconnected.
+20:13:48 Admin logged out, player: Danny [BiA], playerUID: 76561198066082706
+20:14:14 Danny [BiA] uses modified data file
+20:14:14 Player Danny [BiA] connecting.
+20:14:15 Player Danny [BiA] connected (id=76561198066082706).
+20:42:08 Player Murdock [BIA] disconnected.
+20:42:11 Murdock [BIA] uses modified data file
+20:42:11 Player Murdock [BIA] connecting.
+20:42:13 Player Murdock [BIA] connected (id=76561197993956650).
+20:46:47 Player Danny [BiA] disconnected.
+20:56:14 Player Bobi[BiA] disconnected.
+21:03:01 Player Orbit [BIA] disconnected.
+21:03:01 Player Vlad [BiA] disconnected.
+21:05:31 Player Zero [BiA] disconnected.
+21:09:22 Player Dr. Lexus [BiA] disconnected.
+21:09:57 Player Spud [BiA] disconnected.
+21:09:59 Player ViperX[BiA] disconnected.
+21:10:20 Player Martis [BiA] disconnected.
+21:10:23 Player Murdock [BIA] disconnected.
+21:10:36 Player Abramusas [BiA] disconnected.
+21:10:38 Player Mo [BIA] disconnected.
+21:11:33 Spud [BiA] uses modified data file
+21:11:33 Player Spud [BiA] connecting.
+21:11:35 Player Spud [BiA] connected (id=76561198310446091).
+21:13:09 niceguyphil [BIA] uses modified data file
+21:13:09 Player niceguyphil [BIA] connecting.
+21:13:10 Player niceguyphil [BIA] connected (id=76561197994597477).
+21:13:24 Murdock [BIA] uses modified data file
+21:13:24 Player Murdock [BIA] connecting.
+21:13:25 Player Murdock [BIA] connected (id=76561197993956650).
+21:16:05 Player Imbalance [BIA] disconnected.
+21:16:15 Player Glenn [BiA] disconnected.
+21:24:28 Player Wolfmother [BiA] disconnected.
+21:29:09 Player Lord[BiA] disconnected.
+21:54:34 Player Spud [BiA] disconnected.
+22:05:04 Player Murdock [BIA] disconnected.
+22:05:09 Player niceguyphil [BIA] disconnected.

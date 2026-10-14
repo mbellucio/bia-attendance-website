@@ -1,0 +1,532 @@
+﻿19:34:28 Szopix [BiA] uses modified data file
+19:34:28 Mission BIA_CW_Department_Training_002.sara_dbe1 read from bank.
+19:34:28 Player Szopix [BiA] connecting.
+19:34:29 Player Szopix [BiA] connected (id=76561198047876502).
+19:34:32 Desolus [BiA] uses modified data file
+19:34:32 Player Desolus [BiA] connecting.
+19:34:32 Player Desolus [BiA] connected (id=76561198171190629).
+19:34:41 ROBA [BIA] uses modified data file
+19:34:41 Player ROBA [BIA] connecting.
+19:34:42 Player ROBA [BIA] connected (id=76561199350026091).
+19:35:09 Player ROBA [BIA] disconnected.
+19:35:12 Burger[BiA] uses modified data file
+19:35:12 Player Burger[BiA] connecting.
+19:35:13 Player Burger[BiA] connected (id=76561199072544737).
+19:35:18 Sclembi [BiA] uses modified data file
+19:35:18 Player Sclembi [BiA] connecting.
+19:35:18 Player Sclembi [BiA] connected (id=76561198232527508).
+19:35:25 Bovan [BIA] uses modified data file
+19:35:25 Player Bovan [BIA] connecting.
+19:35:26 Player Bovan [BIA] connected (id=76561198081697970).
+19:35:30 Player Bovan [BIA] disconnected.
+19:35:33 ROBA [BIA] uses modified data file
+19:35:33 Player ROBA [BIA] connecting.
+19:35:33 Sonic [BiA] uses modified data file
+19:35:33 Player Sonic [BiA] connecting.
+19:35:34 Player ROBA [BIA] connected (id=76561199350026091).
+19:35:34 Player Sonic [BiA] connected (id=76561198269457809).
+19:35:36 Price [BiA] uses modified data file
+19:35:36 Player Price [BiA] connecting.
+19:35:38 Player Price [BiA] connected (id=76561198201544510).
+19:35:45 Bovan [BIA] uses modified data file
+19:35:45 Player Bovan [BIA] connecting.
+19:35:46 Player Bovan [BIA] connected (id=76561198081697970).
+19:35:48 ViperX[PAB][BiA] uses modified data file
+19:35:48 Player ViperX[PAB][BiA] connecting.
+19:35:49 Player ViperX[PAB][BiA] connected (id=76561198142976449).
+19:35:53 Kaczomen [BIA]  uses modified data file
+19:35:53 Player Kaczomen [BIA]  connecting.
+19:35:53 Player Kaczomen [BIA]  connected (id=76561198155734070).
+19:36:08 Mix[BiA] uses modified data file
+19:36:08 Player Mix[BiA] connecting.
+19:36:08 Player Mix[BiA] connected (id=76561199071626074).
+19:36:40 Mo [BIA] uses modified data file
+19:36:40 Player Mo [BIA] connecting.
+19:36:41 Player Mo [BIA] connected (id=76561198811873436).
+19:36:46 Glenn [BiA] uses modified data file
+19:36:46 Player Glenn [BiA] connecting.
+19:36:46 Player Glenn [BiA] connected (id=76561199069019362).
+19:37:02 Danny [BiA] uses modified data file
+19:37:02 Player Danny [BiA] connecting.
+19:37:02 Player Danny [BiA] connected (id=76561198066082706).
+19:37:09 Aris[BIA] uses modified data file
+19:37:09 Player Aris[BIA] connecting.
+19:37:10 Player Aris[BIA] connected (id=76561197970721137).
+19:37:19 Admin logged in, player: Aris[BIA], playerUID: 76561197970721137
+19:37:33 Mission Cold_War_Campaign_Phase_3_Before_Nuclear_War.gm_weferlingen_winter read from bank.
+19:37:46 Aleksa [BIA] uses modified data file
+19:37:46 Player Aleksa [BIA] connecting.
+19:37:46 Istan [BIA] uses modified data file
+19:37:46 Player Istan [BIA] connecting.
+19:37:46 Player Aleksa [BIA] connected (id=76561198037973758).
+19:37:46 Player Istan [BIA] connected (id=76561198017443011).
+19:37:49 Flappy [BiA] uses modified data file
+19:37:49 Player Flappy [BiA] connecting.
+19:37:50 Player Flappy [BiA] connected (id=76561198984738098).
+19:37:52 JaneSRBRUS  [BiA] uses modified data file
+19:37:52 Player JaneSRBRUS  [BiA] connecting.
+19:37:53 Player JaneSRBRUS  [BiA] connected (id=76561198153999001).
+19:37:54 Enzoo [BIA] [PAB] uses modified data file
+19:37:54 Player Enzoo [BIA] [PAB] connecting.
+19:37:55 Player Enzoo [BIA] [PAB] connected (id=76561198272261929).
+19:38:01 Mauser [BiA] uses modified data file
+19:38:01 Player Mauser [BiA] connecting.
+19:38:02 Player Mauser [BiA] connected (id=76561198809970778).
+19:38:18 Soyo[BIA] uses modified data file
+19:38:18 Player Soyo[BIA] connecting.
+19:38:18 Player Soyo[BIA] connected (id=76561198025263143).
+19:38:21 Strale [BiA] uses modified data file
+19:38:21 Player Strale [BiA] connecting.
+19:38:21 Player Strale [BiA] connected (id=76561199125303117).
+19:38:24 D0CTOR [BiA] uses modified data file
+19:38:24 Player D0CTOR [BiA] connecting.
+19:38:25 Player D0CTOR [BiA] connected (id=76561198039387405).
+19:38:32 Martis [BiA] uses modified data file
+19:38:32 Player Martis [BiA] connecting.
+19:38:32 Player Martis [BiA] connected (id=76561198283324701).
+19:38:38 Yak [Bia] uses modified data file
+19:38:38 Player Yak [Bia] connecting.
+19:38:38 Player Yak [Bia] connected (id=76561199171389454).
+19:38:58 Nikic [BiA] uses modified data file
+19:38:58 Player Nikic [BiA] connecting.
+19:38:58 Player Nikic [BiA] connected (id=76561198192530828).
+19:39:26 Johnny [BiA] uses modified data file
+19:39:26 Player Johnny [BiA] connecting.
+19:39:26 Player Johnny [BiA] connected (id=76561198118717380).
+19:39:44 tootee [BiA] uses modified data file
+19:39:44 Player tootee [BiA] connecting.
+19:39:45 Player tootee [BiA] connected (id=76561199119981337).
+19:39:55 Uni_Play [BiA] uses modified data file
+19:39:55 Player Uni_Play [BiA] connecting.
+19:39:56 Player Uni_Play [BiA] connected (id=76561198259209814).
+19:39:56 Murdock [BIA] uses modified data file
+19:39:56 Player Murdock [BIA] connecting.
+19:39:57 Player Murdock [BIA] connected (id=76561197993956650).
+19:40:05 Sale [BIA] uses modified data file
+19:40:05 Player Sale [BIA] connecting.
+19:40:06 Player Sale [BIA] connected (id=76561199124212028).
+19:40:15 cobe[BiA] uses modified data file
+19:40:15 Player cobe[BiA] connecting.
+19:40:15 Player cobe[BiA] connected (id=76561198381561705).
+19:40:18 Player Aris[BIA] disconnected.
+19:40:18 Admin logged out, player: Aris[BIA], playerUID: 76561197970721137
+19:40:29 Orbit [BIA] uses modified data file
+19:40:29 Player Orbit [BIA] connecting.
+19:40:29 Player Orbit [BIA] connected (id=76561198240378644).
+19:40:40 Tayra [BIA] uses modified data file
+19:40:40 Player Tayra [BIA] connecting.
+19:40:40 Player Tayra [BIA] connected (id=76561198394807409).
+19:40:44 niceguyphil [BIA] uses modified data file
+19:40:44 Player niceguyphil [BIA] connecting.
+19:40:45 Player niceguyphil [BIA] connected (id=76561197994597477).
+19:40:56 Chewie [BiA] uses modified data file
+19:40:56 Player Chewie [BiA] connecting.
+19:40:57 Player Chewie [BiA] connected (id=76561198064315755).
+19:41:04 Usagi [BIA] uses modified data file
+19:41:04 Player Usagi [BIA] connecting.
+19:41:05 Player Usagi [BIA] connected (id=76561198967363909).
+19:41:20 Arin [BiA] uses modified data file
+19:41:20 Player Arin [BiA] connecting.
+19:41:21 Player Arin [BiA] connected (id=76561198980120472).
+19:41:27 Psion [BiA] uses modified data file
+19:41:27 Player Psion [BiA] connecting.
+19:41:28 Player Psion [BiA] connected (id=76561198117180280).
+19:41:48 Skywalker[BiA] uses modified data file
+19:41:48 Player Skywalker[BiA] connecting.
+19:41:49 Player Skywalker[BiA] connected (id=76561198132663520).
+19:41:50 Feather [BiA] uses modified data file
+19:41:50 Player Feather [BiA] connecting.
+19:41:51 Player Feather [BiA] connected (id=76561198836757198).
+19:42:03 KostasGamer [BIA] uses modified data file
+19:42:03 Player KostasGamer [BIA] connecting.
+19:42:03 Player KostasGamer [BIA] connected (id=76561198312857594).
+19:42:09 Mora [BiA] uses modified data file
+19:42:09 Player Mora [BiA] connecting.
+19:42:09 Player Mora [BiA] connected (id=76561198072716637).
+19:42:15 Yotza [BiA] uses modified data file
+19:42:15 Player Yotza [BiA] connecting.
+19:42:15 Player Yotza [BiA] connected (id=76561198020261304).
+19:42:28 Krnja [BiA] uses modified data file
+19:42:28 Player Krnja [BiA] connecting.
+19:42:28 Player Krnja [BiA] connected (id=76561198408292091).
+19:42:49 Lord[BiA] uses modified data file
+19:42:49 Player Lord[BiA] connecting.
+19:42:50 Player Lord[BiA] connected (id=76561197983877014).
+19:42:58 Dimi [BIA] uses modified data file
+19:42:58 Player Dimi [BIA] connecting.
+19:42:59 Player Dimi [BIA] connected (id=76561198278216461).
+19:42:59 Varoll [BIA] uses modified data file
+19:42:59 Player Varoll [BIA] connecting.
+19:43:01 Player Varoll [BIA] connected (id=76561198239509064).
+19:43:09 Aris[BIA] uses modified data file
+19:43:09 Player Aris[BIA] connecting.
+19:43:09 Player Aris[BIA] connected (id=76561197970721137).
+19:43:17 Admin logged in, player: Aris[BIA], playerUID: 76561197970721137
+19:43:56 Yuzo [BIA] uses modified data file
+19:43:56 Player Yuzo [BIA] connecting.
+19:43:57 Player Yuzo [BIA] connected (id=76561198111929652).
+19:44:09 Pedrovsky [BiA] uses modified data file
+19:44:09 Player Pedrovsky [BiA] connecting.
+19:44:09 Player Pedrovsky [BiA] connected (id=76561198024847014).
+19:44:14 Kicking player name='Flappy [BiA]' ID=1916945397, steamID=76561198984738098. Ping too high (727/ 450 ms)
+19:44:14 Player Flappy [BiA] disconnected.
+19:44:16 Djordje [BiA] uses modified data file
+19:44:16 Player Djordje [BiA] connecting.
+19:44:17 Player Djordje [BiA] connected (id=76561199133801996).
+19:44:20 Blackshadow [BIA] uses modified data file
+19:44:20 Player Blackshadow [BIA] connecting.
+19:44:21 Player Blackshadow [BIA] connected (id=76561198086020808).
+19:44:27 gemon [BiA] uses modified data file
+19:44:27 Player gemon [BiA] connecting.
+19:44:27 Player gemon [BiA] connected (id=76561198245462788).
+19:44:32 Frenki uses modified data file
+19:44:32 Player Frenki connecting.
+19:44:33 Player Frenki connected (id=76561198110891718).
+19:45:34 RasaDeDam [BiA] uses modified data file
+19:45:34 Player RasaDeDam [BiA] connecting.
+19:45:35 Player RasaDeDam [BiA] connected (id=76561198279599635).
+19:45:47 Igor [BiA] uses modified data file
+19:45:47 Player Igor [BiA] connecting.
+19:45:47 Player Igor [BiA] connected (id=76561198023163226).
+19:45:52 Profa [BiA] uses modified data file
+19:45:52 Player Profa [BiA] connecting.
+19:45:53 Player Profa [BiA] connected (id=76561198041362253).
+19:46:07 Lazar [BIA] uses modified data file
+19:46:07 Player Lazar [BIA] connecting.
+19:46:07 Player Lazar [BIA] connected (id=76561198363104089).
+19:46:10 Spud [BiA] uses modified data file
+19:46:10 Player Spud [BiA] connecting.
+19:46:11 Player Spud [BiA] connected (id=76561198310446091).
+19:46:12 Bifixd [BIA] uses modified data file
+19:46:12 Player Bifixd [BIA] connecting.
+19:46:14 Player Bifixd [BIA] connected (id=76561198149144355).
+19:47:13 Flappy [BiA] uses modified data file
+19:47:13 Player Flappy [BiA] connecting.
+19:47:14 Player Flappy [BiA] connected (id=76561198984738098).
+19:47:41 Ske [BiA] uses modified data file
+19:47:41 Player Ske [BiA] connecting.
+19:47:44 Player Ske [BiA] connected (id=76561198180264690).
+19:47:49 psixyio [BiA] uses modified data file
+19:47:49 Player psixyio [BiA] connecting.
+19:47:49 Player psixyio [BiA] connected (id=76561198071732600).
+19:47:54 Kicking player name='Flappy [BiA]' ID=333465569, steamID=76561198984738098. Ping too high (516/ 450 ms)
+19:47:54 Player Flappy [BiA] disconnected.
+19:48:28 Darius [BiA] uses modified data file
+19:48:28 Player Darius [BiA] connecting.
+19:48:29 Player Darius [BiA] connected (id=76561198180999543).
+19:48:43 veimiK [BiA] uses modified data file
+19:48:43 Player veimiK [BiA] connecting.
+19:48:43 Player veimiK [BiA] connected (id=76561198011045976).
+19:49:06 Flappy [BiA] uses modified data file
+19:49:06 Player Flappy [BiA] connecting.
+19:49:07 Player Flappy [BiA] connected (id=76561198984738098).
+19:49:08 Gillette [BiA] uses modified data file
+19:49:08 Player Gillette [BiA] connecting.
+19:49:08 Player Gillette [BiA] connected (id=76561198150661480).
+19:49:17 Abramusas [BiA] uses modified data file
+19:49:17 Player Abramusas [BiA] connecting.
+19:49:18 Player Abramusas [BiA] connected (id=76561198066525742).
+19:50:02 GameKnighted [BiA] uses modified data file
+19:50:02 Player GameKnighted [BiA] connecting.
+19:50:03 Player GameKnighted [BiA] connected (id=76561198081407421).
+19:50:14 Seedorf [BIA] uses modified data file
+19:50:14 Player Seedorf [BIA] connecting.
+19:50:14 Player Seedorf [BIA] connected (id=76561198120795598).
+19:53:05 W.Jarvis [PAB] [BiA] uses modified data file
+19:53:05 Player W.Jarvis [PAB] [BiA] connecting.
+19:53:05 Player W.Jarvis [PAB] [BiA] connected (id=76561198385146085).
+19:55:16 Joe [BiA] uses modified data file
+19:55:16 Player Joe [BiA] connecting.
+19:55:17 Player Joe [BiA] connected (id=76561198795616443).
+19:55:20 Hardcase28 [BiA] uses modified data file
+19:55:20 Player Hardcase28 [BiA] connecting.
+19:55:20 Player Hardcase28 [BiA] connected (id=76561198202782207).
+19:56:25 Steel [BiA] uses modified data file
+19:56:25 Player Steel [BiA] connecting.
+19:56:28 Player Steel [BiA] connected (id=76561199014359082).
+19:56:41 I. Jones [BIA] uses modified data file
+19:56:41 Player I. Jones [BIA] connecting.
+19:56:42 Player I. Jones [BIA] connected (id=76561198042192549).
+19:56:54 Roles assigned.
+19:56:54 Reading mission ...
+19:57:06 Mission read.
+19:57:31 Player Danny [BiA] disconnected.
+19:57:40 Danny [BiA] uses modified data file
+19:57:40 Player Danny [BiA] connecting.
+19:57:40 Player Danny [BiA] connected (id=76561198066082706).
+20:00:11 Player ROBA [BIA] disconnected.
+20:00:23 Player Mo [BIA] disconnected.
+20:02:15 Kicking player name='Flappy [BiA]' ID=446691902, steamID=76561198984738098. Ping too high (528/ 450 ms)
+20:02:15 Player Flappy [BiA] disconnected.
+20:03:03 Mo [BIA] uses modified data file
+20:03:03 Player Mo [BIA] connecting.
+20:03:04 Player Mo [BIA] connected (id=76561198811873436).
+20:03:36 Flappy [BiA] uses modified data file
+20:03:36 Player Flappy [BiA] connecting.
+20:03:37 Player Flappy [BiA] connected (id=76561198984738098).
+20:07:40 Wolfmother [BiA] uses modified data file
+20:07:40 Player Wolfmother [BiA] connecting.
+20:07:41 Player Wolfmother [BiA] connected (id=76561198058213158).
+20:09:59 Game started.
+20:13:19 Admin logged out, player: Aris[BIA], playerUID: 76561197970721137
+20:13:25 Admin logged in, player: Aris[BIA], playerUID: 76561197970721137
+20:13:43 Player Aris[BIA] disconnected.
+20:13:43 Admin logged out, player: Aris[BIA], playerUID: 76561197970721137
+20:13:57 Aris[BIA] uses modified data file
+20:13:57 Player Aris[BIA] connecting.
+20:13:58 Player Aris[BIA] connected (id=76561197970721137).
+20:14:06 Admin logged in, player: Aris[BIA], playerUID: 76561197970721137
+20:15:37 BOT_Stuart[BIA] uses modified data file
+20:15:37 Player BOT_Stuart[BIA] connecting.
+20:15:38 Player BOT_Stuart[BIA] connected (id=76561198037154175).
+20:23:35 Zero [BiA] uses modified data file
+20:23:35 Player Zero [BiA] connecting.
+20:23:35 Player Zero [BiA] connected (id=76561198015579477).
+20:26:40 Kicking player name='Flappy [BiA]' ID=1316462256, steamID=76561198984738098. Ping too high (1199/ 450 ms)
+20:26:40 Player Flappy [BiA] disconnected.
+20:26:53 Player Ske [BiA] disconnected.
+20:29:46 Ske [BiA] uses modified data file
+20:29:46 Player Ske [BiA] connecting.
+20:29:50 Player Ske [BiA] connected (id=76561198180264690).
+20:32:00 Flappy [BiA] uses modified data file
+20:32:00 Player Flappy [BiA] connecting.
+20:32:05 Player Flappy [BiA] connected (id=76561198984738098).
+20:32:35 Player Istan [BIA] disconnected.
+20:32:40 Kicking player name='Flappy [BiA]' ID=870468217, steamID=76561198984738098. Ping too high (901/ 450 ms)
+20:32:40 Player Flappy [BiA] disconnected.
+20:34:49 Istan [BIA] uses modified data file
+20:34:49 Player Istan [BIA] connecting.
+20:34:50 Player Istan [BIA] connected (id=76561198017443011).
+20:35:10 Flappy [BiA] uses modified data file
+20:35:10 Player Flappy [BiA] connecting.
+20:35:10 Player Flappy [BiA] connected (id=76561198984738098).
+20:36:15 Kicking player name='Flappy [BiA]' ID=1062544451, steamID=76561198984738098. Ping too high (567/ 450 ms)
+20:36:15 Player Flappy [BiA] disconnected.
+20:38:44 Flappy [BiA] uses modified data file
+20:38:44 Player Flappy [BiA] connecting.
+20:38:45 Player Flappy [BiA] connected (id=76561198984738098).
+20:38:45 Kicking player name='Yak [Bia]' ID=38206896, steamID=76561199171389454. Ping too high (602/ 450 ms)
+20:38:45 Player Yak [Bia] disconnected.
+20:39:03 Player niceguyphil [BIA] disconnected.
+20:39:14 Yak [Bia] uses modified data file
+20:39:14 Player Yak [Bia] connecting.
+20:39:14 Player Yak [Bia] disconnected.
+20:40:47 niceguyphil [BIA] uses modified data file
+20:40:47 Player niceguyphil [BIA] connecting.
+20:40:48 Player niceguyphil [BIA] connected (id=76561197994597477).
+20:40:53 Yak [Bia] uses modified data file
+20:40:53 Player Yak [Bia] connecting.
+20:40:54 Player Yak [Bia] connected (id=76561199171389454).
+20:41:18 Player Arin [BiA] is losing connection
+20:41:18 Player Arin [BiA] disconnected.
+20:42:10 Player Flappy [BiA] disconnected.
+20:42:29 Kicking player name='Yak [Bia]' ID=1626077338, steamID=76561199171389454. Ping too high (481/ 450 ms)
+20:42:29 Player Yak [Bia] disconnected.
+20:42:30 Arin [BiA] uses modified data file
+20:42:30 Player Arin [BiA] connecting.
+20:42:31 Player Arin [BiA] connected (id=76561198980120472).
+20:43:38 Flappy [BiA] uses modified data file
+20:43:38 Player Flappy [BiA] connecting.
+20:43:39 Player Flappy [BiA] connected (id=76561198984738098).
+20:46:20 Yak [Bia] uses modified data file
+20:46:20 Player Yak [Bia] connecting.
+20:46:20 Player Yak [Bia] connected (id=76561199171389454).
+20:47:55 Kicking player name='Flappy [BiA]' ID=1570472161, steamID=76561198984738098. Ping too high (700/ 450 ms)
+20:47:55 Player Flappy [BiA] disconnected.
+20:49:55 Kicking player name='Yak [Bia]' ID=1952631205, steamID=76561199171389454. Ping too high (804/ 450 ms)
+20:49:55 Player Yak [Bia] disconnected.
+20:51:09 Yak [Bia] uses modified data file
+20:51:09 Player Yak [Bia] connecting.
+20:51:11 Player Yak [Bia] connected (id=76561199171389454).
+20:51:21 Flappy [BiA] uses modified data file
+20:51:21 Player Flappy [BiA] connecting.
+20:51:22 Player Flappy [BiA] connected (id=76561198984738098).
+20:51:57 Kicking player name='Yak [Bia]' ID=93721872, steamID=76561199171389454. Ping too high (969/ 450 ms)
+20:51:57 Player Yak [Bia] disconnected.
+20:54:23 Player Desolus [BiA] is losing connection
+20:54:23 Player Desolus [BiA] disconnected.
+20:54:40 Yak [Bia] uses modified data file
+20:54:40 Player Yak [Bia] connecting.
+20:54:40 Player Yak [Bia] connected (id=76561199171389454).
+20:56:11 Desolus [BiA] uses modified data file
+20:56:11 Player Desolus [BiA] connecting.
+20:56:11 Player Desolus [BiA] connected (id=76561198171190629).
+20:56:15 Kicking player name='Flappy [BiA]' ID=2032761821, steamID=76561198984738098. Ping too high (722/ 450 ms)
+20:56:15 Player Flappy [BiA] disconnected.
+20:58:40 Rio [BiA] uses modified data file
+20:58:40 Player Rio [BiA] connecting.
+20:58:40 Player Rio [BiA] connected (id=76561198301320417).
+21:00:27 Flappy [BiA] uses modified data file
+21:00:27 Player Flappy [BiA] connecting.
+21:00:28 Player Flappy [BiA] connected (id=76561198984738098).
+21:00:46 Player Flappy [BiA] disconnected.
+21:00:55 Flappy [BiA] uses modified data file
+21:00:55 Player Flappy [BiA] connecting.
+21:00:56 Player Flappy [BiA] connected (id=76561198984738098).
+21:01:31 Kicking player name='Flappy [BiA]' ID=460027884, steamID=76561198984738098. Ping too high (560/ 450 ms)
+21:01:31 Player Flappy [BiA] disconnected.
+21:01:41 Flappy [BiA] uses modified data file
+21:01:41 Player Flappy [BiA] connecting.
+21:01:42 Player Flappy [BiA] disconnected.
+21:02:41 Flappy [BiA] uses modified data file
+21:02:41 Player Flappy [BiA] connecting.
+21:02:42 Player Flappy [BiA] connected (id=76561198984738098).
+21:03:47 Kicking player name='Flappy [BiA]' ID=566280834, steamID=76561198984738098. Ping too high (555/ 450 ms)
+21:03:47 Player Flappy [BiA] disconnected.
+21:04:36 Flappy [BiA] uses modified data file
+21:04:36 Player Flappy [BiA] connecting.
+21:04:36 Player Flappy [BiA] disconnected.
+21:07:31 Flappy [BiA] uses modified data file
+21:07:31 Player Flappy [BiA] connecting.
+21:07:32 Player Flappy [BiA] connected (id=76561198984738098).
+21:09:34 Player Istan [BIA] is losing connection
+21:09:34 Player Istan [BIA] disconnected.
+21:10:54 Istan [BIA] uses modified data file
+21:10:54 Player Istan [BIA] connecting.
+21:10:54 Player Istan [BIA] connected (id=76561198017443011).
+21:12:00 Kicking player name='Flappy [BiA]' ID=856232706, steamID=76561198984738098. Ping too high (2948/ 450 ms)
+21:12:00 Player Flappy [BiA] disconnected.
+21:25:46 Flappy [BiA] uses modified data file
+21:25:46 Player Flappy [BiA] connecting.
+21:25:47 Player Flappy [BiA] connected (id=76561198984738098).
+21:27:12 Player Yuzo [BIA] disconnected.
+21:33:46 Miletic [PAB][BiA] uses modified data file
+21:33:46 Player Miletic [PAB][BiA] connecting.
+21:33:47 Player Miletic [PAB][BiA] connected (id=76561198077235235).
+21:46:52 Kicking player name='Mo [BIA]' ID=1580225501, steamID=76561198811873436. Ping too high (740/ 450 ms)
+21:46:52 Player Mo [BIA] disconnected.
+21:53:46 Mo [BIA] uses modified data file
+21:53:46 Player Mo [BIA] connecting.
+21:53:46 Player Mo [BIA] connected (id=76561198811873436).
+21:53:51 Kicking player name='Flappy [BiA]' ID=1951094503, steamID=76561198984738098. Ping too high (473/ 450 ms)
+21:53:51 Player Flappy [BiA] disconnected.
+21:54:26 Flappy [BiA] uses modified data file
+21:54:26 Player Flappy [BiA] connecting.
+21:54:26 Player Flappy [BiA] disconnected.
+21:56:30 Flappy [BiA] uses modified data file
+21:56:30 Player Flappy [BiA] connecting.
+21:56:34 Player Flappy [BiA] connected (id=76561198984738098).
+21:57:09 Kicking player name='Flappy [BiA]' ID=1646015158, steamID=76561198984738098. Ping too high (505/ 450 ms)
+21:57:09 Player Flappy [BiA] disconnected.
+21:59:39 Player Szopix [BiA] disconnected.
+22:02:01 Szopix [BiA] uses modified data file
+22:02:01 Player Szopix [BiA] connecting.
+22:02:01 Player Szopix [BiA] connected (id=76561198047876502).
+22:02:39 Player Szopix [BiA] disconnected.
+22:02:43 Flappy [BiA] uses modified data file
+22:02:43 Player Flappy [BiA] connecting.
+22:02:43 Player Flappy [BiA] connected (id=76561198984738098).
+22:05:28 Szopix [BiA] uses modified data file
+22:05:28 Player Szopix [BiA] connecting.
+22:05:28 Player Szopix [BiA] connected (id=76561198047876502).
+22:07:34 Kicking player name='Flappy [BiA]' ID=2020566315, steamID=76561198984738098. Ping too high (773/ 450 ms)
+22:07:34 Player Flappy [BiA] disconnected.
+22:07:41 Yuzo [BIA] uses modified data file
+22:07:41 Player Yuzo [BIA] connecting.
+22:07:42 Player Yuzo [BIA] connected (id=76561198111929652).
+22:10:19 Flappy [BiA] uses modified data file
+22:10:19 Player Flappy [BiA] connecting.
+22:10:20 Player Flappy [BiA] connected (id=76561198984738098).
+22:23:17 Player Murdock [BIA] disconnected.
+22:25:07 Player Wolfmother [BiA] disconnected.
+22:26:01 Player Spud [BiA] disconnected.
+22:27:49 Player Glenn [BiA] disconnected.
+22:28:25 Player Sale [BIA] disconnected.
+22:29:52 Spud [BiA] uses modified data file
+22:29:52 Player Spud [BiA] connecting.
+22:29:52 Player Spud [BiA] connected (id=76561198310446091).
+22:44:56 Player Desolus [BiA] disconnected.
+22:49:40 Murdock [BIA] uses modified data file
+22:49:40 Player Murdock [BIA] connecting.
+22:49:40 Player Murdock [BIA] connected (id=76561197993956650).
+22:51:33 Player RasaDeDam [BiA] disconnected.
+23:02:31 Player Lord[BiA] disconnected.
+23:02:38 Lord[BiA] uses modified data file
+23:02:38 Player Lord[BiA] connecting.
+23:02:39 Player Lord[BiA] connected (id=76561197983877014).
+23:05:03 Player JaneSRBRUS  [BiA] disconnected.
+23:08:49 Player BOT_Stuart[BIA] is losing connection
+23:08:49 Player BOT_Stuart[BIA] disconnected.
+23:10:18 BOT_Stuart[BIA] uses modified data file
+23:10:18 Player BOT_Stuart[BIA] connecting.
+23:10:19 Player BOT_Stuart[BIA] connected (id=76561198037154175).
+23:16:51 Player BOT_Stuart[BIA] is losing connection
+23:16:51 Player BOT_Stuart[BIA] disconnected.
+23:17:43 Player Soyo[BIA] disconnected.
+23:18:02 Player psixyio [BiA] disconnected.
+23:18:23 BOT_Stuart[BIA] uses modified data file
+23:18:23 Player BOT_Stuart[BIA] connecting.
+23:18:24 Player BOT_Stuart[BIA] connected (id=76561198037154175).
+23:20:34 Player Igor [BiA] disconnected.
+23:20:34 Player Usagi [BIA] disconnected.
+23:20:34 Player Bovan [BIA] disconnected.
+23:20:34 Player Burger[BiA] disconnected.
+23:20:34 Player tootee [BiA] disconnected.
+23:20:35 Player Aris[BIA] disconnected.
+23:20:35 Admin logged out, player: Aris[BIA], playerUID: 76561197970721137
+23:20:35 Player Johnny [BiA] disconnected.
+23:20:35 Player Chewie [BiA] disconnected.
+23:20:36 Player Kaczomen [BIA]  disconnected.
+23:20:36 Player Mo [BIA] disconnected.
+23:20:36 Player Varoll [BIA] disconnected.
+23:20:36 Player KostasGamer [BIA] disconnected.
+23:20:36 Player Tayra [BIA] disconnected.
+23:20:36 Player Aleksa [BIA] disconnected.
+23:20:37 Player ViperX[PAB][BiA] disconnected.
+23:20:38 Player Skywalker[BiA] disconnected.
+23:20:38 Player Murdock [BIA] disconnected.
+23:20:38 Player Martis [BiA] disconnected.
+23:20:39 Player Krnja [BiA] disconnected.
+23:20:39 Player Gillette [BiA] disconnected.
+23:20:40 Player Sclembi [BiA] disconnected.
+23:20:40 Player Lord[BiA] disconnected.
+23:20:40 Player D0CTOR [BiA] disconnected.
+23:20:41 Player Blackshadow [BIA] disconnected.
+23:20:41 Player Miletic [PAB][BiA] disconnected.
+23:20:41 Player Frenki disconnected.
+23:20:41 Player Yuzo [BIA] disconnected.
+23:20:41 Player Abramusas [BiA] disconnected.
+23:20:41 Player Steel [BiA] disconnected.
+23:20:41 Player gemon [BiA] disconnected.
+23:20:42 Player Uni_Play [BiA] disconnected.
+23:20:42 Player Danny [BiA] disconnected.
+23:20:43 Player Spud [BiA] disconnected.
+23:20:44 Player Hardcase28 [BiA] disconnected.
+23:20:45 Player Orbit [BIA] disconnected.
+23:20:45 Player Zero [BiA] disconnected.
+23:20:47 Player Djordje [BiA] disconnected.
+23:20:47 Player niceguyphil [BIA] disconnected.
+23:20:48 Player Yak [Bia] disconnected.
+23:20:49 Player Rio [BiA] disconnected.
+23:20:52 Player Flappy [BiA] disconnected.
+23:20:52 Player Dimi [BIA] disconnected.
+23:20:52 Player Yotza [BiA] disconnected.
+23:20:54 Player Mora [BiA] disconnected.
+23:20:57 Player Profa [BiA] disconnected.
+23:21:00 Player Feather [BiA] disconnected.
+23:21:03 Player Istan [BIA] disconnected.
+23:21:04 Player Ske [BiA] disconnected.
+23:21:05 Player GameKnighted [BiA] disconnected.
+23:21:06 Player cobe[BiA] disconnected.
+23:21:06 Player Mix[BiA] disconnected.
+23:21:11 Player Lazar [BIA] disconnected.
+23:21:24 Player Price [BiA] disconnected.
+23:21:27 Player Strale [BiA] disconnected.
+23:21:38 Player Seedorf [BIA] disconnected.
+23:21:40 Player Mauser [BiA] disconnected.
+23:21:53 Player Darius [BiA] disconnected.
+23:21:57 Player BOT_Stuart[BIA] disconnected.
+23:21:59 Player W.Jarvis [PAB] [BiA] disconnected.
+23:22:36 Player Psion [BiA] disconnected.
+23:22:45 Game finished.
+23:22:47 Player Nikic [BiA] disconnected.
+23:22:55 Player Bifixd [BIA] disconnected.
+23:24:05 Player Sonic [BiA] disconnected.
+23:24:51 Player Joe [BiA] disconnected.
+23:26:41 Player veimiK [BiA] disconnected.
+23:27:21 Player Enzoo [BIA] [PAB] disconnected.
+23:31:28 Player I. Jones [BIA] disconnected.
+23:32:26 Player Szopix [BiA] disconnected.
+23:37:31 Player Pedrovsky [BiA] disconnected.
+23:39:39 Player Arin [BiA] disconnected.
+23:39:39 All users disconnected, waiting for users.

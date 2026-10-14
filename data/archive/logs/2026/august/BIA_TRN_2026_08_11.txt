@@ -1,0 +1,527 @@
+﻿20:11:37 Darius [BIA] uses modified data file
+20:11:37 Player Darius [BIA] connecting.
+20:11:38 kja [BIA] uses modified data file
+20:11:38 Player kja [BIA] connecting.
+20:11:38 Player Darius [BIA] connected (id=76561198180999543).
+20:11:38 Player kja [BIA] connected (id=76561198946058212).
+20:11:46 Chak [BiA] uses modified data file
+20:11:46 Player Chak [BiA] connecting.
+20:11:47 Heinrich[BIA] uses modified data file
+20:11:47 Player Heinrich[BIA] connecting.
+20:11:47 Player Chak [BiA] connected (id=76561198018896985).
+20:11:49 Player Heinrich[BIA] connected (id=76561197990243747).
+20:12:04 Yotza [BiA] uses modified data file
+20:12:04 Player Yotza [BiA] connecting.
+20:12:05 Imbalance [BIA] uses modified data file
+20:12:05 Player Imbalance [BIA] connecting.
+20:12:05 Player Yotza [BiA] connected (id=76561198020261304).
+20:12:05 Kofeina[BIA] uses modified data file
+20:12:05 Player Kofeina[BIA] connecting.
+20:12:06 Player Imbalance [BIA] connected (id=76561198046393803).
+20:12:06 Player Kofeina[BIA] connected (id=76561198005036029).
+20:12:10 Usagi [BIA] uses modified data file
+20:12:10 Player Usagi [BIA] connecting.
+20:12:11 Szopix [BiA] uses modified data file
+20:12:11 Player Szopix [BiA] connecting.
+20:12:11 Player Usagi [BIA] connected (id=76561198967363909).
+20:12:13 Player Szopix [BiA] connected (id=76561198047876502).
+20:12:15 Hunter [BIA] uses modified data file
+20:12:15 Player Hunter [BIA] connecting.
+20:12:16 Exillius [BIA] uses modified data file
+20:12:16 Player Exillius [BIA] connecting.
+20:12:16 D0CTOR [BiA] uses modified data file
+20:12:16 Player D0CTOR [BiA] connecting.
+20:12:17 Player Hunter [BIA] connected (id=76561198090216481).
+20:12:17 Player Exillius [BIA] connected (id=76561198035060820).
+20:12:18 Player D0CTOR [BiA] connected (id=76561198039387405).
+20:12:20 Bismark[BiA] uses modified data file
+20:12:20 Player Bismark[BiA] connecting.
+20:12:20 Bovan [BiA] uses modified data file
+20:12:20 Player Bovan [BiA] connecting.
+20:12:21 Abramusas [BiA] uses modified data file
+20:12:21 Player Abramusas [BiA] connecting.
+20:12:21 Player Bismark[BiA] connected (id=76561199587608059).
+20:12:21 Player Bovan [BiA] connected (id=76561198081697970).
+20:12:21 Sebastian [BIA] uses modified data file
+20:12:21 Player Sebastian [BIA] connecting.
+20:12:23 Player Abramusas [BiA] connected (id=76561198066525742).
+20:12:23 Player Sebastian [BIA] connected (id=76561198993206593).
+20:12:23 Admin logged in, player: D0CTOR [BiA], playerUID: 76561198039387405
+20:12:30 Berkin [BIA] uses modified data file
+20:12:30 Player Berkin [BIA] connecting.
+20:12:31 Player Berkin [BIA] connected (id=76561198323581045).
+20:12:35 Bio [BiA] uses modified data file
+20:12:35 Player Bio [BiA] connecting.
+20:12:37 Player Bio [BiA] connected (id=76561198080021256).
+20:12:38 Player Berkin [BIA] disconnected.
+20:12:38 Mission BIA_M_TRAINING_v2.Stratis read from bank.
+20:12:45 Gog [BiA] uses modified data file
+20:12:45 Player Gog [BiA] connecting.
+20:12:46 Berkin [BIA] uses modified data file
+20:12:46 Player Berkin [BIA] connecting.
+20:12:47 Player Gog [BiA] connected (id=76561198375595367).
+20:12:47 Player Berkin [BIA] connected (id=76561198323581045).
+20:12:48 Roles assigned.
+20:12:48 Reading mission ...
+20:12:50 Mission read.
+20:12:50 YourDoctor [BiA] uses modified data file
+20:12:50 Player YourDoctor [BiA] connecting.
+20:12:53 Player YourDoctor [BiA] connected (id=76561198131027021).
+20:12:54 fresh_ziomal [BiA] uses modified data file
+20:12:54 Player fresh_ziomal [BiA] connecting.
+20:12:55 Spud [Bia] uses modified data file
+20:12:55 Player Spud [Bia] connecting.
+20:12:56 Player fresh_ziomal [BiA] connected (id=76561198071123850).
+20:12:56 Successfull attempt to execute serverCommand '#kick 76561198946058212 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:12:56 Player kja [BIA] disconnected.
+20:12:57 Player Spud [Bia] connected (id=76561198310446091).
+20:13:03 Successfull attempt to execute serverCommand '#kick 76561198066525742 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:03 Player Abramusas [BiA] disconnected.
+20:13:03 Ergones [BIA] uses modified data file
+20:13:03 Player Ergones [BIA] connecting.
+20:13:04 kja [BIA] uses modified data file
+20:13:04 Player kja [BIA] connecting.
+20:13:04 Player Ergones [BIA] connected (id=76561198016082931).
+20:13:04 KillerCake [BiA] uses modified data file
+20:13:04 Player KillerCake [BiA] connecting.
+20:13:04 Player kja [BIA] disconnected.
+20:13:06 Player KillerCake [BiA] connected (id=76561198805491503).
+20:13:10 Successfull attempt to execute serverCommand '#kick 76561198131027021 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:10 Player YourDoctor [BiA] disconnected.
+20:13:11 Magnum[BIA] uses modified data file
+20:13:11 Player Magnum[BIA] connecting.
+20:13:12 Sto [BIA] uses modified data file
+20:13:12 Player Sto [BIA] connecting.
+20:13:13 Player Magnum[BIA] connected (id=76561198102427730).
+20:13:14 Player Sto [BIA] connected (id=76561197962760514).
+20:13:17 angle [BiA] uses modified data file
+20:13:17 Player angle [BiA] connecting.
+20:13:17 Player KillerCake [BiA] disconnected.
+20:13:19 Player angle [BiA] connected (id=76561198115779673).
+20:13:19 Zero [BiA] uses modified data file
+20:13:19 Player Zero [BiA] connecting.
+20:13:20 Player Zero [BiA] connected (id=76561198015579477).
+20:13:20 Successfull attempt to execute serverCommand '#kick 76561198018896985 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:20 Player Chak [BiA] disconnected.
+20:13:23 Successfull attempt to execute serverCommand '#kick 76561198375595367 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:23 Player Gog [BiA] disconnected.
+20:13:26 Louis_Bolgarov [BIA] uses modified data file
+20:13:26 Player Louis_Bolgarov [BIA] connecting.
+20:13:26 Miletic [BiA] uses modified data file
+20:13:26 Player Miletic [BiA] connecting.
+20:13:27 Player Louis_Bolgarov [BIA] connected (id=76561198834192087).
+20:13:27 Player Miletic [BiA] connected (id=76561198077235235).
+20:13:29 Successfull attempt to execute serverCommand '#kick 76561198016082931 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:30 Player Ergones [BIA] disconnected.
+20:13:33 Successfull attempt to execute serverCommand '#kick 76561198081697970 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:33 Player Bovan [BiA] disconnected.
+20:13:35 kja [BIA] uses modified data file
+20:13:35 Player kja [BIA] connecting.
+20:13:35 Player kja [BIA] disconnected.
+20:13:37 Henki [BiA] uses modified data file
+20:13:37 Player Henki [BiA] connecting.
+20:13:39 Successfull attempt to execute serverCommand '#kick 76561198180999543 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:39 Player Henki [BiA] connected (id=76561197992497591).
+20:13:39 Player Darius [BIA] disconnected.
+20:13:39 Vlada uses modified data file
+20:13:39 Player Vlada connecting.
+20:13:40 Player Vlada connected (id=76561198874417894).
+20:13:42 Successfull attempt to execute serverCommand '#kick 76561198071123850 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:42 Player fresh_ziomal [BiA] disconnected.
+20:13:49 Successfull attempt to execute serverCommand '#kick 76561198015579477 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:49 Player Zero [BiA] disconnected.
+20:13:52 Successfull attempt to execute serverCommand '#kick 76561197962760514 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:52 Player Sto [BIA] disconnected.
+20:13:56 Successfull attempt to execute serverCommand '#kick 76561197992497591 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:13:56 Player Henki [BiA] disconnected.
+20:14:02 Player Vlada disconnected.
+20:14:17 niceguyphil [BIA] uses modified data file
+20:14:17 Player niceguyphil [BIA] connecting.
+20:14:17 Scream [BiA] uses modified data file
+20:14:17 Player Scream [BiA] connecting.
+20:14:18 Player Scream [BiA] connected (id=76561198283431754).
+20:14:18 Player niceguyphil [BIA] connected (id=76561197994597477).
+20:14:20 CombatWombat [BIA] uses modified data file
+20:14:20 Player CombatWombat [BIA] connecting.
+20:14:21 Murdock [BIA] uses modified data file
+20:14:21 Player Murdock [BIA] connecting.
+20:14:22 Player CombatWombat [BIA] connected (id=76561198075643531).
+20:14:22 Player Murdock [BIA] connected (id=76561197993956650).
+20:14:26 RasaDeDam [BiA] uses modified data file
+20:14:26 Player RasaDeDam [BiA] connecting.
+20:14:27 Player RasaDeDam [BiA] connected (id=76561198279599635).
+20:14:44 Successfull attempt to execute serverCommand '#kick 76561197993956650 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:14:44 Player Murdock [BIA] disconnected.
+20:14:48 Bruni [BIA][TF-23] uses modified data file
+20:14:48 Player Bruni [BIA][TF-23] connecting.
+20:14:48 Anctus [BIA] uses modified data file
+20:14:48 Player Anctus [BIA] connecting.
+20:14:49 Player Anctus [BIA] connected (id=76561197974422748).
+20:14:50 Player Bruni [BIA][TF-23] connected (id=76561199250600605).
+20:14:55 Game started.
+20:14:59 Successfull attempt to execute serverCommand '#kick 76561198283431754 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:14:59 Player Scream [BiA] disconnected.
+20:15:04 Mauser [BiA] uses modified data file
+20:15:04 Player Mauser [BiA] connecting.
+20:15:06 Player Mauser [BiA] connected (id=76561198809970778).
+20:15:16 Kenway [BIA] uses modified data file
+20:15:16 Player Kenway [BIA] connecting.
+20:15:18 Orbit [BiA] uses modified data file
+20:15:18 Player Orbit [BiA] connecting.
+20:15:18 Player Kenway [BIA] connected (id=76561198328140472).
+20:15:19 Successfull attempt to execute serverCommand '#kick 76561199250600605 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:15:19 Player Bruni [BIA][TF-23] disconnected.
+20:15:20 Player Orbit [BiA] connected (id=76561198240378644).
+20:15:34 Player Yotza [BiA] disconnected.
+20:15:38 Ergones [BIA] uses modified data file
+20:15:38 Player Ergones [BIA] connecting.
+20:15:40 Player Ergones [BIA] connected (id=76561198016082931).
+20:15:51 Vlay [BiA] uses modified data file
+20:15:51 Player Vlay [BiA] connecting.
+20:15:52 W.Jarvis [BiA] uses modified data file
+20:15:52 Player W.Jarvis [BiA] connecting.
+20:15:53 Player Vlay [BiA] connected (id=76561198874417894).
+20:15:54 Player W.Jarvis [BiA] connected (id=76561198385146085).
+20:15:57 Successfull attempt to execute serverCommand '#kick 76561198016082931 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:15:57 Player Ergones [BIA] disconnected.
+20:16:00 Chak [BiA] uses modified data file
+20:16:00 Player Chak [BiA] connecting.
+20:16:02 Player Chak [BiA] connected (id=76561198018896985).
+20:16:05 Kaczomen [BIA] uses modified data file
+20:16:05 Player Kaczomen [BIA] connecting.
+20:16:07 Player Kaczomen [BIA] connected (id=76561198155734070).
+20:16:14 Zero [BiA] uses modified data file
+20:16:14 Player Zero [BiA] connecting.
+20:16:16 Player Zero [BiA] connected (id=76561198015579477).
+20:16:17 Successfull attempt to execute serverCommand '#kick 76561198018896985 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:16:17 Player Chak [BiA] disconnected.
+20:16:29 Sto [BIA] uses modified data file
+20:16:29 Player Sto [BIA] connecting.
+20:16:37 kja [BIA] uses modified data file
+20:16:37 Player kja [BIA] connecting.
+20:16:37 Successfull attempt to execute serverCommand '#kick 76561198155734070 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:16:37 Player Kaczomen [BIA] disconnected.
+20:16:37 Player Sto [BIA] connected (id=76561197962760514).
+20:16:38 Player kja [BIA] connected (id=76561198946058212).
+20:16:53 Alice [BiA] uses modified data file
+20:16:53 Player Alice [BiA] connecting.
+20:16:54 Player Alice [BiA] connected (id=76561198360040413).
+20:16:59 Gog [BiA] uses modified data file
+20:16:59 Player Gog [BiA] connecting.
+20:17:00 Player Gog [BiA] connected (id=76561198375595367).
+20:17:05 Abramusas [BiA] uses modified data file
+20:17:05 Player Abramusas [BiA] connecting.
+20:17:05 Mini [BiA] uses modified data file
+20:17:05 Player Mini [BiA] connecting.
+20:17:06 Player Abramusas [BiA] connected (id=76561198066525742).
+20:17:06 Player Mini [BiA] connected (id=76561198811702180).
+20:17:14 Henki [BiA] uses modified data file
+20:17:14 Player Henki [BiA] connecting.
+20:17:14 Successfull attempt to execute serverCommand '#kick 76561198240378644 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:17:14 Player Orbit [BiA] disconnected.
+20:17:15 Player Henki [BiA] connected (id=76561197992497591).
+20:17:28 YourDoctor [BiA] uses modified data file
+20:17:28 Player YourDoctor [BiA] connecting.
+20:17:29 Player YourDoctor [BiA] connected (id=76561198131027021).
+20:17:33 fresh_ziomal [BiA] uses modified data file
+20:17:33 Player fresh_ziomal [BiA] connecting.
+20:17:35 Player fresh_ziomal [BiA] connected (id=76561198071123850).
+20:17:37 Murdock [BIA] uses modified data file
+20:17:37 Player Murdock [BIA] connecting.
+20:17:39 Player Murdock [BIA] connected (id=76561197993956650).
+20:17:55 Bobi [BiA] uses modified data file
+20:17:55 Player Bobi [BiA] connecting.
+20:17:56 Player Bobi [BiA] connected (id=76561198155238046).
+20:18:04 Ergones [BIA] uses modified data file
+20:18:04 Player Ergones [BIA] connecting.
+20:18:04 Successfull attempt to execute serverCommand '#kick 76561198946058212 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:18:04 Player kja [BIA] disconnected.
+20:18:05 Player Ergones [BIA] connected (id=76561198016082931).
+20:18:19 Psion [BiA] uses modified data file
+20:18:19 Player Psion [BiA] connecting.
+20:18:20 Player Psion [BiA] connected (id=76561198117180280).
+20:18:24 Successfull attempt to execute serverCommand '#kick 76561198016082931 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:18:24 Player Ergones [BIA] disconnected.
+20:18:31 Zex [BIA] uses modified data file
+20:18:31 Player Zex [BIA] connecting.
+20:18:32 Player Zex [BIA] connected (id=76561199092850263).
+20:18:33 Bruni [BIA][TF-23] uses modified data file
+20:18:33 Player Bruni [BIA][TF-23] connecting.
+20:18:35 Darius [BIA] uses modified data file
+20:18:35 Player Darius [BIA] connecting.
+20:18:37 Player Darius [BIA] connected (id=76561198180999543).
+20:18:45 S.Lux uses modified data file
+20:18:45 Player S.Lux connecting.
+20:18:47 Player S.Lux connected (id=76561198799229030).
+20:18:49 Hampter [BiA] uses modified data file
+20:18:49 Player Hampter [BiA] connecting.
+20:18:51 Player Hampter [BiA] connected (id=76561199091346340).
+20:18:51 Player Bruni [BIA][TF-23] connected (id=76561199250600605).
+20:18:56 Successfull attempt to execute serverCommand '#kick 76561198180999543 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:18:56 Player Darius [BIA] disconnected.
+20:19:00 Successfull attempt to execute serverCommand '#kick 76561199092850263 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:19:00 Player Zex [BIA] disconnected.
+20:19:10 Bovan [BiA] uses modified data file
+20:19:10 Player Bovan [BiA] connecting.
+20:19:12 Player Bovan [BiA] connected (id=76561198081697970).
+20:19:25 Successfull attempt to execute serverCommand '#kick 76561198081697970 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:19:25 Player Bovan [BiA] disconnected.
+20:19:27 Player Murdock [BIA] is losing connection
+20:19:29 Player Murdock [BIA] disconnected.
+20:19:42 Nebula [BIA] uses modified data file
+20:19:42 Player Nebula [BIA] connecting.
+20:19:44 Player Nebula [BIA] connected (id=76561199062215380).
+20:20:00 Gillette [BIA] uses modified data file
+20:20:00 Player Gillette [BIA] connecting.
+20:20:02 Player Gillette [BIA] connected (id=76561198150661480).
+20:20:28 Yotza [BiA] uses modified data file
+20:20:28 Player Yotza [BiA] connecting.
+20:20:30 Player Yotza [BiA] connected (id=76561198020261304).
+20:20:34 Successfull attempt to execute serverCommand '#kick 76561199062215380 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:20:34 Player Nebula [BIA] disconnected.
+20:20:39 Ergones [BIA] uses modified data file
+20:20:39 Player Ergones [BIA] connecting.
+20:20:41 Player Ergones [BIA] connected (id=76561198016082931).
+20:20:53 Successfull attempt to execute serverCommand '#kick 76561198020261304 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:20:53 Player Yotza [BiA] disconnected.
+20:21:00 KillerCake [BiA] uses modified data file
+20:21:00 Player KillerCake [BiA] connecting.
+20:21:02 Player KillerCake [BiA] connected (id=76561198805491503).
+20:21:14 Scream [BiA] uses modified data file
+20:21:14 Player Scream [BiA] connecting.
+20:21:15 Murdock [BIA] uses modified data file
+20:21:15 Player Murdock [BIA] connecting.
+20:21:15 Player Scream [BiA] connected (id=76561198283431754).
+20:21:16 Player Murdock [BIA] connected (id=76561197993956650).
+20:21:28 Burger[BiA] uses modified data file
+20:21:28 Player Burger[BiA] connecting.
+20:21:30 Player Burger[BiA] connected (id=76561199072544737).
+20:21:39 kja [BIA] uses modified data file
+20:21:39 Player kja [BIA] connecting.
+20:21:39 Bovan [BiA] uses modified data file
+20:21:39 Player Bovan [BiA] connecting.
+20:21:40 Player kja [BIA] connected (id=76561198946058212).
+20:21:40 Player Bovan [BiA] connected (id=76561198081697970).
+20:21:44 Successfull attempt to execute serverCommand '#kick 76561198283431754 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:21:44 Player Scream [BiA] disconnected.
+20:21:45 Orbit [BiA] uses modified data file
+20:21:45 Player Orbit [BiA] connecting.
+20:21:46 Player Orbit [BiA] connected (id=76561198240378644).
+20:21:52 Darius [BIA] uses modified data file
+20:21:52 Player Darius [BIA] connecting.
+20:21:54 Player Darius [BIA] connected (id=76561198180999543).
+20:21:55 Player KillerCake [BiA] disconnected.
+20:21:56 Kaczomen [BIA] uses modified data file
+20:21:56 Player Kaczomen [BIA] connecting.
+20:21:57 Successfull attempt to execute serverCommand '#kick 76561198805491503 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:21:58 Player Kaczomen [BIA] connected (id=76561198155734070).
+20:21:59 Zex [BIA] uses modified data file
+20:21:59 Player Zex [BIA] connecting.
+20:22:01 Successfull attempt to execute serverCommand '#kick 76561198946058212 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:22:01 Player kja [BIA] disconnected.
+20:22:01 Scream [BiA] uses modified data file
+20:22:01 Player Scream [BiA] connecting.
+20:22:01 Player Zex [BIA] connected (id=76561199092850263).
+20:22:01 Player Scream [BiA] disconnected.
+20:22:09 KillerCake [BiA] uses modified data file
+20:22:09 Player KillerCake [BiA] connecting.
+20:22:09 Successfull attempt to execute serverCommand '#kick 76561198180999543 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:22:09 Player Darius [BIA] disconnected.
+20:22:10 Player KillerCake [BiA] connected (id=76561198805491503).
+20:22:13 Successfull attempt to execute serverCommand '#kick 76561199072544737 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:22:13 Player Burger[BiA] disconnected.
+20:22:40 Burger[BiA] uses modified data file
+20:22:40 Player Burger[BiA] connecting.
+20:22:40 Player Burger[BiA] disconnected.
+20:22:41 Successfull attempt to execute serverCommand '#kick 76561198805491503 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:22:41 Player KillerCake [BiA] disconnected.
+20:22:50 Burger[BiA] uses modified data file
+20:22:50 Player Burger[BiA] connecting.
+20:22:50 Player Burger[BiA] disconnected.
+20:24:11 kilaaa [BiA] uses modified data file
+20:24:11 Player kilaaa [BiA] connecting.
+20:24:15 Player kilaaa [BiA] connected (id=76561198365178706).
+20:24:18 Yotza [BiA] uses modified data file
+20:24:18 Player Yotza [BiA] connecting.
+20:24:19 Player Yotza [BiA] connected (id=76561198020261304).
+20:24:29 Player Louis_Bolgarov [BIA] disconnected.
+20:24:33 Burger[BiA] uses modified data file
+20:24:33 Player Burger[BiA] connecting.
+20:24:34 Player Burger[BiA] connected (id=76561199072544737).
+20:24:56 Successfull attempt to execute serverCommand '#kick 76561199072544737 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:24:56 Player Burger[BiA] disconnected.
+20:25:10 Successfull attempt to execute serverCommand '#kick 76561198365178706 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:25:10 Player kilaaa [BiA] disconnected.
+20:25:33 Scream [BiA] uses modified data file
+20:25:33 Player Scream [BiA] connecting.
+20:25:35 Player Scream [BiA] connected (id=76561198283431754).
+20:25:38 Darius [BIA] uses modified data file
+20:25:38 Player Darius [BIA] connecting.
+20:25:40 Player Darius [BIA] connected (id=76561198180999543).
+20:25:56 Successfull attempt to execute serverCommand '#kick 76561198180999543 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:25:56 Player Darius [BIA] disconnected.
+20:26:09 Successfull attempt to execute serverCommand '#kick 76561198283431754 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:26:09 Player Scream [BiA] disconnected.
+20:26:23 Louis_Bolgarov [BIA] uses modified data file
+20:26:23 Player Louis_Bolgarov [BIA] connecting.
+20:26:24 Player Louis_Bolgarov [BIA] connected (id=76561198834192087).
+20:26:38 Solo [BIA] uses modified data file
+20:26:38 Player Solo [BIA] connecting.
+20:26:39 Player Solo [BIA] connected (id=76561199833408308).
+20:26:58 Successfull attempt to execute serverCommand '#kick 76561199833408308 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:26:58 Player Solo [BIA] disconnected.
+20:28:12 Nebula [BIA] uses modified data file
+20:28:12 Player Nebula [BIA] connecting.
+20:28:14 Player Nebula [BIA] connected (id=76561199062215380).
+20:28:23 KillerCake [BiA] uses modified data file
+20:28:23 Player KillerCake [BiA] connecting.
+20:28:25 Player KillerCake [BiA] connected (id=76561198805491503).
+20:28:26 Chak [BiA] uses modified data file
+20:28:26 Player Chak [BiA] connecting.
+20:28:28 Darius [BIA] uses modified data file
+20:28:28 Player Darius [BIA] connecting.
+20:28:28 Player Chak [BiA] connected (id=76561198018896985).
+20:28:29 Player Darius [BIA] connected (id=76561198180999543).
+20:28:55 Successfull attempt to execute serverCommand '#kick 76561198805491503 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:28:55 Player KillerCake [BiA] disconnected.
+20:28:57 Player Louis_Bolgarov [BIA] disconnected.
+20:30:08 kja [BIA] uses modified data file
+20:30:08 Player kja [BIA] connecting.
+20:30:10 Player kja [BIA] connected (id=76561198946058212).
+20:30:16 Scream [BiA] uses modified data file
+20:30:16 Player Scream [BiA] connecting.
+20:30:18 Player Scream [BiA] connected (id=76561198283431754).
+20:30:25 Solo [BIA] uses modified data file
+20:30:25 Player Solo [BIA] connecting.
+20:30:27 Player Solo [BIA] connected (id=76561199833408308).
+20:30:38 Successfull attempt to execute serverCommand '#kick 76561198946058212 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:30:38 Player kja [BIA] disconnected.
+20:30:50 Successfull attempt to execute serverCommand '#kick 76561199833408308 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:30:50 Player Solo [BIA] disconnected.
+20:31:12 Louis_Bolgarov [BIA] uses modified data file
+20:31:12 Player Louis_Bolgarov [BIA] connecting.
+20:31:13 Player Louis_Bolgarov [BIA] connected (id=76561198834192087).
+20:32:10 Player Psion [BiA] disconnected.
+20:32:34 Player Gog [BiA] is losing connection
+20:32:35 Player Gog [BiA] disconnected.
+20:32:54 Player Henki [BiA] disconnected.
+20:33:50 Burger[BiA] uses modified data file
+20:33:50 Player Burger[BiA] connecting.
+20:33:51 Player Burger[BiA] connected (id=76561199072544737).
+20:33:53 kja [BIA] uses modified data file
+20:33:53 Player kja [BIA] connecting.
+20:33:54 Player kja [BIA] connected (id=76561198946058212).
+20:34:33 Solo [BIA] uses modified data file
+20:34:33 Player Solo [BIA] connecting.
+20:34:34 Player Solo [BIA] connected (id=76561199833408308).
+20:34:36 Gog [BiA] uses modified data file
+20:34:36 Player Gog [BiA] connecting.
+20:34:38 Player Gog [BiA] connected (id=76561198375595367).
+20:34:39 Player Louis_Bolgarov [BIA] is losing connection
+20:34:40 Henki [BiA] uses modified data file
+20:34:40 Player Henki [BiA] connecting.
+20:34:40 Player Henki [BiA] disconnected.
+20:34:41 Player Louis_Bolgarov [BIA] disconnected.
+20:36:16 Henki [BiA] uses modified data file
+20:36:16 Player Henki [BiA] connecting.
+20:36:17 Player Henki [BiA] connected (id=76561197992497591).
+20:37:26 kilaaa [BiA] uses modified data file
+20:37:26 Player kilaaa [BiA] connecting.
+20:37:29 Player kilaaa [BiA] connected (id=76561198365178706).
+20:37:49 Psion [BiA] uses modified data file
+20:37:49 Player Psion [BiA] connecting.
+20:37:51 Player Psion [BiA] connected (id=76561198117180280).
+20:37:54 KillerCake [BiA] uses modified data file
+20:37:54 Player KillerCake [BiA] connecting.
+20:37:55 Player KillerCake [BiA] connected (id=76561198805491503).
+20:38:38 Successfull attempt to execute serverCommand '#kick 76561198365178706 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:38:38 Player kilaaa [BiA] disconnected.
+20:39:21 kilaaa [BiA] uses modified data file
+20:39:21 Player kilaaa [BiA] connecting.
+20:39:21 Player kilaaa [BiA] disconnected.
+20:43:07 Player Psion [BiA] is losing connection
+20:43:08 Player Psion [BiA] disconnected.
+20:43:23 Psion [BiA] uses modified data file
+20:43:23 Player Psion [BiA] connecting.
+20:43:38 Player Psion [BiA] connected (id=76561198117180280).
+20:46:41 Tole[BIA] uses modified data file
+20:46:41 Player Tole[BIA] connecting.
+20:46:43 Player Tole[BIA] connected (id=76561198063961021).
+20:49:11 kilaaa [BiA] uses modified data file
+20:49:11 Player kilaaa [BiA] connecting.
+20:49:13 Player kilaaa [BiA] connected (id=76561198365178706).
+20:49:33 Player Burger[BiA] disconnected.
+20:49:38 Player Solo [BIA] disconnected.
+20:50:04 Successfull attempt to execute serverCommand '#kick 76561198365178706 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:50:04 Player kilaaa [BiA] disconnected.
+20:50:47 Player Tole[BIA] disconnected.
+20:54:46 Solo [BIA] uses modified data file
+20:54:46 Player Solo [BIA] connecting.
+20:54:48 Player Solo [BIA] connected (id=76561199833408308).
+20:55:08 Player Solo [BIA] disconnected.
+20:56:33 Solo [BIA] uses modified data file
+20:56:33 Player Solo [BIA] connecting.
+20:56:34 Player Solo [BIA] connected (id=76561199833408308).
+20:58:43 Tole[BIA] uses modified data file
+20:58:43 Player Tole[BIA] connecting.
+20:58:45 Player Tole[BIA] connected (id=76561198063961021).
+20:59:09 Player Tole[BIA] disconnected.
+20:59:35 Player Bovan [BiA] disconnected.
+21:00:33 Player Gillette [BIA] disconnected.
+21:00:36 Player Vlay [BiA] disconnected.
+21:02:06 Player RasaDeDam [BiA] disconnected.
+21:03:40 Player W.Jarvis [BiA] disconnected.
+21:03:54 Player Scream [BiA] disconnected.
+21:05:05 Player S.Lux disconnected.
+21:05:11 Player Exillius [BIA] disconnected.
+21:05:12 Player Mini [BiA] disconnected.
+21:05:13 Player Usagi [BIA] disconnected.
+21:05:13 Player fresh_ziomal [BiA] disconnected.
+21:05:14 Player Bio [BiA] disconnected.
+21:05:14 Player Mauser [BiA] disconnected.
+21:05:22 Player Alice [BiA] disconnected.
+21:05:24 Player D0CTOR [BiA] disconnected.
+21:05:24 Admin logged out, player: D0CTOR [BiA], playerUID: 76561198039387405
+21:05:24 Player Yotza [BiA] disconnected.
+21:05:39 Player KillerCake [BiA] disconnected.
+21:05:54 Player YourDoctor [BiA] disconnected.
+21:06:02 Player Hunter [BIA] is losing connection
+21:06:03 Player Hunter [BIA] disconnected.
+21:06:07 Player Ergones [BIA] disconnected.
+21:06:09 Player Gog [BiA] disconnected.
+21:06:15 Player Heinrich[BIA] disconnected.
+21:06:19 Player Kenway [BIA] disconnected.
+21:06:22 Player Psion [BiA] disconnected.
+21:06:34 Player Solo [BIA] disconnected.
+21:07:36 Player Spud [Bia] disconnected.
+21:07:41 Player Sebastian [BIA] disconnected.
+21:07:41 Player Henki [BiA] disconnected.
+21:07:44 Player niceguyphil [BIA] disconnected.
+21:07:47 el_hamptero [BIA] uses modified data file
+21:07:47 Player el_hamptero [BIA] connecting.
+21:07:49 Player el_hamptero [BIA] connected (id=76561199020331526).
+21:07:58 Player Murdock [BIA] disconnected.
+21:08:54 Player Chak [BiA] disconnected.
+21:10:48 Player Abramusas [BiA] disconnected.
+21:11:04 Player Kofeina[BIA] disconnected.
+21:12:41 Player Nebula [BIA] disconnected.
+21:12:42 Player Hampter [BiA] disconnected.
+21:13:34 Player Zero [BiA] disconnected.
+21:13:54 Player Zex [BIA] disconnected.
+21:13:55 Player el_hamptero [BIA] disconnected.
+21:13:55 Player Orbit [BiA] disconnected.
+21:16:19 Player Miletic [BiA] disconnected.
+21:20:43 Player Magnum[BIA] disconnected.
+21:28:09 Player Sto [BIA] disconnected.
+21:32:34 Player Bismark[BiA] disconnected.
+21:32:35 Player CombatWombat [BIA] disconnected.
+21:34:47 Player Berkin [BIA] disconnected.
+21:37:59 Player Imbalance [BIA] disconnected.
+21:37:59 Player Szopix [BiA] disconnected.
+21:38:00 Player Kaczomen [BIA] disconnected.
+21:38:03 Player Bruni [BIA][TF-23] disconnected.
+21:38:07 Player Darius [BIA] disconnected.
+21:38:07 Player angle [BiA] disconnected.
+21:38:11 Player Anctus [BIA] disconnected.
+21:50:59 Player kja [BIA] disconnected.
+21:54:40 Player Bobi [BiA] disconnected.

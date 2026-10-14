@@ -1,0 +1,1241 @@
+﻿18:20:39 Game Port: 3302, Steam Query Port: 3303
+18:20:39 Mission BIA_WW2_Combined_Training_01_HOTFIX.Cassino_Test_3 read from bank.
+18:20:39 Host identity created.
+18:44:18 Gog [BiA] uses modified data file
+18:44:18 Player Gog [BiA] connecting.
+18:44:20 Player Gog [BiA] connected (id=76561198375595367).
+18:44:38 Roles assigned.
+18:44:38 Reading mission ...
+18:44:40 Mission read.
+18:45:23 Game started.
+18:46:01 Player Gog [BiA] disconnected.
+18:46:07 Gog [BiA] uses modified data file
+18:46:07 Player Gog [BiA] connecting.
+18:46:09 Player Gog [BiA] connected (id=76561198375595367).
+18:52:37 Zero [BiA] uses modified data file
+18:52:37 Player Zero [BiA] connecting.
+18:52:39 Player Zero [BiA] connected (id=76561198015579477).
+19:00:46 D0CTOR [BiA] uses modified data file
+19:00:46 Player D0CTOR [BiA] connecting.
+19:00:48 Player D0CTOR [BiA] connected (id=76561198039387405).
+19:04:34 Player Zero [BiA] disconnected.
+19:05:15 Luanmh[BiA] uses modified data file
+19:05:15 Player Luanmh[BiA] connecting.
+19:05:17 Player Luanmh[BiA] connected (id=76561198043167602).
+19:08:31 Miletic [BiA] uses modified data file
+19:08:31 Player Miletic [BiA] connecting.
+19:08:32 Player Miletic [BiA] connected (id=76561198077235235).
+19:11:29 angle [BiA] uses modified data file
+19:11:29 Player angle [BiA] connecting.
+19:11:31 Player angle [BiA] connected (id=76561198115779673).
+19:13:17 RasaDeDam [BiA] uses modified data file
+19:13:17 Player RasaDeDam [BiA] connecting.
+19:13:18 Player RasaDeDam [BiA] connected (id=76561198279599635).
+19:13:26 YourDoctor [BiA] uses modified data file
+19:13:26 Player YourDoctor [BiA] connecting.
+19:13:28 Player YourDoctor [BiA] connected (id=76561198131027021).
+19:14:30 Patch [BIA] uses modified data file
+19:14:30 Player Patch [BIA] connecting.
+19:14:32 Player Patch [BIA] connected (id=76561198391114020).
+19:14:37 Hunter [BIA] uses modified data file
+19:14:37 Player Hunter [BIA] connecting.
+19:14:38 Player Hunter [BIA] connected (id=76561198090216481).
+19:15:06 Zex [BIA] uses modified data file
+19:15:06 Player Zex [BIA] connecting.
+19:15:08 Player Zex [BIA] connected (id=76561199092850263).
+19:15:14 el_hamptero [BIA] uses modified data file
+19:15:14 Player el_hamptero [BIA] connecting.
+19:15:15 Mo [BIA] uses modified data file
+19:15:15 Player Mo [BIA] connecting.
+19:15:16 T1MOROS [BIA] uses modified data file
+19:15:16 Player T1MOROS [BIA] connecting.
+19:15:16 Player el_hamptero [BIA] connected (id=76561199020331526).
+19:15:16 Player Mo [BIA] connected (id=76561198811873436).
+19:15:17 Exillius [BIA] uses modified data file
+19:15:17 Player Exillius [BIA] connecting.
+19:15:17 Player T1MOROS [BIA] connected (id=76561198029832718).
+19:15:18 Player Exillius [BIA] connected (id=76561198035060820).
+19:15:34 Chak [BiA] uses modified data file
+19:15:34 Player Chak [BiA] connecting.
+19:15:35 Player Chak [BiA] connected (id=76561198018896985).
+19:15:52 Sebastian [BIA] uses modified data file
+19:15:52 Player Sebastian [BIA] connecting.
+19:15:54 Player Sebastian [BIA] connected (id=76561198993206593).
+19:16:15 W.Jarvis [BiA] uses modified data file
+19:16:15 Player W.Jarvis [BiA] connecting.
+19:16:17 Player W.Jarvis [BiA] connected (id=76561198385146085).
+19:16:24 Admin logged in, player: W.Jarvis [BiA], playerUID: 76561198385146085, IP: 192.168.1.136:2304.
+19:16:31 Game restarted
+class Session
+{
+	mission="BIA_WW2_Combined_Training_01_HOTFIX";
+	island="Cassino_Test_3";
+	gameType="COOP";
+	duration=1868.1281;
+	class Player1
+	{
+		name="Gog [BiA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=0;
+	};
+};
+19:16:31 Bulia [BIA] uses modified data file
+19:16:31 Waiting for next game.
+19:16:31 Player Bulia [BIA] connecting.
+19:16:33 Player Bulia [BIA] connected (id=76561199054220632).
+19:16:46 Mission BIA_COOP_Operation_Lightfoot_Updated.SWU_Egypt_El_Alamein read from bank.
+19:16:47 Imbalance [BIA] uses modified data file
+19:16:47 Player Imbalance [BIA] connecting.
+19:16:48 Player Imbalance [BIA] connected (id=76561198046393803).
+19:17:11 Spud [Bia] uses modified data file
+19:17:11 Player Spud [Bia] connecting.
+19:17:13 John [BIA] uses modified data file
+19:17:13 Player John [BIA] connecting.
+19:17:13 Player Spud [Bia] connected (id=76561198310446091).
+19:17:14 Player John [BIA] connected (id=76561198441386095).
+19:17:22 Kofeina101 uses modified data file
+19:17:22 Player Kofeina101 connecting.
+19:17:24 Player Kofeina101 connected (id=76561198005036029).
+19:17:24 Player Kofeina101 disconnected.
+19:17:33 Kofeina[BIA] uses modified data file
+19:17:33 Player Kofeina[BIA] connecting.
+19:17:34 Player Kofeina[BIA] connected (id=76561198005036029).
+19:18:06 Bio [BiA] uses modified data file
+19:18:06 Player Bio [BiA] connecting.
+19:18:07 Player Bio [BiA] connected (id=76561198080021256).
+19:18:18 Nebula [BIA] uses modified data file
+19:18:18 Player Nebula [BIA] connecting.
+19:18:18 Yotza [BiA] uses modified data file
+19:18:18 Player Yotza [BiA] connecting.
+19:18:19 Player Nebula [BIA] connected (id=76561199062215380).
+19:18:19 Player Yotza [BiA] connected (id=76561198020261304).
+19:18:54 Kicking player name='Hunter [BIA]' ID=830686401, steamID=76561198090216481. Ping too high (371/ 350 ms)
+19:18:54 Player Hunter [BIA] disconnected.
+19:18:57 Bobi [BiA] uses modified data file
+19:18:57 Player Bobi [BiA] connecting.
+19:18:58 Uni_Play [BiA] uses modified data file
+19:18:58 Player Uni_Play [BiA] connecting.
+19:18:58 Player Bobi [BiA] connected (id=76561198155238046).
+19:19:00 Player Uni_Play [BiA] connected (id=76561198259209814).
+19:19:01 Sclembi [BiA] uses modified data file
+19:19:01 Player Sclembi [BiA] connecting.
+19:19:03 Player Sclembi [BiA] connected (id=76561198232527508).
+19:19:09 Hunter [BIA] uses modified data file
+19:19:09 Player Hunter [BIA] connecting.
+19:19:10 Player Hunter [BIA] disconnected.
+19:19:54 Hunter [BIA] uses modified data file
+19:19:54 Player Hunter [BIA] connecting.
+19:19:55 Player Hunter [BIA] disconnected.
+19:20:03 Murdock [BIA] uses modified data file
+19:20:03 Player Murdock [BIA] connecting.
+19:20:04 Player Murdock [BIA] connected (id=76561197993956650).
+19:20:31 Zero [BiA] uses modified data file
+19:20:31 Player Zero [BiA] connecting.
+19:20:32 Hunter [BIA] uses modified data file
+19:20:32 Player Hunter [BIA] connecting.
+19:20:32 Player Zero [BiA] connected (id=76561198015579477).
+19:20:33 Player Hunter [BIA] disconnected.
+19:20:35 Turtright [BiA] uses modified data file
+19:20:35 Player Turtright [BiA] connecting.
+19:20:36 Player Turtright [BiA] connected (id=76561198086163630).
+19:20:52 Louis_Bolgarov [BIA] uses modified data file
+19:20:52 Player Louis_Bolgarov [BIA] connecting.
+19:20:53 Berkin [BIA] uses modified data file
+19:20:53 Player Berkin [BIA] connecting.
+19:20:53 Player Louis_Bolgarov [BIA] connected (id=76561198834192087).
+19:20:53 Player Berkin [BIA] connected (id=76561198323581045).
+19:20:55 Hampter uses modified data file
+19:20:55 Player Hampter connecting.
+19:20:56 Player Hampter connected (id=76561199091346340).
+19:21:08 Hunter [BIA] uses modified data file
+19:21:08 Player Hunter [BIA] connecting.
+19:21:10 Player Hunter [BIA] connected (id=76561198090216481).
+19:21:32 Player Hampter disconnected.
+19:21:58 Hampter [BiA] uses modified data file
+19:21:58 Player Hampter [BiA] connecting.
+19:22:00 Player Hampter [BiA] connected (id=76561199091346340).
+19:22:33 Bugs Bunny [BiA] uses modified data file
+19:22:33 Player Bugs Bunny [BiA] connecting.
+19:22:34 Player Bugs Bunny [BiA] connected (id=76561198387064439).
+19:22:49 Priestess [BIA] uses modified data file
+19:22:49 Player Priestess [BIA] connecting.
+19:22:50 Player Priestess [BIA] connected (id=76561198082839398).
+19:22:52 niceguyphil [BIA] uses modified data file
+19:22:52 Player niceguyphil [BIA] connecting.
+19:22:53 Player niceguyphil [BIA] connected (id=76561197994597477).
+19:23:20 Abramusas [BiA] uses modified data file
+19:23:20 Player Abramusas [BiA] connecting.
+19:23:22 Player Abramusas [BiA] connected (id=76561198066525742).
+19:23:52 Bruni [BIA][TF-23] uses modified data file
+19:23:52 Player Bruni [BIA][TF-23] connecting.
+19:24:22 Player Bruni [BIA][TF-23] connected (id=76561199250600605).
+19:24:34 Usagi [BIA] uses modified data file
+19:24:34 Player Usagi [BIA] connecting.
+19:24:36 Player Usagi [BIA] connected (id=76561198967363909).
+19:24:39 Magnum[BIA] uses modified data file
+19:24:39 Player Magnum[BIA] connecting.
+19:24:41 Player Magnum[BIA] connected (id=76561198102427730).
+19:24:51 Mini [BiA] uses modified data file
+19:24:51 Player Mini [BiA] connecting.
+19:24:53 Player Mini [BiA] connected (id=76561198811702180).
+19:24:55 Chewie [BiA] uses modified data file
+19:24:55 Player Chewie [BiA] connecting.
+19:24:57 Player Chewie [BiA] connected (id=76561198064315755).
+19:25:20 Bismark[BiA] uses modified data file
+19:25:20 Player Bismark[BiA] connecting.
+19:25:21 Player Bismark[BiA] connected (id=76561199587608059).
+19:26:22 Malkav-X [HTU] uses modified data file
+19:26:22 Player Malkav-X [HTU] connecting.
+19:26:52 Player Malkav-X [HTU] connected (id=76561197989480543).
+19:27:39 Player Malkav-X [HTU] disconnected.
+19:28:00 Malkav-X [HTU] uses modified data file
+19:28:00 Player Malkav-X [HTU] connecting.
+19:28:30 Player Malkav-X [HTU] connected (id=76561197989480543).
+19:28:57 SpeedKing [BIA] uses modified data file
+19:28:57 Player SpeedKing [BIA] connecting.
+19:28:59 Player SpeedKing [BIA] connected (id=76561198017536201).
+19:30:21 Mauser [BiA] uses modified data file
+19:30:21 Player Mauser [BiA] connecting.
+19:30:23 Player Mauser [BiA] connected (id=76561198809970778).
+19:31:01 Henki [BiA] uses modified data file
+19:31:01 Player Henki [BiA] connecting.
+19:31:01 Player Malkav-X [HTU] disconnected.
+19:31:03 Player Henki [BiA] connected (id=76561197992497591).
+19:31:53 Scream [BiA] uses modified data file
+19:31:53 Player Scream [BiA] connecting.
+19:31:54 Player Scream [BiA] connected (id=76561198283431754).
+19:32:01 Malkav-X [BIA] uses modified data file
+19:32:01 Player Malkav-X [BIA] connecting.
+19:32:20 Heinrich[BiA] uses modified data file
+19:32:20 Player Heinrich[BiA] connecting.
+19:32:21 Player Heinrich[BiA] connected (id=76561197990243747).
+19:32:31 Player Malkav-X [BIA] connected (id=76561197989480543).
+19:33:01 Szopix [BiA] uses modified data file
+19:33:01 Player Szopix [BiA] connecting.
+19:33:03 Player Szopix [BiA] connected (id=76561198047876502).
+19:33:46 fresh_ziomal [BiA] uses modified data file
+19:33:46 Player fresh_ziomal [BiA] connecting.
+19:33:46 LooNeY uses modified data file
+19:33:46 Player LooNeY connecting.
+19:33:47 Player fresh_ziomal [BiA] connected (id=76561198071123850).
+19:34:16 Player LooNeY connected (id=76561198018653537).
+19:34:28 Burger[BiA] uses modified data file
+19:34:28 Player Burger[BiA] connecting.
+19:34:29 Player Burger[BiA] connected (id=76561199072544737).
+19:35:10 Kaczomen [BIA] uses modified data file
+19:35:10 Player Kaczomen [BIA] connecting.
+19:35:11 Player Kaczomen [BIA] connected (id=76561198155734070).
+19:35:30 Solo [BIA] uses modified data file
+19:35:30 Player Solo [BIA] connecting.
+19:35:31 Player Solo [BIA] connected (id=76561199833408308).
+19:37:23 Ergones [BIA] uses modified data file
+19:37:23 Player Ergones [BIA] connecting.
+19:37:24 Player Ergones [BIA] connected (id=76561198016082931).
+19:38:36 Anctus [BIA] uses modified data file
+19:38:36 Player Anctus [BIA] connecting.
+19:38:38 Player Anctus [BIA] connected (id=76561197974422748).
+19:46:13 Darius [BIA] uses modified data file
+19:46:13 Player Darius [BIA] connecting.
+19:46:15 Player Darius [BIA] connected (id=76561198180999543).
+19:47:40 Goran™ [BiA] uses modified data file
+19:47:40 Player Goran™ [BiA] connecting.
+19:47:41 Player Goran™ [BiA] connected (id=76561198071718457).
+19:50:10 BLoODiCa [BIA] uses modified data file
+19:50:10 Player BLoODiCa [BIA] connecting.
+19:50:12 Player BLoODiCa [BIA] connected (id=76561198369863913).
+19:50:42 Player Anctus [BIA] disconnected.
+19:50:45 Kenway [BIA] uses modified data file
+19:50:45 Player Kenway [BIA] connecting.
+19:50:47 Player Kenway [BIA] connected (id=76561198328140472).
+19:57:01 Blind[BIA] uses modified data file
+19:57:01 Player Blind[BIA] connecting.
+19:57:03 Player Blind[BIA] connected (id=76561198857738437).
+19:57:13 Roles assigned.
+19:57:13 Reading mission ...
+19:57:19 Mission read.
+19:57:24 Player Louis_Bolgarov [BIA] disconnected.
+19:57:27 Louis_Bolgarov [BIA] uses modified data file
+19:57:27 Player Louis_Bolgarov [BIA] connecting.
+19:57:28 Player Louis_Bolgarov [BIA] connected (id=76561198834192087).
+19:57:37 Player Darius [BIA] disconnected.
+19:57:47 Player fresh_ziomal [BiA] disconnected.
+19:57:54 Player Mo [BIA] disconnected.
+19:57:59 Player Spud [Bia] disconnected.
+19:59:01 Player Kenway [BIA] disconnected.
+19:59:08 Darius [BIA] uses modified data file
+19:59:08 Player Darius [BIA] connecting.
+19:59:09 Player Darius [BIA] connected (id=76561198180999543).
+19:59:32 Spud [Bia] uses modified data file
+19:59:32 Player Spud [Bia] connecting.
+19:59:33 Player Spud [Bia] connected (id=76561198310446091).
+19:59:34 Player Exillius [BIA] disconnected.
+19:59:44 Exillius [BIA] uses modified data file
+19:59:44 Player Exillius [BIA] connecting.
+19:59:46 Player Exillius [BIA] connected (id=76561198035060820).
+19:59:47 Mo [BIA] uses modified data file
+19:59:47 Player Mo [BIA] connecting.
+19:59:47 Player Mo [BIA] disconnected.
+19:59:47 Successfull attempt to execute serverCommand '#kick 76561198857738437 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+19:59:47 Player Blind[BIA] disconnected.
+20:00:08 Kenway [BIA] uses modified data file
+20:00:08 Player Kenway [BIA] connecting.
+20:00:10 Player Kenway [BIA] connected (id=76561198328140472).
+20:00:34 Mo [BIA] uses modified data file
+20:00:34 Player Mo [BIA] connecting.
+20:00:35 Player Mo [BIA] connected (id=76561198811873436).
+20:00:40 Kicking player name='Kenway [BIA]' ID=2043088181, steamID=76561198328140472. Ping too high (432/ 350 ms)
+20:00:40 Player Kenway [BIA] disconnected.
+20:00:55 Kenway [BIA] uses modified data file
+20:00:55 Player Kenway [BIA] connecting.
+20:00:56 Player Kenway [BIA] disconnected.
+20:02:31 Blind[BIA] uses modified data file
+20:02:31 Player Blind[BIA] connecting.
+20:02:33 Player Blind[BIA] connected (id=76561198857738437).
+20:03:57 Kenway [BIA] uses modified data file
+20:03:57 Player Kenway [BIA] connecting.
+20:04:00 Player Kenway [BIA] connected (id=76561198328140472).
+20:04:42 Successfull attempt to execute serverCommand '#kick 76561198328140472 You were automatically kicked by the Server for mod mismatch. Please double check your loaded mods.' by server.
+20:04:42 Player Kenway [BIA] disconnected.
+20:05:38 fresh_ziomal [BiA] uses modified data file
+20:05:38 Player fresh_ziomal [BiA] connecting.
+20:05:40 Player fresh_ziomal [BiA] connected (id=76561198071123850).
+20:07:15 Kenway [BIA] uses modified data file
+20:07:15 Player Kenway [BIA] connecting.
+20:07:17 Player Kenway [BIA] connected (id=76561198328140472).
+20:07:52 Kicking player name='Kenway [BIA]' ID=322713746, steamID=76561198328140472. Ping too high (397/ 350 ms)
+20:07:52 Player Kenway [BIA] disconnected.
+20:08:36 Kenway [BIA] uses modified data file
+20:08:36 Player Kenway [BIA] connecting.
+20:08:36 Player Kenway [BIA] disconnected.
+20:08:39 Game started.
+20:09:02 Player Darius [BIA] disconnected.
+20:09:27 Kenway [BIA] uses modified data file
+20:09:27 Player Kenway [BIA] connecting.
+20:09:27 Player Kenway [BIA] disconnected.
+20:09:51 Kenway [BIA] uses modified data file
+20:09:51 Player Kenway [BIA] connecting.
+20:09:51 Player Kenway [BIA] disconnected.
+20:10:14 Player niceguyphil [BIA] disconnected.
+20:10:16 Player Murdock [BIA] disconnected.
+20:10:17 Player LooNeY is losing connection
+20:10:17 Player LooNeY disconnected.
+20:10:29 Kenway [BIA] uses modified data file
+20:10:29 Player Kenway [BIA] connecting.
+20:10:29 Darius [BIA] uses modified data file
+20:10:29 Player Darius [BIA] connecting.
+20:10:30 Player Darius [BIA] connected (id=76561198180999543).
+20:10:31 Player Kenway [BIA] connected (id=76561198328140472).
+20:10:51 Player Bio [BiA] disconnected.
+20:10:59 Bio [BiA] uses modified data file
+20:10:59 Player Bio [BiA] connecting.
+20:11:01 Player Bio [BiA] connected (id=76561198080021256).
+20:11:19 LooNeY uses modified data file
+20:11:19 Player LooNeY connecting.
+20:11:31 niceguyphil [BIA] uses modified data file
+20:11:31 Player niceguyphil [BIA] connecting.
+20:11:32 Player niceguyphil [BIA] connected (id=76561197994597477).
+20:11:47 Murdock [BIA] uses modified data file
+20:11:47 Player Murdock [BIA] connecting.
+20:11:47 Player Murdock [BIA] disconnected.
+20:11:49 Player LooNeY connected (id=76561198018653537).
+20:11:59 Murdock [BIA] uses modified data file
+20:11:59 Player Murdock [BIA] connecting.
+20:11:59 Player Murdock [BIA] disconnected.
+20:12:19 Murdock [BIA] uses modified data file
+20:12:19 Player Murdock [BIA] connecting.
+20:12:20 Player Murdock [BIA] connected (id=76561197993956650).
+20:13:00 Player Henki [BiA] is losing connection
+20:13:00 Player Henki [BiA] disconnected.
+20:16:48 Henki [BiA] uses modified data file
+20:16:48 Player Henki [BiA] connecting.
+20:16:49 Player Henki [BiA] connected (id=76561197992497591).
+20:16:52 Player Henki [BiA] disconnected.
+20:18:34 Henki [BiA] uses modified data file
+20:18:34 Player Henki [BiA] connecting.
+20:18:35 Player Henki [BiA] connected (id=76561197992497591).
+20:23:11 Kicking player name='Kenway [BIA]' ID=516619014, steamID=76561198328140472. Ping too high (356/ 350 ms)
+20:23:11 Player Kenway [BIA] disconnected.
+20:23:35 Kenway [BIA] uses modified data file
+20:23:35 Player Kenway [BIA] connecting.
+20:23:36 Player Kenway [BIA] disconnected.
+20:24:25 Kenway [BIA] uses modified data file
+20:24:25 Player Kenway [BIA] connecting.
+20:24:25 Player Kenway [BIA] disconnected.
+20:26:27 Kenway [BIA] uses modified data file
+20:26:27 Player Kenway [BIA] connecting.
+20:26:28 Player Kenway [BIA] connected (id=76561198328140472).
+20:42:58 Player Solo [BIA] disconnected.
+20:47:32 Player Blind[BIA] is losing connection
+20:47:34 Player Blind[BIA] disconnected.
+20:51:41 Solo [BIA] uses modified data file
+20:51:41 Player Solo [BIA] connecting.
+20:51:43 Player Solo [BIA] connected (id=76561199833408308).
+20:56:07 Player Kenway [BIA] disconnected.
+21:01:24 Kenway [BIA] uses modified data file
+21:01:24 Player Kenway [BIA] connecting.
+21:01:26 Player Kenway [BIA] connected (id=76561198328140472).
+21:02:40 Player Kenway [BIA] disconnected.
+21:07:56 Kenway [BIA] uses modified data file
+21:07:56 Player Kenway [BIA] connecting.
+21:07:58 Player Kenway [BIA] connected (id=76561198328140472).
+21:17:39 Player Henki [BiA] disconnected.
+21:43:54 Player angle [BiA] is losing connection
+21:43:56 Player angle [BiA] disconnected.
+21:45:16 angle [BiA] uses modified data file
+21:45:16 Player angle [BiA] connecting.
+21:45:18 Player angle [BiA] connected (id=76561198115779673).
+21:49:12 Player LooNeY is losing connection
+21:49:13 Player LooNeY disconnected.
+21:56:40 LooNeY uses modified data file
+21:56:40 Player LooNeY connecting.
+21:56:42 Player LooNeY connected (id=76561198018653537).
+21:57:44 Player Magnum[BIA] is losing connection
+21:57:44 Player Magnum[BIA] disconnected.
+21:58:51 Magnum[BIA] uses modified data file
+21:58:51 Player Magnum[BIA] connecting.
+21:58:53 Player Magnum[BIA] connected (id=76561198102427730).
+22:07:44 Momon uses modified data file
+22:07:44 Player Momon connecting.
+22:07:46 Player Momon connected (id=76561198207871056).
+22:07:46 Player Momon disconnected.
+22:11:33 Player Magnum[BIA] disconnected.
+22:13:03 Magnum[BIA] uses modified data file
+22:13:03 Player Magnum[BIA] connecting.
+22:13:04 Player Magnum[BIA] connected (id=76561198102427730).
+22:21:10 Kicking player name='Sclembi [BiA]' ID=544114108, steamID=76561198232527508. Desync too high (342/ 300 )
+22:21:10 Player Sclembi [BiA] disconnected.
+22:21:28 Sclembi [BiA] uses modified data file
+22:21:28 Player Sclembi [BiA] connecting.
+22:21:28 Player Sclembi [BiA] disconnected.
+22:24:10 Kicking player name='YourDoctor [BiA]' ID=2140111251, steamID=76561198131027021. Desync too high (786/ 300 )
+22:24:10 Player YourDoctor [BiA] disconnected.
+22:24:25 Sclembi [BiA] uses modified data file
+22:24:25 Player Sclembi [BiA] connecting.
+22:24:27 Player Sclembi [BiA] connected (id=76561198232527508).
+22:25:19 YourDoctor [BiA] uses modified data file
+22:25:19 Player YourDoctor [BiA] connecting.
+22:25:20 Player YourDoctor [BiA] disconnected.
+22:26:11 YourDoctor [BiA] uses modified data file
+22:26:11 Player YourDoctor [BiA] connecting.
+22:26:13 Player YourDoctor [BiA] connected (id=76561198131027021).
+22:35:01 Player Zero [BiA] disconnected.
+22:35:08 Player Darius [BIA] disconnected.
+22:35:08 Player Bio [BiA] disconnected.
+22:35:08 Player Louis_Bolgarov [BIA] disconnected.
+22:35:09 Player Bismark[BiA] disconnected.
+22:35:09 Player Usagi [BIA] disconnected.
+22:35:11 Player Patch [BIA] disconnected.
+22:35:12 Player Hampter [BiA] disconnected.
+22:35:13 Player Bobi [BiA] disconnected.
+22:35:13 Player Bulia [BIA] disconnected.
+22:35:14 Player Priestess [BIA] disconnected.
+22:35:14 Player Mini [BiA] disconnected.
+22:35:14 Player YourDoctor [BiA] disconnected.
+22:35:15 Player angle [BiA] disconnected.
+22:35:15 Player Berkin [BIA] disconnected.
+22:35:16 Player Turtright [BiA] disconnected.
+22:35:16 Player Imbalance [BIA] disconnected.
+22:35:16 Player Magnum[BIA] disconnected.
+22:35:16 Player Sebastian [BIA] disconnected.
+22:35:16 Player Exillius [BIA] disconnected.
+22:35:17 Player Kaczomen [BIA] disconnected.
+22:35:18 Player Yotza [BiA] disconnected.
+22:35:18 Player Bruni [BIA][TF-23] disconnected.
+22:35:18 Player niceguyphil [BIA] disconnected.
+22:35:18 Player John [BIA] disconnected.
+22:35:19 Player Goran™ [BiA] disconnected.
+22:35:19 Game finished.
+class Session
+{
+	mission="BIA_COOP_Operation_Lightfoot_Updated";
+	island="SWU_Egypt_El_Alamein";
+	gameType="COOP";
+	duration=8800.2305;
+	class Player1
+	{
+		name="Murdock [BIA]";
+		killsInfantry=129;
+		killsSoft=2;
+		killsArmor=7;
+		killsAir=0;
+		killsPlayers=-1;
+		customScore=0;
+		killsTotal=154;
+		killed=0;
+	};
+	class Player2
+	{
+		name="Uni_Play [BiA]";
+		killsInfantry=81;
+		killsSoft=0;
+		killsArmor=1;
+		killsAir=0;
+		killsPlayers=-3;
+		customScore=0;
+		killsTotal=84;
+		killed=2;
+	};
+	class Player3
+	{
+		name="Zero [BiA]";
+		killsInfantry=55;
+		killsSoft=1;
+		killsArmor=1;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=60;
+		killed=2;
+	};
+	class Player4
+	{
+		name="fresh_ziomal [BiA]";
+		killsInfantry=31;
+		killsSoft=2;
+		killsArmor=7;
+		killsAir=0;
+		killsPlayers=-1;
+		customScore=0;
+		killsTotal=56;
+		killed=1;
+	};
+	class Player5
+	{
+		name="Bismark[BiA]";
+		killsInfantry=28;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=28;
+		killed=0;
+	};
+	class Player6
+	{
+		name="SpeedKing [BIA]";
+		killsInfantry=21;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=-3;
+		customScore=0;
+		killsTotal=21;
+		killed=1;
+	};
+	class Player7
+	{
+		name="Magnum[BIA]";
+		killsInfantry=18;
+		killsSoft=1;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=20;
+		killed=0;
+	};
+	class Player8
+	{
+		name="Yotza [BiA]";
+		killsInfantry=20;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=20;
+		killed=4;
+	};
+	class Player9
+	{
+		name="Kenway [BIA]";
+		killsInfantry=19;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=19;
+		killed=2;
+	};
+	class Player10
+	{
+		name="Bio [BiA]";
+		killsInfantry=18;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=18;
+		killed=1;
+	};
+	class Player11
+	{
+		name="Zex [BIA]";
+		killsInfantry=15;
+		killsSoft=0;
+		killsArmor=1;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=18;
+		killed=1;
+	};
+	class Player12
+	{
+		name="Kofeina[BIA]";
+		killsInfantry=16;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=16;
+		killed=3;
+	};
+	class Player13
+	{
+		name="angle [BiA]";
+		killsInfantry=15;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=15;
+		killed=1;
+	};
+	class Player14
+	{
+		name="Malkav-X [BIA]";
+		killsInfantry=15;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=15;
+		killed=1;
+	};
+	class Player15
+	{
+		name="el_hamptero [BIA]";
+		killsInfantry=14;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=14;
+		killed=0;
+	};
+	class Player16
+	{
+		name="Bugs Bunny [BiA]";
+		killsInfantry=14;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=14;
+		killed=2;
+	};
+	class Player17
+	{
+		name="Abramusas [BiA]";
+		killsInfantry=14;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=14;
+		killed=3;
+	};
+	class Player18
+	{
+		name="T1MOROS [BIA]";
+		killsInfantry=12;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=12;
+		killed=2;
+	};
+	class Player19
+	{
+		name="Mauser [BiA]";
+		killsInfantry=11;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=11;
+		killed=2;
+	};
+	class Player20
+	{
+		name="Turtright [BiA]";
+		killsInfantry=10;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=10;
+		killed=0;
+	};
+	class Player21
+	{
+		name="Exillius [BIA]";
+		killsInfantry=9;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=9;
+		killed=3;
+	};
+	class Player22
+	{
+		name="RasaDeDam [BiA]";
+		killsInfantry=9;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=9;
+		killed=3;
+	};
+	class Player23
+	{
+		name="Heinrich[BiA]";
+		killsInfantry=8;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=-1;
+		customScore=0;
+		killsTotal=8;
+		killed=0;
+	};
+	class Player24
+	{
+		name="Berkin [BIA]";
+		killsInfantry=8;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=8;
+		killed=2;
+	};
+	class Player25
+	{
+		name="Ergones [BIA]";
+		killsInfantry=7;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=7;
+		killed=0;
+	};
+	class Player26
+	{
+		name="Mini [BiA]";
+		killsInfantry=7;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=7;
+		killed=0;
+	};
+	class Player27
+	{
+		name="Solo [BIA]";
+		killsInfantry=7;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=7;
+		killed=0;
+	};
+	class Player28
+	{
+		name="Szopix [BiA]";
+		killsInfantry=4;
+		killsSoft=0;
+		killsArmor=1;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=7;
+		killed=0;
+	};
+	class Player29
+	{
+		name="Darius [BIA]";
+		killsInfantry=7;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=7;
+		killed=1;
+	};
+	class Player30
+	{
+		name="Bruni [BIA][TF-23]";
+		killsInfantry=6;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=6;
+		killed=1;
+	};
+	class Player31
+	{
+		name="Miletic [BiA]";
+		killsInfantry=4;
+		killsSoft=1;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=6;
+		killed=1;
+	};
+	class Player32
+	{
+		name="Luanmh[BiA]";
+		killsInfantry=6;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=6;
+		killed=2;
+	};
+	class Player33
+	{
+		name="BLoODiCa [BIA]";
+		killsInfantry=5;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=5;
+		killed=0;
+	};
+	class Player34
+	{
+		name="Mo [BIA]";
+		killsInfantry=5;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=5;
+		killed=1;
+	};
+	class Player35
+	{
+		name="niceguyphil [BIA]";
+		killsInfantry=5;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=5;
+		killed=1;
+	};
+	class Player36
+	{
+		name="Gog [BiA]";
+		killsInfantry=5;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=5;
+		killed=2;
+	};
+	class Player37
+	{
+		name="Hampter [BiA]";
+		killsInfantry=4;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=4;
+		killed=0;
+	};
+	class Player38
+	{
+		name="Louis_Bolgarov [BIA]";
+		killsInfantry=4;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=4;
+		killed=4;
+	};
+	class Player39
+	{
+		name="Hunter [BIA]";
+		killsInfantry=3;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=3;
+		killed=0;
+	};
+	class Player40
+	{
+		name="LooNeY";
+		killsInfantry=3;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=3;
+		killed=1;
+	};
+	class Player41
+	{
+		name="Scream [BiA]";
+		killsInfantry=3;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=3;
+		killed=2;
+	};
+	class Player42
+	{
+		name="Chak [BiA]";
+		killsInfantry=2;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=2;
+		killed=1;
+	};
+	class Player43
+	{
+		name="W.Jarvis [BiA]";
+		killsInfantry=-1;
+		killsSoft=0;
+		killsArmor=1;
+		killsAir=0;
+		killsPlayers=-1;
+		customScore=0;
+		killsTotal=2;
+		killed=1;
+	};
+	class Player44
+	{
+		name="Imbalance [BIA]";
+		killsInfantry=5;
+		killsSoft=0;
+		killsArmor=-1;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=2;
+		killed=2;
+	};
+	class Player45
+	{
+		name="Kaczomen [BIA]";
+		killsInfantry=2;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=2;
+		killed=3;
+	};
+	class Player46
+	{
+		name="Chewie [BiA]";
+		killsInfantry=1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=1;
+		killed=0;
+	};
+	class Player47
+	{
+		name="Goran™ [BiA]";
+		killsInfantry=1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=1;
+		killed=0;
+	};
+	class Player48
+	{
+		name="D0CTOR [BiA]";
+		killsInfantry=1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=1;
+		killed=1;
+	};
+	class Player49
+	{
+		name="Patch [BIA]";
+		killsInfantry=1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=1;
+		killed=1;
+	};
+	class Player50
+	{
+		name="Sclembi [BiA]";
+		killsInfantry=1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=1;
+		killed=1;
+	};
+	class Player51
+	{
+		name="YourDoctor [BiA]";
+		killsInfantry=1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=1;
+		killed=1;
+	};
+	class Player52
+	{
+		name="John [BIA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=0;
+	};
+	class Player53
+	{
+		name="Sebastian [BIA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=0;
+	};
+	class Player54
+	{
+		name="Spud [Bia]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=0;
+	};
+	class Player55
+	{
+		name="Usagi [BIA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=0;
+	};
+	class Player56
+	{
+		name="Blind[BIA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=1;
+	};
+	class Player57
+	{
+		name="Bobi [BiA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=1;
+	};
+	class Player58
+	{
+		name="Bulia [BIA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=1;
+	};
+	class Player59
+	{
+		name="Henki [BiA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=1;
+	};
+	class Player60
+	{
+		name="Priestess [BIA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=1;
+	};
+	class Player61
+	{
+		name="Burger[BiA]";
+		killsInfantry=0;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=0;
+		customScore=0;
+		killsTotal=0;
+		killed=3;
+	};
+	class Player62
+	{
+		name="Nebula [BIA]";
+		killsInfantry=-1;
+		killsSoft=0;
+		killsArmor=0;
+		killsAir=0;
+		killsPlayers=-1;
+		customScore=0;
+		killsTotal=-1;
+		killed=1;
+	};
+};
+22:35:19 Waiting for next game.
+22:35:19 Player Spud [Bia] disconnected.
+22:35:19 Mission BIA_WW2_Combined_Training_01_HOTFIX.Cassino_Test_3 read from bank.
+22:35:21 Player W.Jarvis [BiA] disconnected.
+22:35:21 Admin logged out, player: W.Jarvis [BiA], playerUID: 76561198385146085, IP: 192.168.1.136:2304.
+22:35:21 Player T1MOROS [BIA] disconnected.
+22:35:21 Player RasaDeDam [BiA] disconnected.
+22:35:22 Player Heinrich[BiA] disconnected.
+22:35:22 Player Zex [BIA] disconnected.
+22:35:22 Player Kofeina[BIA] disconnected.
+22:35:22 Player fresh_ziomal [BiA] disconnected.
+22:35:22 Player Kenway [BIA] disconnected.
+22:35:22 Player Ergones [BIA] disconnected.
+22:35:22 Player Miletic [BiA] disconnected.
+22:35:22 Player Uni_Play [BiA] disconnected.
+22:35:22 Player Abramusas [BiA] disconnected.
+22:35:22 Player D0CTOR [BiA] disconnected.
+22:35:22 Player Hunter [BIA] disconnected.
+22:35:23 Player Malkav-X [BIA] disconnected.
+22:35:23 Player LooNeY disconnected.
+22:35:23 Player Murdock [BIA] disconnected.
+22:35:23 Player Bugs Bunny [BiA] disconnected.
+22:35:23 Player SpeedKing [BIA] disconnected.
+22:35:23 Player Solo [BIA] disconnected.
+22:35:24 Player Sclembi [BiA] disconnected.
+22:35:24 Player Chewie [BiA] disconnected.
+22:35:24 Player Nebula [BIA] disconnected.
+22:35:24 Player Gog [BiA] disconnected.
+22:35:24 Player Mo [BIA] disconnected.
+22:35:25 Player Scream [BiA] disconnected.
+22:35:28 Player BLoODiCa [BIA] disconnected.
+22:35:31 Player Mauser [BiA] disconnected.
+22:35:44 Player el_hamptero [BIA] disconnected.
+22:35:54 Player Chak [BiA] disconnected.
+22:36:02 Player Burger[BiA] disconnected.
+22:37:03 Player Luanmh[BiA] disconnected.
+22:42:25 Player Szopix [BiA] disconnected.

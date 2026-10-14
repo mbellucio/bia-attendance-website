@@ -10,6 +10,7 @@
     "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
+    "db:import-logs": "node --import ./scripts/register-ts-loader.mjs scripts/import-logs.ts",
     "db:deploy": "prisma migrate deploy"
   },
   "dependencies": {

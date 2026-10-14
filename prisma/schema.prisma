@@ -7,10 +7,18 @@ datasource db {
   provider = "postgresql"
 }
 
+enum LogLineType {
+  OTHER
+  PLAYER_CONNECTING
+  PLAYER_CONNECTED
+  PLAYER_DISCONNECTED
+
+  @@map("log_line_type")
+}
+
 model User {
   id          String   @id @default(cuid())
   steamId     String   @unique @map("steam_id")
-  admin       Boolean  @default(false)
   email       String?
   displayName String?  @map("display_name")
   avatarUrl   String?  @map("avatar_url")
@@ -18,5 +26,108 @@ model User {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
+  player Player?
+
   @@map("users")
+}
+
+model Player {
+  id          String   @id @default(cuid())
+  userId      String?  @unique @map("user_id")
+  nickname    String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user                User?             @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  eventParticipations EventParticipant[]
+  logLines            EventLogLine[]
+
+  @@map("players")
+}
+
+model Event {
+  id                       String    @id @default(cuid())
+  sourceKey                String    @unique @map("source_key")
+  sourceFileName           String?   @map("source_file_name")
+  sourceSha256             String?   @map("source_sha256") @db.VarChar(64)
+  title                    String
+  eventCode                String    @map("event_code")
+  game                     String?
+  eventDate                DateTime  @map("event_date") @db.Date
+  serverTimeZone           String?   @map("server_time_zone")
+  missionDurationMinutes   Int?      @map("mission_duration_minutes")
+  minimumAttendanceMinutes Int?      @map("minimum_attendance_minutes")
+  importedAt               DateTime? @map("imported_at")
+  createdAt                DateTime  @default(now()) @map("created_at")
+  updatedAt                DateTime  @updatedAt @map("updated_at")
+
+  participants EventParticipant[]
+  logLines     EventLogLine[]
+
+  @@index([eventDate])
+  @@index([eventCode, eventDate])
+  @@map("events")
+}
+
+model EventParticipant {
+  id                       String    @id @default(cuid())
+  eventId                  String    @map("event_id")
+  playerId                 String    @map("player_id")
+  totalConnectedSeconds    Int?      @map("total_connected_seconds")
+  attendanceGranted        Boolean   @default(false) @map("attendance_granted")
+  attendanceCalculatedAt   DateTime? @map("attendance_calculated_at")
+  attendanceOverride       Boolean?  @map("attendance_override")
+  attendanceOverrideReason String?   @map("attendance_override_reason") @db.Text
+  calculationVersion       String?   @map("calculation_version")
+  createdAt                DateTime  @default(now()) @map("created_at")
+  updatedAt                DateTime  @updatedAt @map("updated_at")
+
+  event    Event           @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  player   Player          @relation(fields: [playerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  sessions PlayerSession[]
+
+  @@unique([eventId, playerId])
+  @@index([playerId])
+  @@map("event_participants")
+}
+
+model EventLogLine {
+  id                 String      @id @default(cuid())
+  eventId            String      @map("event_id")
+  lineNumber         Int         @map("line_number")
+  rawText            String      @map("raw_text") @db.Text
+  timeOfDay          String?     @map("time_of_day") @db.VarChar(8)
+  type               LogLineType @default(OTHER)
+  reportedPlayerName String?     @map("reported_player_name")
+  reportedSteamId    String?     @map("reported_steam_id")
+  playerId           String?     @map("player_id")
+  parseNote          String?     @map("parse_note") @db.Text
+  createdAt          DateTime    @default(now()) @map("created_at")
+
+  event               Event          @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  player              Player?        @relation(fields: [playerId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  connectedSession    PlayerSession? @relation("SessionConnectLine")
+  disconnectedSession PlayerSession? @relation("SessionDisconnectLine")
+
+  @@unique([eventId, lineNumber])
+  @@index([playerId])
+  @@map("event_log_lines")
+}
+
+model PlayerSession {
+  id                  String    @id @default(cuid())
+  eventParticipantId  String    @map("event_participant_id")
+  connectLineId       String    @unique @map("connect_line_id")
+  disconnectLineId    String?   @unique @map("disconnect_line_id")
+  connectedAt         DateTime  @map("connected_at") @db.Timestamp(0)
+  disconnectedAt      DateTime? @map("disconnected_at") @db.Timestamp(0)
+  durationSeconds     Int?      @map("duration_seconds")
+  createdAt           DateTime  @default(now()) @map("created_at")
+
+  eventParticipant EventParticipant @relation(fields: [eventParticipantId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  connectLine      EventLogLine     @relation("SessionConnectLine", fields: [connectLineId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  disconnectLine   EventLogLine?    @relation("SessionDisconnectLine", fields: [disconnectLineId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([eventParticipantId, connectedAt])
+  @@map("player_sessions")
 }
