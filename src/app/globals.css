@@ -109,3 +109,111 @@ button { font: inherit; }
   .login-panel .panel-main { padding: 27px 23px 25px; }
   .provider-badge { margin-bottom: 33px; }
 }
+
+/* Player attendance console */
+.roster-shell { min-height: 100svh; max-width: 1600px; margin: 0 auto; padding: 0 7.2vw; position: relative; overflow: hidden; background: radial-gradient(ellipse at 82% 12%, rgba(106,128,72,.12), transparent 32%), linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px); background-size: auto, 42px 42px, 42px 42px; }
+.roster-topbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(240,238,229,.13); }
+.roster-top-actions { display: flex; align-items: center; gap: 25px; }
+.roster-live, .roster-eyebrow, .identity-chip > span, .period-filter label, .roster-stats article > span, .event-list-heading, .event-title > span, .event-title small, .attendance-badge, .event-detail-link, .roster-footer, .time-note, .timeline-heading > span, .session-connection strong, .session-duration span { font-size: 9px; letter-spacing: .14em; }
+.roster-live { color: #aeb7a3; display: flex; align-items: center; gap: 9px; }
+.roster-live i { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #c4d38a; box-shadow: 0 0 10px rgba(196,211,138,.5); }
+.signout-button, .back-link { border: 1px solid rgba(240,238,229,.22); background: transparent; padding: 10px 14px; color: #e2e4d9; font-size: 10px; cursor: pointer; }
+.signout-button:hover, .back-link:hover { border-color: #c4d38a; color: #c4d38a; }
+.roster-welcome { min-height: 230px; display: flex; align-items: center; justify-content: space-between; gap: 30px; border-bottom: 1px solid rgba(240,238,229,.13); }
+.roster-eyebrow { margin: 0 0 12px; color: #aeb99c; }
+.roster-welcome h1 { font-size: clamp(38px, 5.5vw, 68px); line-height: 1; letter-spacing: -.055em; font-weight: 500; margin: 0; color: #f1f0e8; }
+.roster-subtitle { margin: 15px 0 0; color: #a8afa2; font-size: 13px; }
+.identity-chip { border-left: 1px solid rgba(196,211,138,.45); padding: 11px 0 11px 17px; display: flex; flex-direction: column; gap: 8px; }
+.identity-chip > span { color: #9da596; }
+.identity-chip strong { font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; color: #e0e4d5; }
+.month-heading { padding: 34px 0 23px; display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+.month-heading h2 { margin: 0; font-size: clamp(27px, 3.4vw, 42px); font-weight: 500; letter-spacing: -.04em; }
+.period-filter { display: flex; align-items: end; gap: 9px; }
+.period-filter label { display: block; color: #9ba393; padding-bottom: 12px; }
+.period-filter select { min-width: 190px; padding: 11px 32px 11px 12px; background: #1a2019; color: #f0efe7; border: 1px solid rgba(240,238,229,.2); font: inherit; font-size: 12px; }
+.period-filter select:focus-visible, .period-submit:focus-visible, .signout-button:focus-visible, .event-detail-link:focus-visible { outline: 2px solid #c4d38a; outline-offset: 3px; }
+.period-submit { min-height: 38px; padding: 0 13px; color: #e7e9da; background: #343d2a; border: 1px solid #596546; cursor: pointer; font-size: 10px; letter-spacing: .1em; }
+.roster-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(240,238,229,.12); border: 1px solid rgba(240,238,229,.12); margin-bottom: 28px; }
+.roster-stats article { min-height: 103px; padding: 19px 21px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(25,30,24,.94); }
+.roster-stats article > span { color: #9fa897; }
+.roster-stats article > strong { font-size: 25px; line-height: 1; font-weight: 500; color: #d6dfb2; }
+.event-list { border: 1px solid rgba(240,238,229,.15); background: rgba(19,23,19,.86); }
+.event-list-heading, .event-row { display: grid; grid-template-columns: minmax(200px, 1.6fr) minmax(100px, .8fr) minmax(100px, .7fr) minmax(125px, .8fr) 90px; align-items: center; gap: 14px; }
+.event-list-heading { padding: 13px 20px; color: #9fa897; background: rgba(255,255,255,.025); border-bottom: 1px solid rgba(240,238,229,.13); font-size: 8px; }
+.event-row { min-height: 87px; padding: 15px 20px; border-bottom: 1px solid rgba(240,238,229,.09); }
+.event-row:last-child { border-bottom: 0; }
+.event-title { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.event-title > span { color: #bbc98b; font-size: 8px; }
+.event-title strong { color: #eeeee6; font-size: 13px; font-weight: 500; }
+.event-title small { color: #8f988b; font-size: 8px; letter-spacing: .08em; }
+.event-date, .event-time { color: #d2d6ca; font-size: 11px; }
+.attendance-badge { display: inline-flex; align-items: center; width: fit-content; padding: 7px 9px; border: 1px solid; font-size: 8px; white-space: nowrap; }
+.attendance-badge.granted { color: #d4dfad; background: rgba(119,145,68,.12); border-color: rgba(173,194,115,.38); }
+.attendance-badge.pending { color: #e6c783; background: rgba(143,107,45,.12); border-color: rgba(196,158,85,.38); }
+.attendance-badge.denied { color: #d79b87; background: rgba(147,66,48,.12); border-color: rgba(186,103,80,.38); }
+.event-detail-link { color: #cad69b; font-size: 8px; white-space: nowrap; }
+.event-detail-link span { font-size: 14px; margin-left: 4px; }
+.empty-month, .empty-roster { padding: 30px; display: flex; flex-direction: column; gap: 9px; color: #a8afa2; }
+.empty-month strong { font-size: 13px; color: #e2e5d8; font-weight: 500; }
+.empty-month span, .empty-roster > p:last-child { font-size: 12px; line-height: 1.6; }
+.empty-roster { min-height: 260px; justify-content: center; }
+.empty-roster h2 { margin: 0; color: #eff0e8; font-weight: 500; font-size: 25px; }
+.empty-roster > p:last-child { max-width: 470px; }
+.time-note { color: #929a8b; letter-spacing: .035em; line-height: 1.6; margin: 15px 0 35px; font-size: 10px; }
+.roster-footer { min-height: 57px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(240,238,229,.12); color: #858d80; font-size: 8px; }
+.back-link { font-size: 8px; letter-spacing: .12em; }
+.event-welcome { min-height: 190px; }
+.event-welcome h1 { font-size: clamp(31px, 4.5vw, 54px); }
+.attendance-badge.large { font-size: 9px; padding: 10px 12px; }
+.detail-stats { margin-top: 28px; }
+.timeline-panel { margin-top: 28px; border: 1px solid rgba(240,238,229,.15); background: rgba(19,23,19,.86); }
+.timeline-heading { padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(240,238,229,.12); }
+.timeline-heading h2 { font-weight: 500; margin: 0; font-size: 20px; }
+.timeline-heading > span { color: #a4ad97; }
+.session-list { list-style: none; margin: 0; padding: 0; }
+.session-row { min-height: 83px; display: grid; grid-template-columns: 42px 1fr 1fr minmax(110px, .7fr); gap: 15px; align-items: center; padding: 15px 22px; border-bottom: 1px solid rgba(240,238,229,.08); }
+.session-row:last-child { border: 0; }
+.session-index { color: #a6b87b; font: 12px ui-monospace, monospace; }
+.session-connection, .session-duration { display: flex; flex-direction: column; gap: 7px; }
+.session-connection strong { color: #b9c693; font-size: 8px; }
+.session-connection span { color: #d3d7ca; font-size: 11px; }
+.session-duration strong { color: #e9eadd; font-size: 12px; font-weight: 500; }
+.session-duration span { color: #8f988b; font-size: 8px; }
+
+@media (max-width: 850px) {
+  .roster-shell { padding: 0 5vw; }
+  .event-list-heading { display: none; }
+  .event-row { grid-template-columns: minmax(150px, 1fr) minmax(95px, .7fr) minmax(110px, .7fr); gap: 12px; }
+  .event-date { grid-column: 2; grid-row: 1; }
+  .event-time { grid-column: 2; grid-row: 2; }
+  .event-row > div:nth-child(4) { grid-column: 3; grid-row: 1; }
+  .event-detail-link { grid-column: 3; grid-row: 2; }
+  .event-title { grid-row: span 2; }
+}
+@media (max-width: 560px) {
+  .roster-shell { padding: 0 20px; }
+  .roster-topbar { min-height: 68px; }
+  .roster-live { display: none; }
+  .roster-welcome { min-height: 205px; align-items: flex-start; justify-content: center; flex-direction: column; gap: 17px; }
+  .identity-chip { padding: 0 0 0 11px; }
+  .identity-chip strong { font-size: 10px; }
+  .month-heading { align-items: flex-start; flex-direction: column; }
+  .period-filter { width: 100%; flex-wrap: wrap; }
+  .period-filter label { width: 100%; padding: 0; }
+  .period-filter select { flex: 1; min-width: 0; }
+  .roster-stats article { min-height: 83px; padding: 12px 10px; }
+  .roster-stats article > span { font-size: 7px; line-height: 1.4; }
+  .roster-stats article > strong { font-size: 21px; }
+  .event-row { grid-template-columns: 1fr 1fr; padding: 15px 13px; gap: 12px 8px; }
+  .event-title { grid-column: 1 / -1; grid-row: auto; }
+  .event-date, .event-time, .event-row > div:nth-child(4), .event-detail-link { grid-column: auto; grid-row: auto; }
+  .event-row > div:nth-child(4) { justify-self: start; }
+  .event-date::before { content: "DATE / "; color: #899282; font-size: 8px; letter-spacing: .08em; }
+  .event-time::before { content: "TIME / "; color: #899282; font-size: 8px; letter-spacing: .08em; }
+  .event-detail-link { justify-self: end; align-self: center; }
+  .session-row { grid-template-columns: 24px 1fr; gap: 12px; padding: 17px 14px; }
+  .session-index { grid-row: span 3; }
+  .session-duration { grid-column: 2; }
+  .timeline-heading { padding: 17px 14px; align-items: flex-start; gap: 10px; flex-direction: column; }
+  .roster-footer { gap: 15px; font-size: 7px; }
+}

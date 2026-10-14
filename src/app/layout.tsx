@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BIA Attendance | Member Sign In",
-  description: "Sign in with Steam to access BIA attendance.",
+  title: "BIA Attendance | Field Roster",
+  description: "Review your BIA event attendance and connection records.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
