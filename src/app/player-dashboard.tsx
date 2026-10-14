@@ -1,5 +1,6 @@
 import { signOut } from "@/app/actions";
 import { getPrisma } from "@/lib/db";
+import EventDetailsModal from "@/app/event-details-modal";
 
 type DashboardProps = { steamId: string; period?: string };
 const monthFormatter = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" });
@@ -63,7 +64,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
                 const granted = item.attendanceOverride ?? item.attendanceGranted;
                 const pending = item.attendanceOverride == null && !item.attendanceGranted && item.totalConnectedSeconds == null;
                 const outcome = pending ? "pending" : granted ? "granted" : "denied";
-                return <a className={`calendar-event ${outcome}`} key={item.id} href={`/events/${encodeURIComponent(item.event.id)}?period=${activePeriod}`} aria-label={`${item.event.title}: ${pending ? "attendance pending" : granted ? "attendance granted" : "attendance not granted"}`} title={`${item.event.title} · ${pending ? "Pending" : granted ? "Granted" : "Not granted"}`}><i />{item.event.eventCode}</a>;
+                return <EventDetailsModal className={"calendar-event " + outcome} key={item.id} eventId={item.event.id} eventTitle={item.event.title} label={item.event.eventCode} />;
               })}</div>}
             </div>;
           })}
@@ -75,7 +76,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
           const effective = item.attendanceOverride ?? item.attendanceGranted;
           const pending = item.attendanceOverride == null && !item.attendanceGranted && item.totalConnectedSeconds == null;
           const status = pending ? "PENDING" : effective ? "GRANTED" : "NOT GRANTED";
-          return <article className="event-row" key={item.id}><div className="event-title"><span>{item.event.eventCode}</span><strong>{item.event.title}</strong><small>{item.event.game ?? "BIA operation"}</small></div><div className="event-date">{dateFormatter.format(item.event.eventDate)}</div><div className="event-time">{secondsLabel(item.totalConnectedSeconds)}</div><div><span className={`attendance-badge ${pending ? "pending" : effective ? "granted" : "denied"}`}>{status}</span></div><a className="event-detail-link" href={`/events/${encodeURIComponent(item.event.id)}?period=${activePeriod}`} aria-label={`View ${item.event.title} connection log`}>VIEW LOG <span aria-hidden="true">↗</span></a></article>;
+          return <article className="event-row" key={item.id}><div className="event-title"><span>{item.event.eventCode}</span><strong>{item.event.title}</strong><small>{item.event.game ?? "BIA operation"}</small></div><div className="event-date">{dateFormatter.format(item.event.eventDate)}</div><div className="event-time">{secondsLabel(item.totalConnectedSeconds)}</div><div><span className={`attendance-badge ${pending ? "pending" : effective ? "granted" : "denied"}`}>{status}</span></div><EventDetailsModal className="event-detail-link" eventId={item.event.id} eventTitle={item.event.title} /></article>;
         }) : <div className="empty-month"><strong>No event records for this player yet.</strong><span>When your attendance is imported, the latest month will appear here.</span></div>}
       </section>
       <p className="time-note">Connection times use the recorded server log clock. The source logs do not specify a timezone.</p>

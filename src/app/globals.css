@@ -253,3 +253,51 @@ button { font: inherit; }
   .calendar-event { font-size: 7px; }
   .calendar-event i { width: 4px; height: 4px; }
 }
+
+/* In-place event detail modal */
+.event-detail-link, .calendar-event { border: 0; background: transparent; padding: 0; text-align: left; font-family: inherit; cursor: pointer; }
+.event-modal { width: min(760px, calc(100vw - 30px)); max-height: min(88svh, 900px); padding: 0; border: 1px solid rgba(196,211,138,.4); color: #f0efe7; background: #171c17; box-shadow: 0 28px 100px rgba(0,0,0,.65); }
+.event-modal::backdrop { background: rgba(7,10,8,.78); backdrop-filter: blur(4px); }
+.modal-frame { max-height: min(88svh, 900px); overflow-y: auto; background: radial-gradient(ellipse at 92% 3%, rgba(111,132,73,.16), transparent 35%), #171c17; }
+.modal-topline { min-height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-bottom: 1px solid rgba(240,238,229,.13); color: #aab397; font-size: 8px; letter-spacing: .16em; }
+.modal-close { width: 30px; height: 30px; border: 1px solid rgba(240,238,229,.2); color: #e6e8dc; background: transparent; font-size: 21px; line-height: 1; cursor: pointer; }
+.modal-close:hover { border-color: #c4d38a; color: #c4d38a; }
+.modal-event-header { padding: 24px 25px 21px; border-bottom: 1px solid rgba(240,238,229,.1); }
+.modal-event-header h2 { margin: 0; color: #f0f0e8; font-size: clamp(24px, 4vw, 38px); line-height: 1.08; letter-spacing: -.04em; font-weight: 500; }
+.modal-event-header > p:not(.roster-eyebrow) { margin: 11px 0 16px; color: #a8afa2; font-size: 12px; }
+.modal-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(240,238,229,.1); border-bottom: 1px solid rgba(240,238,229,.12); }
+.modal-stats article { min-height: 75px; display: flex; flex-direction: column; justify-content: space-between; padding: 13px 16px; background: #1a2019; }
+.modal-stats article > span { color: #9fa897; font-size: 8px; letter-spacing: .12em; }
+.modal-stats article > strong { color: #e0e5d1; font-size: 13px; font-weight: 500; }
+.modal-sessions { padding: 18px 20px 5px; }
+.modal-section-title { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+.modal-section-title h3 { margin: 0; color: #bdc99a; font-size: 9px; letter-spacing: .14em; font-weight: 500; }
+.modal-section-title > span { color: #8e9887; font-size: 8px; letter-spacing: .1em; }
+.modal-session-list { list-style: none; margin: 0; padding: 0; }
+.modal-session-list li { display: grid; grid-template-columns: 28px 1fr 1fr minmax(80px, .5fr); gap: 12px; align-items: center; min-height: 62px; border-top: 1px solid rgba(240,238,229,.08); }
+.modal-session-number { color: #a6b87b; font: 11px ui-monospace, monospace; }
+.modal-session-list li > div { display: flex; flex-direction: column; gap: 6px; }
+.modal-session-list li strong { color: #bcc89a; font-size: 8px; letter-spacing: .1em; font-weight: 500; }
+.modal-session-list li span:not(.modal-session-number) { color: #d4d8ce; font-size: 10px; line-height: 1.4; }
+.modal-session-list li .modal-duration strong { color: #ebece2; font-size: 11px; letter-spacing: 0; }
+.modal-session-list li .modal-duration span { color: #8e9887 !important; font-size: 7px !important; }
+.modal-empty, .modal-state { padding: 24px 20px; color: #bec5b5; font-size: 12px; line-height: 1.6; }
+.modal-error { color: #e3a28f; }
+.modal-time-note { margin: 12px 20px 20px; color: #929a8b; font-size: 9px; line-height: 1.6; }
+.event-detail-link:hover { color: #eef0df; }
+.calendar-event:hover { text-decoration: none; }
+.calendar-event:focus-visible, .event-detail-link:focus-visible, .modal-close:focus-visible { outline: 2px solid #c4d38a; outline-offset: 3px; }
+@media (max-width: 560px) {
+  .event-modal { width: calc(100vw - 20px); max-height: 92svh; }
+  .modal-frame { max-height: 92svh; }
+  .modal-topline { padding: 0 14px; }
+  .modal-event-header { padding: 20px 15px 17px; }
+  .modal-stats article { padding: 11px 9px; min-height: 68px; }
+  .modal-stats article > span { font-size: 7px; line-height: 1.4; }
+  .modal-stats article > strong { font-size: 10px; }
+  .modal-sessions { padding: 16px 14px 4px; }
+  .modal-session-list li { grid-template-columns: 19px 1fr; padding: 12px 0; gap: 9px; }
+  .modal-session-number { grid-row: span 3; }
+  .modal-session-list li .modal-duration { grid-column: 2; }
+  .modal-time-note { margin: 11px 14px 16px; }
+}
