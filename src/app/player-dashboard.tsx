@@ -40,7 +40,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
     </header>
     <section className="roster-welcome"><div><p className="roster-eyebrow">PERSONNEL FILE / ATTENDANCE RECORD</p><h1>{name}</h1><p className="roster-subtitle">Welcome back. Your event attendance is ready for review.</p></div><div className="identity-chip"><span>STEAM ACCOUNT</span><strong>{steamId}</strong></div></section>
     {!player ? <section className="empty-roster"><p className="roster-eyebrow">NO PERSONNEL MATCH</p><h2>Your Steam account is verified.</h2><p>There is no player record linked to this account yet. Contact an administrator to connect your attendance history.</p></section> : <>
-      <section className="month-heading"><div><p className="roster-eyebrow">LATEST OPERATIONAL PERIOD</p><h2>{month}</h2></div><form className="period-filter" method="get"><label htmlFor="period">RECORD PERIOD</label><select id="period" name="period" value={activePeriod ?? ""} disabled={!availablePeriods.length}>{availablePeriods.length ? Object.entries(periodsByYear).map(([year, keys]) => <optgroup key={year} label={year}>{keys.map((key) => <option key={key} value={key}>{monthFormatter.format(new Date(`${key}-01T00:00:00Z`))}</option>)}</optgroup>) : <option value="">No event records</option>}</select><button type="submit" className="period-submit">GO</button></form></section>
+      <section className="month-heading"><div><p className="roster-eyebrow">LATEST OPERATIONAL PERIOD</p><h2>{month}</h2></div><form className="period-filter" method="get"><label htmlFor="period">RECORD PERIOD</label><select id="period" name="period" defaultValue={activePeriod ?? ""} disabled={!availablePeriods.length}>{availablePeriods.length ? Object.entries(periodsByYear).map(([year, keys]) => <optgroup key={year} label={year}>{keys.map((key) => <option key={key} value={key}>{monthFormatter.format(new Date(`${key}-01T00:00:00Z`))}</option>)}</optgroup>) : <option value="">No event records</option>}</select><button type="submit" className="period-submit">GO</button></form></section>
       <section className="roster-stats" aria-label="Attendance summary"><article><span>EVENTS THIS PERIOD</span><strong>{records.length}</strong></article><article><span>ATTENDANCE GRANTED</span><strong>{grantedCount}</strong></article><article><span>TIME UNDER REVIEW</span><strong>{pendingCount}</strong></article></section>
       <section className="event-list" aria-label={`${month} events`}><div className="event-list-heading"><span>EVENT RECORD</span><span>DATE</span><span>TIME LOGGED</span><span>ATTENDANCE</span><span /></div>
         {records.length ? records.map((item) => {
@@ -55,5 +55,3 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
     <footer className="roster-footer"><span>BIA ATTENDANCE / PERSONNEL RECORD</span><span>AUTHORIZED MEMBER VIEW</span></footer>
   </main>;
 }
-
-
