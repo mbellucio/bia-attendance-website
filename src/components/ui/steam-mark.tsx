@@ -1,3 +1,3 @@
-export function SteamMark({ className = "steam-mark" }: { className?: string }) {
+export function SteamMark({ className = "size-[22px] shrink-0 text-[#a8bc7a]" }: { className?: string }) {
   return <svg aria-hidden="true" viewBox="0 0 32 32" className={className} fill="none"><circle cx="16" cy="16" r="15" fill="currentColor" /><circle cx="21.6" cy="10.2" r="4.1" stroke="#101311" strokeWidth="2.5" /><circle cx="21.6" cy="10.2" r="1.35" fill="#101311" /><circle cx="11.1" cy="21.1" r="3.9" stroke="#101311" strokeWidth="2.4" /><path d="m14.2 18.5 4.7-5.2M7.3 20.1l-5-2" stroke="#101311" strokeWidth="2.6" strokeLinecap="round" /><path d="M7.4 20.1a3.9 3.9 0 0 0 7.5 1.4" stroke="#101311" strokeWidth="2" strokeLinecap="round" /></svg>;
 }

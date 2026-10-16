@@ -27,7 +27,7 @@ export function AutoSubmitPeriodSelect({ groups, activePeriod, disabled = false 
   return <select
     id="period"
     name="period"
-    className={isPending ? "period-select is-pending" : "period-select"}
+    className={"min-h-11 w-full border bg-[#202520] px-3 text-xs text-[#f1f0e9] outline-none transition " + (isPending ? "border-[#a8bc7a] opacity-60" : "border-white/25 focus:border-[#a8bc7a] focus:ring-2 focus:ring-[#a8bc7a]/30")}
     value={activePeriod}
     disabled={disabled}
     onChange={(event) => changePeriod(event.currentTarget.value)}
