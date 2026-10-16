@@ -111,7 +111,7 @@ export async function GET(request: NextRequest) {
     }
 
     const token = await createSessionToken(steamId);
-    const response = NextResponse.redirect(new URL("/", origin));
+    const response = NextResponse.redirect(new URL("/profile", origin));
     response.cookies.delete(STEAM_STATE_COOKIE);
     response.cookies.set(SESSION_COOKIE, token, {
       httpOnly: true,

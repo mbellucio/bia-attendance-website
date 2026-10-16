@@ -57,6 +57,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
       <nav className="flex items-center gap-3 sm:gap-5 md:gap-8" aria-label="Member navigation">
         <a className="text-center text-[8px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:text-[9px]" href="#attendance-calendar">MY ATTENDANCE</a>
         <a className="hidden text-center text-[9px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:inline" href="#period-summary">RECORD SUMMARY</a>
+        <a className="hidden text-center text-[9px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:inline" href="/profile">MY PROFILE</a>
         <form action={signOut}><button className="border border-white/35 bg-transparent px-2 py-2 text-[8px] font-semibold tracking-[.1em] text-[#f1f0e9] transition-colors hover:border-[#a8bc7a] hover:bg-[#a8bc7a] hover:text-[#171914] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8bc7a] sm:px-3 sm:text-[9px]" type="submit">SIGN OUT</button></form>
       </nav>
     </SiteHeader>
