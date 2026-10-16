@@ -9,9 +9,10 @@ import { StatCard } from "@/components/ui/stat-card";
 import { AttendanceBadge } from "@/components/ui/attendance-badge";
 import { EventSkeleton } from "@/components/ui/page-skeleton";
 import { eventTypeLabel } from "@/lib/event-types";
+import { formatServerClockAsGmt, serializeDatabaseDate } from "@/lib/server-log-time";
 
 type Props = { params: Promise<{ eventId: string }>; searchParams: Promise<{ period?: string }> };
-const clockFormatter = new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23", timeZone: "UTC" });
+
 const dateFormatter = new Intl.DateTimeFormat("en", { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" });
 function elapsed(seconds: number | null) {
   if (seconds == null) return "Incomplete session";
@@ -40,7 +41,7 @@ async function EventTimeline({ params, searchParams }: Props) {
   return <SiteShell>
     <SiteHeader variant="member"><a className="text-[9px] font-semibold tracking-[.13em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a]" href={back}>← BACK TO ROSTER</a></SiteHeader>
     <section className="flex flex-col justify-between gap-6 border-b border-white/10 py-7 sm:flex-row sm:items-end sm:py-9">
-      <div><p className="mb-3 text-[9px] font-semibold uppercase tracking-[.18em] text-[#b6c781]">{eventTypeLabel(event.eventType)} / AFTER ACTION RECORD</p><h1 className="m-0 text-[clamp(34px,5vw,62px)] font-medium leading-none tracking-[-.06em] text-[#f4f2e9]">{event.title}</h1><p className="mb-0 mt-3 text-sm text-[#c4c8bd]">{dateFormatter.format(event.eventDate)}{event.game ? ` · ${event.game}` : ""}</p></div>
+      <div><p className="mb-3 text-[9px] font-semibold uppercase tracking-[.18em] text-[#b6c781]">{eventTypeLabel(event.eventType)} / AFTER ACTION RECORD</p><h1 className="m-0 text-[clamp(34px,5vw,62px)] font-medium leading-none tracking-[-.06em] text-[#f4f2e9]">{event.title}</h1><p className="mb-0 mt-3 text-sm text-[#c4c8bd]">{dateFormatter.format(new Date(serializeDatabaseDate(event.eventDate)))}{event.game ? ` · ${event.game}` : ""}</p></div>
       <AttendanceBadge large status={status}>{statusText}</AttendanceBadge>
     </section>
     <section className="my-6 grid grid-cols-1 gap-3 sm:grid-cols-3" aria-label="Event attendance summary">
@@ -49,15 +50,15 @@ async function EventTimeline({ params, searchParams }: Props) {
       <StatCard label="TIME TO REQUIREMENT" value={remaining} />
     </section>
     <section className="border border-white/15 bg-[#1a1e1b] shadow-[0_16px_40px_rgba(0,0,0,.18)]">
-      <div className="flex flex-col justify-between gap-3 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-end sm:px-7"><div><p className="mb-2 text-[9px] font-semibold uppercase tracking-[.17em] text-[#a8bc7a]">PLAYER CONNECTION HISTORY</p><h2 className="m-0 text-xl font-semibold text-[#f3f1e8]">{player.nickname ?? "Your sessions"}</h2></div><span className="text-[8px] font-semibold tracking-[.13em] text-[#afb4a8]">SERVER LOG TIME</span></div>
+      <div className="flex flex-col justify-between gap-3 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-end sm:px-7"><div><p className="mb-2 text-[9px] font-semibold uppercase tracking-[.17em] text-[#a8bc7a]">PLAYER CONNECTION HISTORY</p><h2 className="m-0 text-xl font-semibold text-[#f3f1e8]">{player.nickname ?? "Your sessions"}</h2></div><span className="text-[8px] font-semibold tracking-[.13em] text-[#afb4a8]">GMT DISPLAY TIME</span></div>
       {sessions.length ? <ol className="m-0 divide-y divide-white/10 p-0">{sessions.map((item, index) => <li className="grid grid-cols-[28px_1fr] gap-3 px-5 py-4 sm:grid-cols-[32px_1fr_1fr_auto] sm:items-center sm:px-7" key={`${item.connectedAt.toISOString()}-${index}`}>
         <span className="font-mono text-[10px] text-[#a8bc7a]">{String(index + 1).padStart(2, "0")}</span>
-        <div className="flex flex-col gap-1"><strong className="text-[8px] tracking-[.12em] text-[#b6c781]">CONNECTED</strong><span className="text-[10px] text-[#c1c6ba]">{dateFormatter.format(item.connectedAt)} · {clockFormatter.format(item.connectedAt)}</span></div>
-        <div className="flex flex-col gap-1"><strong className="text-[8px] tracking-[.12em] text-[#b6c781]">DISCONNECTED</strong><span className="text-[10px] text-[#c1c6ba]">{item.disconnectedAt ? `${dateFormatter.format(item.disconnectedAt)} · ${clockFormatter.format(item.disconnectedAt)}` : "No disconnect recorded"}</span></div>
+        <div className="flex flex-col gap-1"><strong className="text-[8px] tracking-[.12em] text-[#b6c781]">CONNECTED</strong><span className="text-[10px] text-[#c1c6ba]">{formatServerClockAsGmt(item.connectedAt)} GMT</span></div>
+        <div className="flex flex-col gap-1"><strong className="text-[8px] tracking-[.12em] text-[#b6c781]">DISCONNECTED</strong><span className="text-[10px] text-[#c1c6ba]">{item.disconnectedAt ? `${formatServerClockAsGmt(item.disconnectedAt)} GMT` : "No disconnect recorded"}</span></div>
         <div className="col-start-2 flex flex-col gap-1 sm:col-start-auto sm:text-right"><strong className="text-xs text-[#f0efe8]">{elapsed(item.durationSeconds)}</strong><span className="text-[8px] tracking-[.1em] text-[#aeb4a8]">SESSION DURATION</span></div>
       </li>)}</ol> : <p className="m-0 px-5 py-7 text-xs leading-6 text-[#c2c7bb]"><strong className="block text-[#f0efe8]">No connection sessions were recorded.</strong><span>Attendance summary: {elapsed(participation.totalConnectedSeconds)}.</span></p>}
     </section>
-    <p className="my-5 text-[10px] leading-5 text-[#a7aea1]">Times are shown as recorded in the server log. The source logs do not specify a timezone.</p>
+    <p className="my-5 text-[10px] leading-5 text-[#a7aea1]">Connection timestamps are converted to GMT from the server clock (GMT+2; GMT+3 during EU summer time). Event dates remain as recorded.</p>
     <SiteFooter variant="member" />
   </SiteShell>;
 }

@@ -1,5 +1,6 @@
 import { getSteamSession } from "@/lib/auth/current-user";
 import { getPrisma } from "@/lib/db";
+import { serializeDatabaseDate, serializeServerClock } from "@/lib/server-log-time";
 
 type Context = { params: Promise<{ eventId: string }> };
 
@@ -31,11 +32,11 @@ export async function GET(_request: Request, { params }: Context) {
 
   const participation = event.participants[0];
   return Response.json({
-    event: { title: event.title, eventCode: event.eventCode, eventType: event.eventType, game: event.game, eventDate: event.eventDate, minimumAttendanceMinutes: event.minimumAttendanceMinutes },
+    event: { title: event.title, eventCode: event.eventCode, eventType: event.eventType, game: event.game, eventDate: serializeDatabaseDate(event.eventDate), minimumAttendanceMinutes: event.minimumAttendanceMinutes },
     attended: Boolean(participation),
     attendanceGranted: participation ? participation.attendanceOverride ?? participation.attendanceGranted : false,
     attendanceOverride: participation?.attendanceOverride ?? null,
     totalConnectedSeconds: participation?.totalConnectedSeconds ?? null,
-    sessions: participation?.sessions ?? [],
+    sessions: (participation?.sessions ?? []).map((item) => ({ ...item, connectedAt: serializeServerClock(item.connectedAt), disconnectedAt: item.disconnectedAt ? serializeServerClock(item.disconnectedAt) : null })),
   }, { headers: { "Cache-Control": "private, no-store" } });
 }

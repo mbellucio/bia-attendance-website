@@ -34,7 +34,7 @@ Historical Steam IDs create both a User and a linked Player. The latest nickname
 
 Every original raw log line is preserved. Matched connections become sessions; unmatched or ambiguous disconnects remain reviewable and prevent an attendance result from being calculated for affected players. The importer uses checksums to skip identical events on reruns and stops if a source file changed after a prior import.
 
-The server time zone is not present in the source logs. Imported connection timestamps preserve the log's wall-clock date and time; they are not converted to UTC.
+Raw connection timestamps remain stored as recorded in the server log. The player UI converts those timestamps to GMT for display: it subtracts two hours during standard time and three hours during EU summer time (last Sunday in March through the last Sunday in October). Event calendar dates remain as recorded. This is a display conversion; it does not rewrite raw log lines, stored timestamps, or stored durations.
 
 ## Local database
 

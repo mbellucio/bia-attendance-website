@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAnimatedDialog } from "@/hooks/use-animated-dialog";
 import { AttendanceBadge } from "@/components/ui/attendance-badge";
 import { eventTypeLabel } from "@/lib/event-types";
+import { formatSerializedServerClockAsGmt } from "@/lib/server-log-time";
 
 type EventDetails = {
   event: { title: string; eventCode: string; eventType: string; game: string | null; eventDate: string; minimumAttendanceMinutes: number | null };
@@ -15,7 +16,7 @@ type EventDetails = {
 };
 type Props = { eventId: string; eventTitle: string; className: string; label?: string; attendanceStatus?: string };
 const dateFormat = new Intl.DateTimeFormat("en", { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" });
-const timeFormat = new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23", timeZone: "UTC" });
+
 function duration(seconds: number | null) {
   if (seconds == null) return "Incomplete";
   const h = Math.floor(seconds / 3600);
@@ -24,8 +25,7 @@ function duration(seconds: number | null) {
   return [h ? h + "h" : "", m ? m + "m" : "", !h && !m ? s + "s" : ""].filter(Boolean).join(" ");
 }
 function stamp(value: string) {
-  const date = new Date(value);
-  return dateFormat.format(date) + " · " + timeFormat.format(date);
+  return formatSerializedServerClockAsGmt(value) + " GMT";
 }
 
 export default function EventDetailsModal({ eventId, eventTitle, className, label = "VIEW LOG", attendanceStatus }: Props) {
@@ -89,7 +89,7 @@ export default function EventDetailsModal({ eventId, eventTitle, className, labe
               <div className="flex flex-col gap-1"><strong className="text-[8px] tracking-[.12em] text-[#b6c781]">DISCONNECTED</strong><span className="text-[10px] text-[#c1c6ba]">{session.disconnectedAt ? stamp(session.disconnectedAt) : "No disconnect recorded"}</span></div>
               <div className="col-start-2 flex flex-col gap-1 sm:col-start-auto sm:text-right"><strong className="text-xs text-[#f0efe8]">{duration(session.durationSeconds)}</strong><span className="text-[8px] tracking-[.1em] text-[#aeb4a8]">DURATION</span></div>
             </li>)}</ol> : <p className="text-xs leading-6 text-[#c2c7bb]">{data.attended ? "No connection sessions were recorded for this event." : "No attendance was recorded for this event."}</p>}
-            <p className="mb-0 mt-5 text-[9px] leading-5 text-[#a2aa9b]">Times use the server log clock. The source logs do not specify a timezone.</p>
+            <p className="mb-0 mt-5 text-[9px] leading-5 text-[#a2aa9b]">Connection timestamps are converted to GMT from the server clock (GMT+2; GMT+3 during EU summer time).</p>
           </section>
         </>}
         {!loading && !error && !data && <div className="p-8 text-center text-sm text-[#c2c7bb]">No details available.</div>}

@@ -121,7 +121,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
         <StatCard label="DID NOT ATTEND" value={missedCount} />
       </section>
       {pendingCount > 0 && <p className="my-4 border-l-2 border-[#a8bc7a] pl-3 text-[10px] leading-5 text-[#a7aea1]">{pendingCount} attendance record{pendingCount === 1 ? " is" : "s are"} still under review.</p>}
-      <p className="mb-6 mt-4 text-[10px] leading-5 text-[#a7aea1]">Event and connection times use the recorded server log clock. The source logs do not specify a timezone.</p>
+      <p className="mb-6 mt-4 text-[10px] leading-5 text-[#a7aea1]">Event dates remain as recorded. Connection timestamps in event details are converted to GMT (server clock: GMT+2; GMT+3 during EU summer time).</p>
     </>}
     <SiteFooter variant="member" />
   </SiteShell>;
