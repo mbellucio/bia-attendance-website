@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { notFound, redirect } from "next/navigation";
 import { getSteamSession } from "@/lib/auth/current-user";
 import { getPrisma } from "@/lib/db";
@@ -16,8 +17,7 @@ type Props = { params: Promise<{ eventId: string }>; searchParams: Promise<{ per
 const dateFormatter = new Intl.DateTimeFormat("en", { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" });
 function elapsed(seconds: number | null) {
   if (seconds == null) return "Incomplete session";
-  const hours = Math.floor(seconds / 3600); const minutes = Math.floor((seconds % 3600) / 60); const remainder = seconds % 60;
-  return [hours ? `${hours}h` : "", minutes ? `${minutes}m` : "", !hours && !minutes ? `${remainder}s` : ""].filter(Boolean).join(" ");
+  return `${Math.floor(seconds / 60)} min`;
 }
 async function EventTimeline({ params, searchParams }: Props) {
   const [{ eventId }, { period }] = await Promise.all([params, searchParams]);
@@ -36,10 +36,10 @@ async function EventTimeline({ params, searchParams }: Props) {
   const status = effective ? "granted" : participation.totalConnectedSeconds == null ? "pending" : "denied";
   const statusText = effective ? "ATTENDANCE GRANTED" : participation.totalConnectedSeconds == null ? "PENDING REVIEW" : "NOT GRANTED";
   const remainingSeconds = event.minimumAttendanceMinutes == null || participation.totalConnectedSeconds == null ? null : Math.max(0, event.minimumAttendanceMinutes * 60 - participation.totalConnectedSeconds);
-  const remaining = event.minimumAttendanceMinutes == null ? "Not set" : participation.totalConnectedSeconds == null ? "Pending" : remainingSeconds === 0 ? "Threshold met" : elapsed(remainingSeconds);
+  const remaining = event.minimumAttendanceMinutes == null ? "Not set" : participation.totalConnectedSeconds == null ? "Pending" : elapsed(remainingSeconds);
 
   return <SiteShell>
-    <SiteHeader variant="member"><a className="text-[9px] font-semibold tracking-[.13em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a]" href={back}>← BACK TO ROSTER</a></SiteHeader>
+    <SiteHeader variant="member"><a className="text-[9px] font-semibold tracking-[.13em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a]" href={back}><ArrowLeftIcon className="mr-2 inline size-3.5 align-[-2px]" aria-hidden="true" />BACK TO ROSTER</a></SiteHeader>
     <section className="flex flex-col justify-between gap-6 border-b border-white/10 py-7 sm:flex-row sm:items-end sm:py-9">
       <div><p className="mb-3 text-[9px] font-semibold uppercase tracking-[.18em] text-[#b6c781]">{eventTypeLabel(event.eventType)} / AFTER ACTION RECORD</p><h1 className="m-0 text-[clamp(34px,5vw,62px)] font-medium leading-none tracking-[-.06em] text-[#f4f2e9]">{event.title}</h1><p className="mb-0 mt-3 text-sm text-[#c4c8bd]">{dateFormatter.format(new Date(serializeDatabaseDate(event.eventDate)))}{event.game ? ` · ${event.game}` : ""}</p></div>
       <AttendanceBadge large status={status}>{statusText}</AttendanceBadge>

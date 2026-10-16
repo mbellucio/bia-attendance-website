@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { signOut } from "@/app/actions";
 import { getSteamSession } from "@/lib/auth/current-user";
 import PlayerDashboard from "@/app/player-dashboard";
@@ -40,7 +41,7 @@ async function LoginPanel({ searchParams }: HomeProps) {
         {message && <p className="m-0 w-full border-l-2 border-[#e2846e] bg-[#7e3225]/30 px-3 py-2 text-xs text-[#ffd8cf]" role="alert">{message}</p>}
         <a className="flex min-h-[52px] w-full items-center gap-3 bg-[#506846] px-5 text-xs font-bold text-[#f5f3e8] transition-colors hover:bg-[#617a54] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#a8bc7a] sm:w-auto sm:min-w-[280px]" href="/api/auth/steam">
           <SteamMark className="size-6 shrink-0 text-[#f4f3e9] [filter:drop-shadow(0_0_1px_rgba(23,25,20,.7))]" />
-          <span>Sign in through Steam</span><span className="ml-auto text-base" aria-hidden="true">↗</span>
+          <span>Sign in through Steam</span><ArrowUpRightIcon className="ml-auto size-4 shrink-0" aria-hidden="true" />
         </a>
         <p className="m-0 max-w-sm text-[10px] leading-5 text-[#aeb5a7]">Steam shares your unique account ID with us. It does not provide your email address through this sign-in.</p>
       </>}
