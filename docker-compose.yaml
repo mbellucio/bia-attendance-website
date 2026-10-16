@@ -17,5 +17,21 @@ services:
       retries: 10
       start_period: 10s
 
+  discord-bot:
+    build:
+      context: ./discord-bot
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ./discord-bot/.env
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: ${POSTGRES_DB:-attendance}
+      DB_USER: ${POSTGRES_USER:-attendance}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+
 volumes:
   attendance_postgres_data:
