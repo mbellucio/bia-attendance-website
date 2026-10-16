@@ -8,7 +8,8 @@ import { PrismaClient } from "../src/generated/prisma/client";
 
 type L = { id:string; n:number; raw:string; time:string|null; type:"OTHER"|"PLAYER_CONNECTING"|"PLAYER_CONNECTED"|"PLAYER_DISCONNECTED"; name:string|null; reported:string|null; steam:string|null; player:string|null; note:string|null; at:Date|null };
 type S = { id:string; steam:string; player:string; connect:string; disconnect:string|null; start:Date; end:Date|null; seconds:number|null };
-type E = { key:string; file:string; sha:string; code:string; title:string; date:Date; duration:number|null; threshold:number|null; lines:L[]; sessions:S[]; names:Map<string,string> };
+type EventType = "MOD" | "WW2" | "CW" | "TRN" | "SP" | "PVP" | "OTHER";
+type E = { key:string; file:string; sha:string; code:string; eventType:EventType; title:string; date:Date; duration:number|null; threshold:number|null; lines:L[]; sessions:S[]; names:Map<string,string> };
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const logs=path.resolve(process.env.LOG_ARCHIVE_DIR??path.join(project,"data","archive","logs"));
 const root=path.dirname(logs), apply=process.argv.includes("--apply"), valid=/^\d{17}$/;
@@ -17,11 +18,12 @@ const keyName=(s:string)=>s.normalize("NFKC").replace(/\s*\[bia\]\s*/gi," ").rep
 const clean=(s:string)=>s.normalize("NFKC").replace(/\s*\[bia\]\s*/gi," ").replace(/\s+/g," ").trim();
 async function walk(dir:string,suffix:string):Promise<string[]>{let es;try{es=await readdir(dir,{withFileTypes:true})}catch{return []}const a=await Promise.all(es.map(async e=>e.isDirectory()?walk(path.join(dir,e.name),suffix):e.isFile()&&e.name.toLowerCase().endsWith(suffix)?[path.join(dir,e.name)]:[]));return a.flat()}
 async function lookups(){const ids=new Map<string,Set<string>>(),duration=new Map<string,number>();try{const o=JSON.parse(await readFile(path.join(root,"ids.json"),"utf8")) as Record<string,unknown>;for(const [n,v]of Object.entries(o)){const id=String(v);if(valid.test(id)){const k=keyName(n),s=ids.get(k)??new Set<string>();s.add(id);ids.set(k,s)}}}catch{}for(const f of await walk(path.join(root,"mission_duration"),".json"))try{const o=JSON.parse(await readFile(f,"utf8")) as Record<string,unknown>;for(const[k,v]of Object.entries(o)){const d=Array.isArray(v)?v[0]:v,m=Number((d as {Duration?:unknown})?.Duration);if(Number.isInteger(m)&&m>0)duration.set(k,m)}}catch{}return{ids,duration}}
+function eventTypeFor(code:string):EventType { if (["MOD","WW2","CW","TRN","SP","PVP"].includes(code)) return code as EventType; if (code === "SPC") return "SP"; if (code === "VIET" || code === "VTN") return "CW"; return "OTHER"; }
 function resolve(n:string|null,ids:Map<string,Set<string>>){if(!n)return null;const x=ids.get(keyName(n));return x?.size===1?[...x][0]:null}
 async function parse(file:string,ids:Map<string,Set<string>>,durations:Map<string,number>):Promise<E>{
  const bytes=await readFile(file),source=path.basename(file,path.extname(file)),m=source.match(/^BIA_([A-Z0-9]+)_(\d{4})[_.-](\d{1,2})[_.-](\d{1,2})$/i);if(!m)throw Error("Unexpected event filename "+source);
  const code=m[1].toUpperCase(),y=+m[2],mo=+m[3],d=+m[4],date=new Date(Date.UTC(y,mo-1,d));if(date.getUTCFullYear()!==y||date.getUTCMonth()!==mo-1||date.getUTCDate()!==d)throw Error("Invalid event date "+source);
- const duration=durations.get(source)??null,labels:Record<string,string>={WW2:"World War II",TRN:"Training",MOD:"Mod",CW:"Campaign"};
+ const duration=durations.get(source)??null,labels:Record<string,string>={WW2:"World War II",TRN:"Training",MOD:"Modern",CW:"Cold War",SP:"Special Event",SPC:"Special Event",PVP:"PVP",CAM:"Campaign",VIET:"Cold War",VTN:"Cold War"};
  const raw=bytes.toString("utf8").split(/\r?\n/);if(raw.at(-1)==="")raw.pop();
  const lines:L[]=[],sessions:S[]=[],names=new Map<string,string>(),active=new Map<string,S[]>();let prev:number|null=null,offset=0;
  for(let i=0;i<raw.length;i++){
@@ -38,7 +40,7 @@ async function parse(file:string,ids:Map<string,Set<string>>,durations:Map<strin
    else line.note=c.length>1?"Multiple open sessions match this display name; left unresolved.":c.length===1?"Disconnect time precedes its connection; left unresolved.":"No open session matched this disconnect."
   }
  }
- return{key:source,file:path.basename(file),sha:createHash("sha256").update(bytes).digest("hex"),code,title:(labels[code]??code)+" — "+date.toISOString().slice(0,10),date,duration,threshold:code==="TRN"?55:duration,lines,sessions,names};
+ return{key:source,file:path.basename(file),sha:createHash("sha256").update(bytes).digest("hex"),code,eventType:eventTypeFor(code),title:(labels[code]??code)+" — "+date.toISOString().slice(0,10),date,duration,threshold:code==="TRN"?55:duration,lines,sessions,names};
 }
 async function main(){
  const {ids,duration}=await lookups(),events:E[]=[];for(const f of await walk(logs,".txt"))events.push(await parse(f,ids,duration));events.sort((a,b)=>a.date.getTime()-b.date.getTime()||a.key.localeCompare(b.key));
@@ -57,7 +59,7 @@ async function main(){
    const eventId=randomUUID(),participants=new Map<string,string>(),totals=new Map<string,number>(),complete=new Map<string,boolean>();
    for(const s of e.sessions){const p=playerIds.get(s.steam);if(!p)continue;s.player=p;participants.set(p,participants.get(p)??randomUUID());totals.set(p,(totals.get(p)??0)+(s.seconds??0));complete.set(p,(complete.get(p)??true)&&s.seconds!==null)}
    for(const l of e.lines)if(l.steam){l.player=playerIds.get(l.steam)??null;if(l.type==="PLAYER_DISCONNECTED"){const s=e.sessions.find(x=>x.disconnect===l.id);if(s)l.player=s.player||null}}
-   await tx.event.create({data:{id:eventId,sourceKey:e.key,sourceFileName:e.file,sourceSha256:e.sha,title:e.title,eventCode:e.code,game:"Arma",eventDate:e.date,missionDurationMinutes:e.duration,minimumAttendanceMinutes:e.threshold,importedAt:new Date()}});
+   await tx.event.create({data:{id:eventId,sourceKey:e.key,sourceFileName:e.file,sourceSha256:e.sha,title:e.title,eventCode:e.code,eventType:e.eventType,game:"Arma",eventDate:e.date,missionDurationMinutes:e.duration,minimumAttendanceMinutes:e.threshold,importedAt:new Date()}});
    const ps=[...participants].map(([playerId,id])=>{const done=complete.get(playerId)===true&&e.threshold!==null,seconds=totals.get(playerId)??0;return{id,eventId,playerId,totalConnectedSeconds:done?seconds:null,attendanceGranted:done?seconds>=e.threshold!*60:false,attendanceCalculatedAt:done?new Date():null,calculationVersion:done?"raw-log-session-sum-v1":null}});
    for(let i=0;i<ps.length;i+=500)await tx.eventParticipant.createMany({data:ps.slice(i,i+500)});
    const ls=e.lines.map(l=>({id:l.id,eventId,lineNumber:l.n,rawText:l.raw,timeOfDay:l.time,type:l.type,reportedPlayerName:l.name,reportedSteamId:l.reported,playerId:l.player,parseNote:l.note}));

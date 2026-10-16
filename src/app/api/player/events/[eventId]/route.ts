@@ -17,7 +17,7 @@ export async function GET(_request: Request, { params }: Context) {
   const event = await getPrisma().event.findUnique({
     where: { id: eventId },
     select: {
-      title: true, eventCode: true, game: true, eventDate: true, minimumAttendanceMinutes: true,
+      title: true, eventCode: true, eventType: true, game: true, eventDate: true, minimumAttendanceMinutes: true,
       participants: {
         where: { playerId: player.id }, take: 1,
         select: {
@@ -31,7 +31,7 @@ export async function GET(_request: Request, { params }: Context) {
 
   const participation = event.participants[0];
   return Response.json({
-    event: { title: event.title, eventCode: event.eventCode, game: event.game, eventDate: event.eventDate, minimumAttendanceMinutes: event.minimumAttendanceMinutes },
+    event: { title: event.title, eventCode: event.eventCode, eventType: event.eventType, game: event.game, eventDate: event.eventDate, minimumAttendanceMinutes: event.minimumAttendanceMinutes },
     attended: Boolean(participation),
     attendanceGranted: participation ? participation.attendanceOverride ?? participation.attendanceGranted : false,
     attendanceOverride: participation?.attendanceOverride ?? null,

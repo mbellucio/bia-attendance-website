@@ -7,6 +7,18 @@ datasource db {
   provider = "postgresql"
 }
 
+enum EventType {
+  MOD
+  WW2
+  CW
+  TRN
+  SP
+  PVP
+  OTHER
+
+  @@map("event_type")
+}
+
 enum LogLineType {
   OTHER
   PLAYER_CONNECTING
@@ -53,6 +65,7 @@ model Event {
   sourceSha256             String?   @map("source_sha256") @db.VarChar(64)
   title                    String
   eventCode                String    @map("event_code")
+  eventType                EventType @default(OTHER) @map("event_type")
   game                     String?
   eventDate                DateTime  @map("event_date") @db.Date
   serverTimeZone           String?   @map("server_time_zone")
