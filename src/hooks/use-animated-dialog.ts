@@ -7,7 +7,7 @@ export function useAnimatedDialog(duration = 220) {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const closeTimer = useRef<ReturnType<typeof window.setTimeout> | undefined>(undefined);
+  const closeTimer = useRef<number | undefined>(undefined);
   useBodyScrollLock(open);
 
   useEffect(() => {
@@ -41,3 +41,4 @@ export function useAnimatedDialog(duration = 220) {
 
   return { dialogRef, open, closing, show, close };
 }
+

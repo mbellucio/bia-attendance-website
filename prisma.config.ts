@@ -5,6 +5,7 @@ import { defineConfig } from "prisma/config";
 // Set DIRECT_URL before running migrations; this placeholder is not a real DB.
 const databaseUrl =
   process.env.DIRECT_URL ||
+  process.env.DATABASE_URL_UNPOOLED ||
   process.env.DATABASE_URL ||
   "postgresql://postgres:postgres@localhost:5432/attendance";
 
@@ -17,3 +18,5 @@ export default defineConfig({
     url: databaseUrl,
   },
 });
+
+
