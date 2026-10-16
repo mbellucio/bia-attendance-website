@@ -301,3 +301,17 @@ button { font: inherit; }
   .modal-session-list li .modal-duration { grid-column: 2; }
   .modal-time-note { margin: 11px 14px 16px; }
 }
+
+/* All-event calendar status labels and compact month navigation */
+.missed-dot, .calendar-event.missed i { background: #e08e66; box-shadow: 0 0 7px rgba(224,142,102,.25); }
+.calendar-scroll { overflow-x: auto; }
+.calendar-event { flex-direction: column; align-items: flex-start; gap: 3px; white-space: normal; }
+.calendar-event-status { color: #a9b09e; font-size: 7px; line-height: 1.2; letter-spacing: .025em; white-space: normal; }
+.calendar-event.granted .calendar-event-status { color: #cbd99b; }
+.calendar-event.pending .calendar-event-status { color: #e1c47f; }
+.calendar-event.denied .calendar-event-status { color: #dc9d8a; }
+.calendar-event.missed .calendar-event-status { color: #e5a183; }
+@media (max-width: 650px) {
+  .calendar-grid { min-width: 620px; }
+  .calendar-event-status { font-size: 8px; }
+}

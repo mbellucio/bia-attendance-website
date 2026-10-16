@@ -4,12 +4,13 @@ import { useEffect, useRef, useState } from "react";
 
 type EventDetails = {
   event: { title: string; eventCode: string; game: string | null; eventDate: string; minimumAttendanceMinutes: number | null };
+  attended: boolean;
   attendanceGranted: boolean;
   attendanceOverride: boolean | null;
   totalConnectedSeconds: number | null;
   sessions: { connectedAt: string; disconnectedAt: string | null; durationSeconds: number | null }[];
 };
-type Props = { eventId: string; eventTitle: string; className: string; label?: string };
+type Props = { eventId: string; eventTitle: string; className: string; label?: string; attendanceStatus?: string };
 const dateFormat = new Intl.DateTimeFormat("en", { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" });
 const timeFormat = new Intl.DateTimeFormat("en", { hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23", timeZone: "UTC" });
 function duration(seconds: number | null) {
@@ -19,7 +20,7 @@ function duration(seconds: number | null) {
 }
 function stamp(value: string) { const date = new Date(value); return `${dateFormat.format(date)} · ${timeFormat.format(date)}`; }
 
-export default function EventDetailsModal({ eventId, eventTitle, className, label = "VIEW LOG" }: Props) {
+export default function EventDetailsModal({ eventId, eventTitle, className, label = "VIEW LOG", attendanceStatus }: Props) {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<EventDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -51,13 +52,15 @@ export default function EventDetailsModal({ eventId, eventTitle, className, labe
   }
 
   const effectiveAttendance = data?.attendanceOverride ?? data?.attendanceGranted ?? false;
-  const remaining = data?.event.minimumAttendanceMinutes == null || data.totalConnectedSeconds == null
+  const statusClass = !data?.attended ? "missed" : effectiveAttendance ? "granted" : data.totalConnectedSeconds == null ? "pending" : "denied";
+  const statusText = !data?.attended ? "DID NOT ATTEND" : effectiveAttendance ? "ATTENDANCE GRANTED" : data.totalConnectedSeconds == null ? "PENDING REVIEW" : "NOT GRANTED";
+  const remaining = !data?.attended || data.event.minimumAttendanceMinutes == null || data.totalConnectedSeconds == null
     ? null
     : Math.max(0, data.event.minimumAttendanceMinutes * 60 - data.totalConnectedSeconds);
 
   return <>
-    <button type="button" className={className} aria-haspopup="dialog" aria-label={label === "VIEW LOG" ? `View ${eventTitle} connection log` : `Open ${eventTitle} details`} onClick={showDetails}>
-      {label}{label === "VIEW LOG" && <span aria-hidden="true">↗</span>}
+    <button type="button" className={className} aria-haspopup="dialog" aria-label={attendanceStatus ? `${eventTitle}: ${attendanceStatus}` : label === "VIEW LOG" ? `View ${eventTitle} connection log` : `Open ${eventTitle} details`} onClick={showDetails}>
+      {label}{attendanceStatus && <span className="calendar-event-status">{attendanceStatus}</span>}{label === "VIEW LOG" && <span aria-hidden="true">↗</span>}
     </button>
     <dialog ref={dialogRef} className="event-modal" aria-label={eventTitle} onCancel={(event) => { event.preventDefault(); setOpen(false); }} onClick={(event) => { if (event.target === dialogRef.current) setOpen(false); }}>
       <div className="modal-frame">
@@ -65,10 +68,10 @@ export default function EventDetailsModal({ eventId, eventTitle, className, labe
         {loading && <div className="modal-state" role="status">Retrieving your connection record…</div>}
         {error && <div className="modal-state modal-error" role="alert">{error}</div>}
         {data && <>
-          <header className="modal-event-header"><p className="roster-eyebrow">{data.event.eventCode}{data.event.game ? ` / ${data.event.game}` : ""}</p><h2 id={`event-modal-title-${eventId}`}>{data.event.title || eventTitle}</h2><p>{dateFormat.format(new Date(data.event.eventDate))}</p><span className={`attendance-badge large ${effectiveAttendance ? "granted" : data.totalConnectedSeconds == null ? "pending" : "denied"}`}>{effectiveAttendance ? "ATTENDANCE GRANTED" : data.totalConnectedSeconds == null ? "PENDING REVIEW" : "NOT GRANTED"}</span></header>
-          <div className="modal-stats"><article><span>TOTAL TIME</span><strong>{duration(data.totalConnectedSeconds)}</strong></article><article><span>REQUIRED</span><strong>{data.event.minimumAttendanceMinutes == null ? "Not set" : `${data.event.minimumAttendanceMinutes} min`}</strong></article><article><span>TIME REMAINING</span><strong>{remaining == null ? "Pending" : remaining === 0 ? "Threshold met" : duration(remaining)}</strong></article></div>
+          <header className="modal-event-header"><p className="roster-eyebrow">{data.event.eventCode}{data.event.game ? ` / ${data.event.game}` : ""}</p><h2 id={`event-modal-title-${eventId}`}>{data.event.title || eventTitle}</h2><p>{dateFormat.format(new Date(data.event.eventDate))}</p><span className={"attendance-badge large " + statusClass}>{statusText}</span></header>
+          <div className="modal-stats"><article><span>TOTAL TIME</span><strong>{data.attended ? duration(data.totalConnectedSeconds) : "—"}</strong></article><article><span>REQUIRED</span><strong>{data.event.minimumAttendanceMinutes == null ? "Not set" : `${data.event.minimumAttendanceMinutes} min`}</strong></article><article><span>TIME REMAINING</span><strong>{!data.attended ? "Did not attend" : remaining == null ? "Pending" : remaining === 0 ? "Threshold met" : duration(remaining)}</strong></article></div>
           <section className="modal-sessions"><div className="modal-section-title"><h3>CONNECTION HISTORY</h3><span>{data.sessions.length} SESSION{data.sessions.length === 1 ? "" : "S"}</span></div>
-            {data.sessions.length ? <ol className="modal-session-list">{data.sessions.map((session, index) => <li key={`${session.connectedAt}-${index}`}><span className="modal-session-number">{String(index + 1).padStart(2, "0")}</span><div><strong>CONNECTED</strong><span>{stamp(session.connectedAt)}</span></div><div><strong>DISCONNECTED</strong><span>{session.disconnectedAt ? stamp(session.disconnectedAt) : "No disconnect recorded"}</span></div><div className="modal-duration"><strong>{duration(session.durationSeconds)}</strong><span>DURATION</span></div></li>)}</ol> : <p className="modal-empty">No connection sessions were recorded for this event.</p>}
+            {data.sessions.length ? <ol className="modal-session-list">{data.sessions.map((session, index) => <li key={`${session.connectedAt}-${index}`}><span className="modal-session-number">{String(index + 1).padStart(2, "0")}</span><div><strong>CONNECTED</strong><span>{stamp(session.connectedAt)}</span></div><div><strong>DISCONNECTED</strong><span>{session.disconnectedAt ? stamp(session.disconnectedAt) : "No disconnect recorded"}</span></div><div className="modal-duration"><strong>{duration(session.durationSeconds)}</strong><span>DURATION</span></div></li>)}</ol> : <p className="modal-empty">{data.attended ? "No connection sessions were recorded for this event." : "No attendance was recorded for this event."}</p>}
           </section>
           <p className="modal-time-note">Times use the server log clock. The source logs do not specify a timezone.</p>
         </>}
