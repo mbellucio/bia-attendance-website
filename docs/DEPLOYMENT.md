@@ -11,11 +11,13 @@ The raw logs contain player nicknames and SteamID64s. Keep this repository priva
 The root `vercel.json` points Vercel at `npm run vercel-build`. On a Production deployment, that script runs these steps in order:
 
 1. `npm run db:deploy` applies checked-in Prisma migrations.
-2. `npm run db:import-logs -- --apply` imports the bundled archive and grants admin to the SteamID in `data/admin-users.json`.
-3. `npm run build` builds the Next.js app.
+2. `npm run build` builds the Next.js app.
 
-On Preview deployments, the script skips migration and import, then builds the app. This avoids preview deployments changing the production database.
+The historical archive import is deliberately separate from deploys. Neon already contains the imported archive, and the importer's source checksum guard stops if a bundled log changes after import. Running the bulk import on every deployment could block otherwise valid deploys over a source-file difference.
 
+For a fresh database, first review the dry-run summary with `npm run db:import-logs`, then deliberately apply it with `npm run db:import-logs -- --apply` against the intended database URL.
+
+On Preview deployments, the script skips migrations and imports, then builds the app. This avoids preview deployments changing the production database.
 ## Vercel environment
 
 Configure these in the Vercel project's **Production** environment:

@@ -12,7 +12,6 @@ if (process.env.VERCEL_ENV === "production") {
   }
   // prisma.config.ts prefers DIRECT_URL for migration DDL, and falls back to DATABASE_URL.
   run(["run", "db:deploy"]);
-  run(["run", "db:import-logs", "--", "--apply"]);
 }
 
 run(["run", "build"]);
