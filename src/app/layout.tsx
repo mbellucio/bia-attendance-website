@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
+import { Roboto_Slab } from "next/font/google";
 import "./globals.css";
+
+const fieldSerif = Roboto_Slab({
+  subsets: ["latin"],
+  weight: "variable",
+  variable: "--font-field-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "BIA Attendance | Field Roster",
@@ -8,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    <html lang="en" className={fieldSerif.variable}>
       <body>{children}</body>
     </html>
   );
