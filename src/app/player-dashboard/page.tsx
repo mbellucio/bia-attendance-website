@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getSteamSession } from "@/lib/auth/current-user";
@@ -10,6 +11,7 @@ async function DashboardContent() {
   return <UserDashboard />;
 }
 
-export default function PlayerDashboardPage() {
+export default async function PlayerDashboardPage() {
+  await connection();
   return <Suspense fallback={<UserDashboardSkeleton />}><DashboardContent /></Suspense>;
 }

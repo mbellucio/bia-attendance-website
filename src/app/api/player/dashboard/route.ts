@@ -1,13 +1,8 @@
-import { errorResponse } from "@/lib/errors/server";
-import { getSteamSession } from "@/lib/auth/current-user";
-import { handleApiError } from "@/lib/errors/server";
+import { withSteamSession } from "@/lib/auth/api-guard";
 import { getPrisma } from "@/lib/db";
 import type { DashboardResponse } from "@/lib/api/player";
 
-export async function GET() {
-  const session = await getSteamSession();
-  if (!session) return errorResponse("AUTH_REQUIRED");
-  try {
+export const GET = withSteamSession(async (_request, _context, session) => {
   const prisma = getPrisma();
   const user = await prisma.user.findUnique({
     where: { steamId: session.steamId },
@@ -34,7 +29,4 @@ export async function GET() {
     modelPath: user?.modelPreference?.modelPath ?? "/models/ww2/us-rifleman.glb",
   };
   return Response.json(result, { headers: { "Cache-Control": "private, no-store" } });
-  } catch (cause) {
-    return handleApiError(cause);
-  }
-}
+});

@@ -48,3 +48,6 @@ next-env.d.ts
 !discord-bot/.env.example
 # temporary soldier conversion tools
 /tmp/arma3-model-export/
+
+# private TLS origin certificates
+/certs/

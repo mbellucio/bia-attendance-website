@@ -41,5 +41,9 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "type": "module"
+  "type": "module",
+  "optionalDependencies": {
+    "@emnapi/core": "1.11.3",
+    "@emnapi/runtime": "1.11.3"
+  }
 }

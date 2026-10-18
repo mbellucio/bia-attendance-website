@@ -1,5 +1,4 @@
-import { getSteamSession } from "@/lib/auth/current-user";
-import { handleApiError } from "@/lib/errors/server";
+import { withSteamSession } from "@/lib/auth/api-guard";
 import { errorResponse } from "@/lib/errors/server";
 import { getPrisma } from "@/lib/db";
 import { serializeDatabaseDate, serializeServerClock } from "@/lib/server-log-time";
@@ -10,10 +9,7 @@ type Context = { params: Promise<{ eventId: string }> };
 
 const headers = { "Cache-Control": "private, no-store" };
 
-export async function GET(_request: Request, { params }: Context) {
-  const session = await getSteamSession();
-  if (!session) return errorResponse("AUTH_REQUIRED");
-  try {
+export const GET = withSteamSession(async (_request, { params }: Context, session) => {
     const { eventId } = await params;
     const player = await getPrisma().player.findFirst({
       where: { user: { is: { steamId: session.steamId } } },
@@ -47,7 +43,4 @@ export async function GET(_request: Request, { params }: Context) {
       sessions: (participation?.sessions ?? []).map((item) => ({ ...item, connectedAt: serializeServerClock(item.connectedAt), disconnectedAt: item.disconnectedAt ? serializeServerClock(item.disconnectedAt) : null })),
     };
     return Response.json(result, { headers });
-  } catch (cause) {
-    return handleApiError(cause);
-  }
-}
+});
