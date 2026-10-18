@@ -1,4 +1,3 @@
-import { signOut } from "@/app/actions";
 import { getPrisma } from "@/lib/db";
 import { eventTypeLabel } from "@/lib/event-types";
 import EventDetailsModal from "@/app/event-details-modal";
@@ -8,6 +7,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { StatCard } from "@/components/ui/stat-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { AutoSubmitPeriodSelect } from "@/components/ui/auto-submit-period-select";
+import { MemberNavigation } from "@/components/layout/member-navigation";
 
 type DashboardProps = { steamId: string; period?: string };
 const monthFormatter = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" });
@@ -53,13 +53,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
   }, {});
 
   return <SiteShell>
-    <SiteHeader variant="member">
-      <nav className="flex items-center gap-3 sm:gap-5 md:gap-8" aria-label="Member navigation">
-        <a className="text-center text-[8px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:text-[9px]" href="#attendance-calendar">MY ATTENDANCE</a>
-        <a className="hidden text-center text-[9px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:inline" href="#period-summary">RECORD SUMMARY</a>
-        <form action={signOut}><button className="border border-white/35 bg-transparent px-2 py-2 text-[8px] font-semibold tracking-[.1em] text-[#f1f0e9] transition-colors hover:border-[#a8bc7a] hover:bg-[#a8bc7a] hover:text-[#171914] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8bc7a] sm:px-3 sm:text-[9px]" type="submit">SIGN OUT</button></form>
-      </nav>
-    </SiteHeader>
+    <SiteHeader variant="member"><MemberNavigation active="attendance" /></SiteHeader>
     <section className="-mx-[clamp(20px,6.25vw,104px)] border-b border-white/10 bg-[linear-gradient(110deg,#171b18_0%,#202820_64%,#293229_100%)] px-[clamp(20px,7.45vw,124px)] py-7 sm:py-8 md:py-9">
       <p className="mb-3 text-[9px] font-semibold uppercase tracking-[.19em] text-[#b6c781] sm:text-[10px]">BIA MEMBER PORTAL <span className="mx-2 text-[#a8bc7a]">/</span> PERSONNEL RECORD</p>
       <h1 className="m-0 text-[clamp(42px,5.2vw,72px)] font-medium leading-none tracking-[-.065em] text-[#f6f4e9]">{name}</h1>

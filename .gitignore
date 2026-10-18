@@ -44,3 +44,6 @@ next-env.d.ts
 # generated Prisma client
 /src/generated/prisma/
 .neon
+
+# temporary soldier conversion tools
+/tmp/arma3-model-export/

@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { signOut } from "@/app/actions";
 import { getSteamSession } from "@/lib/auth/current-user";
-import PlayerDashboard from "@/app/player-dashboard";
+import UserDashboard from "@/app/user-dashboard";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteShell } from "@/components/layout/site-shell";
@@ -68,7 +68,7 @@ function LoginPage({ searchParams }: HomeProps) {
 
 async function Portal({ searchParams }: HomeProps) {
   const [params, session] = await Promise.all([searchParams, getSteamSession()]);
-  if (session) return <Suspense fallback={<DashboardSkeleton />}><PlayerDashboard steamId={session.steamId} period={params.period} /></Suspense>;
+  if (session) return <Suspense fallback={<DashboardSkeleton />}><UserDashboard steamId={session.steamId} /></Suspense>;
   return <LoginPage searchParams={Promise.resolve(params)} />;
 }
 
