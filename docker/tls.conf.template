@@ -1,0 +1,33 @@
+server {
+  listen 8443 ssl;
+  server_name ${SERVER_NAME};
+  server_tokens off;
+  client_max_body_size ${CLIENT_MAX_BODY_SIZE};
+  limit_req_status 429;
+  limit_conn_status 429;
+  limit_conn connections_per_ip ${CONNECTIONS_PER_IP};
+
+  ssl_certificate ${TLS_CERT_FILE};
+  ssl_certificate_key ${TLS_KEY_FILE};
+  ssl_protocols TLSv1.2 TLSv1.3;
+  ssl_prefer_server_ciphers off;
+  ssl_session_cache shared:TLS:10m;
+  ssl_session_timeout 1d;
+  ssl_session_tickets off;
+
+  location ^~ /api/auth/steam {
+    limit_req zone=api_per_ip burst=40 nodelay;
+    limit_req zone=steam_login_per_ip burst=10 nodelay;
+    include /etc/nginx/snippets/proxy-common.conf;
+  }
+
+  location ^~ /api/ {
+    limit_req zone=api_per_ip burst=40 nodelay;
+    include /etc/nginx/snippets/proxy-common.conf;
+  }
+
+  location / {
+    include /etc/nginx/snippets/proxy-common.conf;
+  }
+}
+

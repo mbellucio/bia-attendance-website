@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getSteamSession } from "@/lib/auth/current-user";
@@ -12,6 +13,7 @@ async function AttendanceContent({ searchParams }: Props) {
   return <AttendanceDashboard period={params.period} />;
 }
 
-export default function AttendancePage(props: Props) {
+export default async function AttendancePage(props: Props) {
+  await connection();
   return <Suspense fallback={<DashboardSkeleton />}><AttendanceContent {...props} /></Suspense>;
 }

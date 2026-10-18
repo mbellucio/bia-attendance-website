@@ -1,5 +1,4 @@
-import { getSteamSession } from "@/lib/auth/current-user";
-import { handleApiError } from "@/lib/errors/server";
+import { withSteamSession } from "@/lib/auth/api-guard";
 import { errorResponse } from "@/lib/errors/server";
 import { getPrisma } from "@/lib/db";
 
@@ -10,10 +9,7 @@ const modelPaths = {
 } as const;
 type Faction = keyof typeof modelPaths;
 
-export async function PUT(request: Request) {
-  const session = await getSteamSession();
-  if (!session) return errorResponse("AUTH_REQUIRED");
-  try {
+export const PUT = withSteamSession(async (request, _context, session) => {
   let body: unknown;
   try { body = await request.json(); } catch { return errorResponse("INVALID_REQUEST"); }
   if (!body || typeof body !== "object" || !("faction" in body)) {
@@ -36,7 +32,4 @@ export async function PUT(request: Request) {
     select: { faction: true, modelPath: true },
   });
   return Response.json(preference, { headers: { "Cache-Control": "private, no-store" } });
-  } catch (cause) {
-    return handleApiError(cause);
-  }
-}
+});

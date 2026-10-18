@@ -1,16 +1,11 @@
-import { errorResponse } from "@/lib/errors/server";
-import { getSteamSession } from "@/lib/auth/current-user";
-import { handleApiError } from "@/lib/errors/server";
+import { withSteamSession } from "@/lib/auth/api-guard";
 import { getPrisma } from "@/lib/db";
 import { serializeDatabaseDate } from "@/lib/server-log-time";
 import type { AttendanceResponse } from "@/lib/api/player";
 
 const headers = { "Cache-Control": "private, no-store" };
 
-export async function GET() {
-  const session = await getSteamSession();
-  if (!session) return errorResponse("AUTH_REQUIRED");
-  try {
+export const GET = withSteamSession(async (_request, _context, session) => {
     const prisma = getPrisma();
     const user = await prisma.user.findUnique({
       where: { steamId: session.steamId },
@@ -36,7 +31,4 @@ export async function GET() {
       events: events.map((event) => ({ ...event, eventDate: serializeDatabaseDate(event.eventDate) })),
     };
     return Response.json(result, { headers });
-  } catch (cause) {
-    return handleApiError(cause);
-  }
-}
+});

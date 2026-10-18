@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { Suspense } from "react";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { endpoints } from "@/lib/api/endpoints";
@@ -49,6 +50,7 @@ function LoginPage({ searchParams }: HomeProps) {
   </SiteShell>;
 }
 
-export default function Home(props: HomeProps) {
+export default async function Home(props: HomeProps) {
+  await connection();
   return <LoginPage {...props} />;
 }
