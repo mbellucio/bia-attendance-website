@@ -46,3 +46,5 @@ next-env.d.ts
 .neon
 
 !discord-bot/.env.example
+# temporary soldier conversion tools
+/tmp/arma3-model-export/

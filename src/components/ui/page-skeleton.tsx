@@ -50,3 +50,16 @@ export function EventSkeleton() {
     <SiteFooter variant="member" />
   </SiteShell>;
 }
+
+export function UserDashboardSkeleton() {
+  return <SiteShell>
+    <SiteHeader variant="member"><Block className="h-4 w-52" /></SiteHeader>
+    <section className="border-b border-white/10 py-8" aria-hidden="true"><Block className="mb-4 h-3 w-48" /><Block className="h-16 w-72 max-w-full" /><Block className="mt-4 h-4 w-96 max-w-full" /></section>
+    <section className="grid gap-5 py-8 md:grid-cols-[minmax(0,1fr)_minmax(300px,420px)]" role="status" aria-label="Loading player dashboard" aria-busy="true">
+      <div className="space-y-5"><Block className="h-60 border-t-2 border-[#a8bc7a]" /><Block className="h-32" /><Block className="h-32" /></div>
+      <Block className="min-h-[460px]" />
+      <span className="sr-only">Loading your profile and personnel display…</span>
+    </section>
+    <SiteFooter variant="member" />
+  </SiteShell>;
+}

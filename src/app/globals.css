@@ -1,7 +1,8 @@
 @import "tailwindcss";
+@source "../components/dashboard";
 
 @theme {
-  --font-sans: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-sans: var(--font-field-serif), Georgia, serif;
 }
 
 :root {

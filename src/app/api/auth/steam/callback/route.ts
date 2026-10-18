@@ -105,13 +105,12 @@ export async function GET(request: NextRequest) {
           create: { userId: user.id },
         });
       } catch {
-        console.error("Steam sign-in could not save the user record. Check the database connection and migration.");
         return redirectToError(request, "database");
       }
     }
 
     const token = await createSessionToken(steamId);
-    const response = NextResponse.redirect(new URL("/", origin));
+    const response = NextResponse.redirect(new URL("/player-dashboard", origin));
     response.cookies.delete(STEAM_STATE_COOKIE);
     response.cookies.set(SESSION_COOKIE, token, {
       httpOnly: true,

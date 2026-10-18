@@ -1,7 +1,13 @@
-import { signOut } from "@/app/actions";
-import { getPrisma } from "@/lib/db";
+"use client";
+
+import { MemberNavigation } from "@/components/layout/member-navigation";
+import { endpoints } from "@/lib/api/endpoints";
+import { useApiResource } from "@/hooks/use-api-resource";
+import type { AttendanceResponse } from "@/lib/api/player";
+import { DashboardSkeleton } from "@/components/ui/page-skeleton";
+import { ApiErrorState } from "@/components/ui/api-error-state";
 import { eventTypeLabel } from "@/lib/event-types";
-import EventDetailsModal from "@/app/event-details-modal";
+import EventDetailsModal from "@/components/events/event-details-modal";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -9,9 +15,9 @@ import { StatCard } from "@/components/ui/stat-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { AutoSubmitPeriodSelect } from "@/components/ui/auto-submit-period-select";
 
-type DashboardProps = { steamId: string; period?: string };
+type DashboardProps = { period?: string };
 const monthFormatter = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" });
-function periodFor(date: Date) { return date.getUTCFullYear() + "-" + String(date.getUTCMonth() + 1).padStart(2, "0"); }
+function periodFor(value: string) { const date = new Date(value); return date.getUTCFullYear() + "-" + String(date.getUTCMonth() + 1).padStart(2, "0"); }
 
 const outcomeStyle = {
   granted: "text-[#d5e7c5] hover:bg-[#537c40]/30",
@@ -20,17 +26,17 @@ const outcomeStyle = {
   missed: "text-[#f2b48e] hover:bg-[#a5552b]/25",
 };
 
-export default async function PlayerDashboard({ steamId, period }: DashboardProps) {
-  const user = await getPrisma().user.findUnique({ where: { steamId }, select: { steamId: true, displayName: true, player: { select: { id: true, nickname: true } } } });
-  const player = user?.player;
-  const name = player?.nickname ?? user?.displayName ?? "Player";
-  const events = await getPrisma().event.findMany({
-    select: {
-      id: true, title: true, eventCode: true, eventType: true, game: true, eventDate: true,
-      participants: { where: { playerId: player?.id ?? "__no_player__" }, select: { id: true, attendanceGranted: true, attendanceOverride: true, totalConnectedSeconds: true }, take: 1 },
-    },
-    orderBy: { eventDate: "desc" },
-  });
+export default function AttendanceDashboard({ period }: DashboardProps) {
+  const { data, error, retry } = useApiResource<AttendanceResponse>(endpoints.player.attendance);
+  if (error) return <ApiErrorState error={error} onRetry={retry} />;
+  if (!data) return <DashboardSkeleton />;
+  return <AttendanceCalendar data={data} period={period} />;
+}
+
+function AttendanceCalendar({ data, period }: { data: AttendanceResponse; period?: string }) {
+  const { user, events } = data;
+  const { steamId, player } = user;
+  const name = player?.nickname ?? user.displayName ?? "Player";
   const availablePeriods = [...new Set(events.map(({ eventDate }) => periodFor(eventDate)))];
   const periodsByYear = availablePeriods.reduce<Record<string, string[]>>((groups, key) => {
     const year = key.slice(0, 4);
@@ -47,18 +53,15 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
   const monthDayCount = dateParts ? new Date(Date.UTC(dateParts[0], dateParts[1], 0)).getUTCDate() : 0;
   const firstWeekday = dateParts ? new Date(Date.UTC(dateParts[0], dateParts[1] - 1, 1)).getUTCDay() : 0;
   const eventsByDay = records.reduce<Record<number, typeof records>>((groups, item) => {
-    const day = item.eventDate.getUTCDate();
+    const day = new Date(item.eventDate).getUTCDate();
     groups[day] = [...(groups[day] ?? []), item];
     return groups;
   }, {});
 
   return <SiteShell>
     <SiteHeader variant="member">
-      <nav className="flex items-center gap-3 sm:gap-5 md:gap-8" aria-label="Member navigation">
-        <a className="text-center text-[8px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:text-[9px]" href="#attendance-calendar">MY ATTENDANCE</a>
-        <a className="hidden text-center text-[9px] font-semibold tracking-[.1em] text-[#d9dcd2] transition-colors hover:text-[#a8bc7a] sm:inline" href="#period-summary">RECORD SUMMARY</a>
-        <form action={signOut}><button className="border border-white/35 bg-transparent px-2 py-2 text-[8px] font-semibold tracking-[.1em] text-[#f1f0e9] transition-colors hover:border-[#a8bc7a] hover:bg-[#a8bc7a] hover:text-[#171914] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8bc7a] sm:px-3 sm:text-[9px]" type="submit">SIGN OUT</button></form>
-      </nav>
+      <MemberNavigation active="attendance" />
+
     </SiteHeader>
     <section className="-mx-[clamp(20px,6.25vw,104px)] border-b border-white/10 bg-[linear-gradient(110deg,#171b18_0%,#202820_64%,#293229_100%)] px-[clamp(20px,7.45vw,124px)] py-7 sm:py-8 md:py-9">
       <p className="mb-3 text-[9px] font-semibold uppercase tracking-[.19em] text-[#b6c781] sm:text-[10px]">BIA MEMBER PORTAL <span className="mx-2 text-[#a8bc7a]">/</span> PERSONNEL RECORD</p>
