@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../components/dashboard";
 
 @theme {
   --font-sans: var(--font-field-serif), Georgia, serif;
@@ -95,3 +96,4 @@ button {
     transition-duration: 1ms;
   }
 }
+
