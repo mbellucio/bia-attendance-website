@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto_Slab } from "next/font/google";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import { Notifications } from "@/components/providers/notifications";
 
 const fieldSerif = Roboto_Slab({
   subsets: ["latin"],
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={fieldSerif.variable}>
-      <body>{children}</body>
+      <body>{children}<Notifications /></body>
     </html>
   );
 }

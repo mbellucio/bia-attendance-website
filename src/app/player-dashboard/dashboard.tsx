@@ -1,58 +1,29 @@
+"use client";
+
 import Link from "next/link";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MemberNavigation } from "@/components/layout/member-navigation";
 import { SoldierModel } from "@/components/dashboard/soldier-model";
-import { getPrisma } from "@/lib/db";
+import { useApiResource } from "@/hooks/use-api-resource";
+import { endpoints } from "@/lib/api/endpoints";
+import type { DashboardResponse } from "@/lib/api/player";
+import { ApiErrorState } from "@/components/ui/api-error-state";
+import { UserDashboardSkeleton } from "@/components/ui/page-skeleton";
 
 const dateFormatter = new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" });
 
-type UserDashboardProps = { steamId: string };
+export default function UserDashboard() {
+  const { data, error, retry } = useApiResource<DashboardResponse>(endpoints.player.dashboard);
+  if (error) return <ApiErrorState error={error} onRetry={retry} />;
+  if (!data) return <UserDashboardSkeleton />;
+  return <DashboardContent data={data} />;
+}
 
-export default async function UserDashboard({ steamId }: UserDashboardProps) {
-  let name = "BIA Member";
-  let nickname: string | null = null;
-  let createdAt: Date | null = null;
-  let attendedOperations: number | null = null;
-  let rosterLinked = false;
-  let selectedFaction: "US" | "GERMANY" | "SOVIET_UNION" = "US";
-  let modelPath = "/models/ww2/us-rifleman.glb";
-
-  if (process.env.DATABASE_URL) {
-    const prisma = getPrisma();
-    const user = await prisma.user.findUnique({
-      where: { steamId },
-      select: {
-        displayName: true,
-        createdAt: true,
-        player: { select: { id: true, nickname: true } },
-        modelPreference: { select: { faction: true, modelPath: true } },
-      },
-    });
-
-    name = user?.player?.nickname ?? user?.displayName ?? name;
-    nickname = user?.player?.nickname ?? null;
-    createdAt = user?.createdAt ?? null;
-    rosterLinked = Boolean(user?.player?.id);
-    if (user?.modelPreference) {
-      selectedFaction = user.modelPreference.faction;
-      modelPath = user.modelPreference.modelPath;
-    }
-
-    if (user?.player?.id) {
-      attendedOperations = await prisma.eventParticipant.count({
-        where: {
-          playerId: user.player.id,
-          OR: [
-            { attendanceOverride: true },
-            { attendanceOverride: null, attendanceGranted: true },
-          ],
-        },
-      });
-    }
-  }
-
+function DashboardContent({ data }: { data: DashboardResponse }) {
+  const { steamId, name, nickname, attendedOperations, rosterLinked, selectedFaction, modelPath } = data;
+  const createdAt = data.createdAt ? new Date(data.createdAt) : null;
   return <SiteShell>
     <SiteHeader variant="member"><MemberNavigation active="dashboard" /></SiteHeader>
     <section className="-mx-[clamp(20px,6.25vw,104px)] border-b border-white/10 bg-[linear-gradient(110deg,#171b18_0%,#202820_64%,#293229_100%)] px-[clamp(20px,7.45vw,124px)] py-8 sm:py-10 md:py-12">

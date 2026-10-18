@@ -7,14 +7,11 @@ import { AttendanceBadge } from "@/components/ui/attendance-badge";
 import { eventTypeLabel } from "@/lib/event-types";
 import { formatSerializedServerClockAsGmt } from "@/lib/server-log-time";
 
-type EventDetails = {
-  event: { title: string; eventCode: string; eventType: string; game: string | null; eventDate: string; minimumAttendanceMinutes: number | null };
-  attended: boolean;
-  attendanceGranted: boolean;
-  attendanceOverride: boolean | null;
-  totalConnectedSeconds: number | null;
-  sessions: { connectedAt: string; disconnectedAt: string | null; durationSeconds: number | null }[];
-};
+import type { EventDetails } from "@/lib/api/player";
+import { network } from "@/lib/api/client";
+
+import { endpoints } from "@/lib/api/endpoints";
+
 type Props = { eventId: string; eventTitle: string; className: string; label?: string; attendanceStatus?: string };
 const dateFormat = new Intl.DateTimeFormat("en", { day: "2-digit", month: "long", year: "numeric", timeZone: "UTC" });
 
@@ -38,10 +35,7 @@ export default function EventDetailsModal({ eventId, eventTitle, className, labe
     setError(null);
     setData(null);
     try {
-      const response = await fetch("/api/player/events/" + encodeURIComponent(eventId), { cache: "no-store" });
-      const result = await response.json();
-      if (!response.ok) throw new Error(typeof result.error === "string" ? result.error : "Could not load event details.");
-      setData(result as EventDetails);
+      setData(await network.get<EventDetails>(endpoints.player.event(eventId)));
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Could not load event details.");
     } finally {

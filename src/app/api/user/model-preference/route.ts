@@ -1,4 +1,6 @@
 import { getSteamSession } from "@/lib/auth/current-user";
+import { handleApiError } from "@/lib/errors/server";
+import { errorResponse } from "@/lib/errors/server";
 import { getPrisma } from "@/lib/db";
 
 const modelPaths = {
@@ -10,22 +12,22 @@ type Faction = keyof typeof modelPaths;
 
 export async function PUT(request: Request) {
   const session = await getSteamSession();
-  if (!session) return Response.json({ error: "Sign in to update your preference." }, { status: 401 });
-
+  if (!session) return errorResponse("AUTH_REQUIRED");
+  try {
   let body: unknown;
-  try { body = await request.json(); } catch { return Response.json({ error: "Invalid request body." }, { status: 400 }); }
+  try { body = await request.json(); } catch { return errorResponse("INVALID_REQUEST"); }
   if (!body || typeof body !== "object" || !("faction" in body)) {
-    return Response.json({ error: "Choose a valid faction." }, { status: 400 });
+    return errorResponse("INVALID_FACTION");
   }
   const faction = (body as { faction?: unknown }).faction;
   if (typeof faction !== "string" || !Object.hasOwn(modelPaths, faction)) {
-    return Response.json({ error: "Choose a valid faction." }, { status: 400 });
+    return errorResponse("INVALID_FACTION");
   }
 
   const selectedFaction = faction as Faction;
   const prisma = getPrisma();
   const user = await prisma.user.findUnique({ where: { steamId: session.steamId }, select: { id: true } });
-  if (!user) return Response.json({ error: "Account not found." }, { status: 404 });
+  if (!user) return errorResponse("ACCOUNT_NOT_FOUND");
 
   const preference = await prisma.userModelPreference.upsert({
     where: { userId: user.id },
@@ -34,4 +36,7 @@ export async function PUT(request: Request) {
     select: { faction: true, modelPath: true },
   });
   return Response.json(preference, { headers: { "Cache-Control": "private, no-store" } });
+  } catch (cause) {
+    return handleApiError(cause);
+  }
 }

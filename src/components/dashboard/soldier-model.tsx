@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-type Faction = "US" | "GERMANY" | "SOVIET_UNION";
+import { network } from "@/lib/api/client";
+import { endpoints } from "@/lib/api/endpoints";
+import { notifyError } from "@/lib/notifications";
+import type { SoldierFaction as Faction, ModelPreference } from "@/lib/api/player";
 type Props = { initialFaction: Faction; initialModelPath: string };
 type FactionOption = { id: Faction; label: string; modelPath: string; description: string };
 
@@ -162,9 +165,8 @@ function SoldierCanvas({ modelPath, label, onLoaded, onFailed }: {
           renderer.render(scene, camera);
         };
         animate();
-      } catch (error) {
-        console.error(`Could not render ${label} model`, error);
-        if (!disposed) onFailed();
+      } catch {
+        if (!disposed) { notifyError("The soldier model could not be displayed. Please try again."); onFailed(); }
       }
     }
 
@@ -209,13 +211,7 @@ export function SoldierModel({ initialFaction, initialModelPath }: Props) {
     setSaving(true);
     setMessage("");
     try {
-      const response = await fetch("/api/user/model-preference", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ faction: value }),
-      });
-      if (!response.ok) throw new Error("Could not save your faction choice.");
-      const result: { faction: Faction; modelPath: string } = await response.json();
+      const result = await network.put<ModelPreference>(endpoints.user.modelPreference, { faction: value });
       setFaction(result.faction);
       setModelPath(result.modelPath);
       setMessage("Preference saved.");
@@ -262,7 +258,3 @@ export function SoldierModel({ initialFaction, initialModelPath }: Props) {
     <p className="m-0 min-h-9 border-t border-white/10 px-4 py-2 text-[10px] text-[#c4c8bd]" aria-live="polite">{saving ? "Saving preference…" : message}</p>
   </section>;
 }
-
-
-
-

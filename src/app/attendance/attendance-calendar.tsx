@@ -1,17 +1,24 @@
-import { getPrisma } from "@/lib/db";
+"use client";
+
+import { MemberNavigation } from "@/components/layout/member-navigation";
+import { endpoints } from "@/lib/api/endpoints";
+import { useApiResource } from "@/hooks/use-api-resource";
+import type { AttendanceResponse } from "@/lib/api/player";
+import { DashboardSkeleton } from "@/components/ui/page-skeleton";
+import { ApiErrorState } from "@/components/ui/api-error-state";
 import { eventTypeLabel } from "@/lib/event-types";
-import EventDetailsModal from "@/app/event-details-modal";
+import EventDetailsModal from "@/components/events/event-details-modal";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { StatCard } from "@/components/ui/stat-card";
 import { EmptyState } from "@/components/ui/empty-state";
 import { AutoSubmitPeriodSelect } from "@/components/ui/auto-submit-period-select";
-import { MemberNavigation } from "@/components/layout/member-navigation";
 
-type DashboardProps = { steamId: string; period?: string };
+type DashboardProps = { period?: string };
+const monthOnlyFormatter = new Intl.DateTimeFormat("en", { month: "long", timeZone: "UTC" });
 const monthFormatter = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" });
-function periodFor(date: Date) { return date.getUTCFullYear() + "-" + String(date.getUTCMonth() + 1).padStart(2, "0"); }
+function periodFor(value: string) { const date = new Date(value); return date.getUTCFullYear() + "-" + String(date.getUTCMonth() + 1).padStart(2, "0"); }
 
 const outcomeStyle = {
   granted: "text-[#d5e7c5] hover:bg-[#537c40]/30",
@@ -20,17 +27,17 @@ const outcomeStyle = {
   missed: "text-[#f2b48e] hover:bg-[#a5552b]/25",
 };
 
-export default async function PlayerDashboard({ steamId, period }: DashboardProps) {
-  const user = await getPrisma().user.findUnique({ where: { steamId }, select: { steamId: true, displayName: true, player: { select: { id: true, nickname: true } } } });
-  const player = user?.player;
-  const name = player?.nickname ?? user?.displayName ?? "Player";
-  const events = await getPrisma().event.findMany({
-    select: {
-      id: true, title: true, eventCode: true, eventType: true, game: true, eventDate: true,
-      participants: { where: { playerId: player?.id ?? "__no_player__" }, select: { id: true, attendanceGranted: true, attendanceOverride: true, totalConnectedSeconds: true }, take: 1 },
-    },
-    orderBy: { eventDate: "desc" },
-  });
+export default function AttendanceDashboard({ period }: DashboardProps) {
+  const { data, error, retry } = useApiResource<AttendanceResponse>(endpoints.player.attendance);
+  if (error) return <ApiErrorState error={error} onRetry={retry} />;
+  if (!data) return <DashboardSkeleton />;
+  return <AttendanceCalendar data={data} period={period} />;
+}
+
+function AttendanceCalendar({ data, period }: { data: AttendanceResponse; period?: string }) {
+  const { user, events } = data;
+  const { steamId, player } = user;
+  const name = player?.nickname ?? user.displayName ?? "Player";
   const availablePeriods = [...new Set(events.map(({ eventDate }) => periodFor(eventDate)))];
   const periodsByYear = availablePeriods.reduce<Record<string, string[]>>((groups, key) => {
     const year = key.slice(0, 4);
@@ -47,13 +54,16 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
   const monthDayCount = dateParts ? new Date(Date.UTC(dateParts[0], dateParts[1], 0)).getUTCDate() : 0;
   const firstWeekday = dateParts ? new Date(Date.UTC(dateParts[0], dateParts[1] - 1, 1)).getUTCDay() : 0;
   const eventsByDay = records.reduce<Record<number, typeof records>>((groups, item) => {
-    const day = item.eventDate.getUTCDate();
+    const day = new Date(item.eventDate).getUTCDate();
     groups[day] = [...(groups[day] ?? []), item];
     return groups;
   }, {});
 
   return <SiteShell>
-    <SiteHeader variant="member"><MemberNavigation active="attendance" /></SiteHeader>
+    <SiteHeader variant="member">
+      <MemberNavigation active="attendance" />
+
+    </SiteHeader>
     <section className="-mx-[clamp(20px,6.25vw,104px)] border-b border-white/10 bg-[linear-gradient(110deg,#171b18_0%,#202820_64%,#293229_100%)] px-[clamp(20px,7.45vw,124px)] py-7 sm:py-8 md:py-9">
       <p className="mb-3 text-[9px] font-semibold uppercase tracking-[.19em] text-[#b6c781] sm:text-[10px]">BIA MEMBER PORTAL <span className="mx-2 text-[#a8bc7a]">/</span> PERSONNEL RECORD</p>
       <h1 className="m-0 text-[clamp(42px,5.2vw,72px)] font-medium leading-none tracking-[-.065em] text-[#f6f4e9]">{name}</h1>
@@ -70,8 +80,7 @@ export default async function PlayerDashboard({ steamId, period }: DashboardProp
           <h2 className="m-0 text-[clamp(30px,4vw,48px)] font-semibold leading-tight tracking-[-.055em] text-[#f4f2e9]">{month}</h2>
         </div>
         <div className="flex flex-col gap-2 sm:min-w-[250px]">
-          <label htmlFor="period" className="text-[9px] font-semibold tracking-[.14em] text-[#afb4a8]">RECORD PERIOD</label>
-          <AutoSubmitPeriodSelect groups={Object.entries(periodsByYear).map(([year, keys]) => ({ year, periods: keys.map((key) => ({ key, label: monthFormatter.format(new Date(key + "-01T00:00:00Z")) })) }))} activePeriod={activePeriod ?? ""} disabled={!availablePeriods.length} />
+          <AutoSubmitPeriodSelect groups={Object.entries(periodsByYear).map(([year, keys]) => ({ year, periods: keys.map((key) => ({ key, label: monthOnlyFormatter.format(new Date(key + "-01T00:00:00Z")) })) }))} activePeriod={activePeriod ?? ""} disabled={!availablePeriods.length} />
         </div>
       </section>
       <section key={activePeriod ?? "no-period"} id="attendance-calendar" className="animate-[calendar-arrive_260ms_cubic-bezier(.2,.7,.25,1)_both] overflow-hidden border border-white/15 bg-[#1a1e1b] shadow-[0_16px_40px_rgba(0,0,0,.2)]" aria-label={month + " attendance calendar"}>
