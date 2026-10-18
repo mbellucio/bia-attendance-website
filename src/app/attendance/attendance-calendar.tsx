@@ -16,6 +16,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { AutoSubmitPeriodSelect } from "@/components/ui/auto-submit-period-select";
 
 type DashboardProps = { period?: string };
+const monthOnlyFormatter = new Intl.DateTimeFormat("en", { month: "long", timeZone: "UTC" });
 const monthFormatter = new Intl.DateTimeFormat("en", { month: "long", year: "numeric", timeZone: "UTC" });
 function periodFor(value: string) { const date = new Date(value); return date.getUTCFullYear() + "-" + String(date.getUTCMonth() + 1).padStart(2, "0"); }
 
@@ -79,8 +80,7 @@ function AttendanceCalendar({ data, period }: { data: AttendanceResponse; period
           <h2 className="m-0 text-[clamp(30px,4vw,48px)] font-semibold leading-tight tracking-[-.055em] text-[#f4f2e9]">{month}</h2>
         </div>
         <div className="flex flex-col gap-2 sm:min-w-[250px]">
-          <label htmlFor="period" className="text-[9px] font-semibold tracking-[.14em] text-[#afb4a8]">RECORD PERIOD</label>
-          <AutoSubmitPeriodSelect groups={Object.entries(periodsByYear).map(([year, keys]) => ({ year, periods: keys.map((key) => ({ key, label: monthFormatter.format(new Date(key + "-01T00:00:00Z")) })) }))} activePeriod={activePeriod ?? ""} disabled={!availablePeriods.length} />
+          <AutoSubmitPeriodSelect groups={Object.entries(periodsByYear).map(([year, keys]) => ({ year, periods: keys.map((key) => ({ key, label: monthOnlyFormatter.format(new Date(key + "-01T00:00:00Z")) })) }))} activePeriod={activePeriod ?? ""} disabled={!availablePeriods.length} />
         </div>
       </section>
       <section key={activePeriod ?? "no-period"} id="attendance-calendar" className="animate-[calendar-arrive_260ms_cubic-bezier(.2,.7,.25,1)_both] overflow-hidden border border-white/15 bg-[#1a1e1b] shadow-[0_16px_40px_rgba(0,0,0,.2)]" aria-label={month + " attendance calendar"}>
