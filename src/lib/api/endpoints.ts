@@ -1,5 +1,5 @@
 export const endpoints = {
-  auth: { steam: "/api/auth/steam" },
+  auth: { steam: "/api/auth/steam", discord: "/api/auth/discord" },
   player: {
     dashboard: "/api/player/dashboard",
     attendance: "/api/player/attendance",

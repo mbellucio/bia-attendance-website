@@ -9,6 +9,7 @@ export function withSteamSession<Context = unknown>(handler: Handler<Context>) {
     try {
       const session = await getSteamSession();
       if (!session) return errorResponse("AUTH_REQUIRED");
+      if (!session.discordLinked) return errorResponse("DISCORD_LINK_REQUIRED");
       return await handler(request, context, session);
     } catch (cause) {
       return handleApiError(cause);

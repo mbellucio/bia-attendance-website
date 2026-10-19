@@ -37,15 +37,16 @@ enum SoldierFaction {
 }
 
 model User {
-  id          String   @id @default(cuid())
-  steamId     String   @unique @map("steam_id")
-  admin       Boolean  @default(false)
-  email       String?
-  displayName String?  @map("display_name")
-  avatarUrl   String?  @map("avatar_url")
-  profileUrl  String?  @map("profile_url")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  id            String   @id @default(cuid())
+  steamId       String   @unique @map("steam_id")
+  discordUserId String?  @unique @map("discord_user_id")
+  admin         Boolean  @default(false)
+  email         String?
+  displayName   String?  @map("display_name")
+  avatarUrl     String?  @map("avatar_url")
+  profileUrl    String?  @map("profile_url")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
 
   player          Player?
   modelPreference UserModelPreference?
@@ -65,14 +66,13 @@ model UserModelPreference {
 }
 
 model Player {
-  id            String   @id @default(cuid())
-  userId        String?  @unique @map("user_id")
-  discordUserId String?  @unique @map("discord_user_id")
-  rankId        String?  @map("rank_id")
-  timeServedId  String?  @map("time_served_id")
-  nickname      String?
-  createdAt     DateTime @default(now()) @map("created_at")
-  updatedAt     DateTime @updatedAt @map("updated_at")
+  id           String   @id @default(cuid())
+  userId       String?  @unique @map("user_id")
+  rankId       String?  @map("rank_id")
+  timeServedId String?  @map("time_served_id")
+  nickname     String?
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
 
   user                User?                 @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
   rank                Rank?                 @relation(fields: [rankId], references: [id], onDelete: SetNull, onUpdate: Cascade)
