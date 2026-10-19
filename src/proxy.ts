@@ -22,11 +22,13 @@ function pageSecurityPolicy(request: NextRequest): NextResponse {
   const directives = [
     "default-src 'self'",
     "script-src 'self' 'nonce-" + nonce + "' 'strict-dynamic'" + (isDevelopment ? " 'unsafe-eval'" : ""),
-    "style-src 'self' 'nonce-" + nonce + "'",
+    isDevelopment
+      ? "style-src 'self' 'unsafe-inline'"
+      : "style-src 'self' 'nonce-" + nonce + "'",
     "style-src-attr 'unsafe-inline'",
     "img-src 'self' data: blob:",
     "font-src 'self' data:",
-    "connect-src 'self'" + (isDevelopment ? " ws:" : ""),
+    "connect-src 'self' blob:" + (isDevelopment ? " ws:" : ""),
     "media-src 'self' blob:",
     "worker-src 'self' blob:",
     "object-src 'none'",
