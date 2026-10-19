@@ -70,7 +70,6 @@ function SoldierCanvas({ modelPath, label, onLoaded, onFailed }: {
         renderer.toneMappingExposure = 1.15;
         renderer.setClearColor(0x000000, 0);
         renderer.domElement.className = "absolute inset-0 block h-full w-full touch-pan-y outline-none";
-        Object.assign(renderer.domElement.style, { position: "absolute", inset: "0", width: "100%", height: "100%", display: "block", touchAction: "pan-y" });
         renderer.domElement.setAttribute("role", "img");
         renderer.domElement.setAttribute("aria-label", `${label}; left-drag to rotate, right-drag to move the view, scroll or pinch to zoom`);
         renderer.domElement.tabIndex = 0;
@@ -186,7 +185,7 @@ function SoldierCanvas({ modelPath, label, onLoaded, onFailed }: {
     };
   }, [modelPath, label, onLoaded, onFailed]);
 
-  return <div ref={hostRef} className="absolute inset-0" style={{ position: "absolute", inset: 0 }} />;
+  return <div ref={hostRef} className="absolute inset-0" />;
 }
 
 export function SoldierModel({ initialFaction, initialModelPath }: Props) {
@@ -237,7 +236,7 @@ export function SoldierModel({ initialFaction, initialModelPath }: Props) {
         </select>
       </label>
     </div>
-    <div className="relative min-h-[360px] flex-1 bg-[radial-gradient(ellipse_at_center,#283027_0%,#101310_72%)] sm:min-h-[460px]" style={{ position: "relative", height: "clamp(360px, 55vh, 560px)", minHeight: 360, flex: "1 0 360px" }}>
+    <div className="relative h-[clamp(360px,55vh,560px)] min-h-[360px] flex-[1_0_360px] bg-[radial-gradient(ellipse_at_center,#283027_0%,#101310_72%)]">
       <SoldierCanvas
         key={modelPath}
         modelPath={modelPath}
