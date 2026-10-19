@@ -23,6 +23,7 @@
     "jose": "^6.2.12",
     "next": "16.4.0",
     "pg": "^8.23.1",
+    "prisma": "^7.10.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-toastify": "^11.1.0",
@@ -37,13 +38,8 @@
     "@types/three": "^0.186.0",
     "eslint": "^9",
     "eslint-config-next": "^16.4.0",
-    "prisma": "^7.10.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "type": "module",
-  "optionalDependencies": {
-    "@emnapi/core": "1.11.3",
-    "@emnapi/runtime": "1.11.3"
-  }
+  "type": "module"
 }

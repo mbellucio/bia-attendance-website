@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     const response = NextResponse.redirect(steamLogin);
     response.cookies.set(STEAM_STATE_COOKIE, state, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: new URL(origin).protocol === "https:",
       sameSite: "lax",
       path: "/",
       maxAge: STEAM_STATE_MAX_AGE_SECONDS,
@@ -47,3 +47,4 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL("/?error=config", request.nextUrl.origin));
   }
 }
+

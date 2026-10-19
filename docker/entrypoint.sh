@@ -11,6 +11,10 @@ set -eu
 export API_RATE_LIMIT LOGIN_RATE_LIMIT CONNECTIONS_PER_IP CLIENT_MAX_BODY_SIZE
 export SERVER_NAME TLS_CERT_FILE TLS_KEY_FILE
 
+# Apply pending database migrations before serving traffic.
+cd /app
+npx prisma migrate deploy
+
 envsubst '${API_RATE_LIMIT} ${LOGIN_RATE_LIMIT} ${CONNECTIONS_PER_IP} ${CLIENT_MAX_BODY_SIZE}' \
   < /app/docker/default.conf.template \
   > /etc/nginx/conf.d/default.conf

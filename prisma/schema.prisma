@@ -47,7 +47,7 @@ model User {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  player Player?
+  player          Player?
   modelPreference UserModelPreference?
 
   @@map("users")
@@ -65,17 +65,207 @@ model UserModelPreference {
 }
 
 model Player {
-  id          String   @id @default(cuid())
-  userId      String?  @unique @map("user_id")
-  nickname    String?
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  id            String   @id @default(cuid())
+  userId        String?  @unique @map("user_id")
+  discordUserId String?  @unique @map("discord_user_id")
+  rankId        String?  @map("rank_id")
+  timeServedId  String?  @map("time_served_id")
+  nickname      String?
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
 
-  user                User?             @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  user                User?                 @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  rank                Rank?                 @relation(fields: [rankId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  timeServed          TimeServed?           @relation(fields: [timeServedId], references: [id], onDelete: SetNull, onUpdate: Cascade)
   eventParticipations EventParticipant[]
   logLines            EventLogLine[]
+  departments         PlayerDepartment[]
+  ribbons             PlayerRibbon[]
+  competences         PlayerCompetence[]
+  miscellaneous       PlayerMiscellaneous[]
+  roles               PlayerRole[]
 
   @@map("players")
+}
+
+model DiscordRole {
+  id            String   @id @default(cuid())
+  discordRoleId String   @unique @map("discord_role_id")
+  name          String
+  iconPath      String?  @map("icon_path") @db.Text
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  department    Department?
+  rank          Rank?
+  ribbon        Ribbon?
+  competence    Competence?
+  timeServed    TimeServed?
+  miscellaneous Miscellaneous?
+  players       PlayerRole[]
+
+  @@map("discord_roles")
+}
+
+model Department {
+  id            String   @id @default(cuid())
+  name          String
+  code          String?  @unique
+  sortOrder     Int      @default(0) @map("sort_order")
+  parentId      String?  @map("parent_id")
+  discordRoleId String?  @unique @map("discord_role_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  parent      Department?        @relation("DepartmentHierarchy", fields: [parentId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  children    Department[]       @relation("DepartmentHierarchy")
+  discordRole DiscordRole?       @relation(fields: [discordRoleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  players     PlayerDepartment[]
+
+  @@index([parentId, sortOrder])
+  @@map("departments")
+}
+
+model Rank {
+  id            String   @id @default(cuid())
+  code          String   @unique
+  name          String
+  sortOrder     Int      @default(0) @map("sort_order")
+  discordRoleId String?  @unique @map("discord_role_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  discordRole DiscordRole? @relation(fields: [discordRoleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  players     Player[]
+
+  @@index([sortOrder])
+  @@map("ranks")
+}
+
+model Ribbon {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?  @db.Text
+  sortOrder     Int      @default(0) @map("sort_order")
+  ribbonPath    String?  @map("ribbon_path") @db.Text
+  discordRoleId String?  @unique @map("discord_role_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  discordRole DiscordRole?   @relation(fields: [discordRoleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  players     PlayerRibbon[]
+
+  @@index([sortOrder])
+  @@map("ribbons")
+}
+
+model Competence {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?  @db.Text
+  sortOrder     Int      @default(0) @map("sort_order")
+  discordRoleId String?  @unique @map("discord_role_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  discordRole DiscordRole?       @relation(fields: [discordRoleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  players     PlayerCompetence[]
+
+  @@index([sortOrder])
+  @@map("competences")
+}
+
+model TimeServed {
+  id            String   @id @default(cuid())
+  name          String
+  code          String?  @unique
+  sortOrder     Int      @default(0) @map("sort_order")
+  ribbonPath    String?  @map("ribbon_path") @db.Text
+  discordRoleId String?  @unique @map("discord_role_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  discordRole DiscordRole? @relation(fields: [discordRoleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  players     Player[]
+
+  @@index([sortOrder])
+  @@map("time_served")
+}
+
+model Miscellaneous {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?  @db.Text
+  sortOrder     Int      @default(0) @map("sort_order")
+  discordRoleId String?  @unique @map("discord_role_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  discordRole DiscordRole?          @relation(fields: [discordRoleId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  players     PlayerMiscellaneous[]
+
+  @@index([sortOrder])
+  @@map("miscellaneous")
+}
+
+model PlayerDepartment {
+  playerId     String @map("player_id")
+  departmentId String @map("department_id")
+
+  player     Player     @relation(fields: [playerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([playerId, departmentId])
+  @@index([departmentId])
+  @@map("player_departments")
+}
+
+model PlayerRibbon {
+  playerId String @map("player_id")
+  ribbonId String @map("ribbon_id")
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  ribbon Ribbon @relation(fields: [ribbonId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([playerId, ribbonId])
+  @@index([ribbonId])
+  @@map("player_ribbons")
+}
+
+model PlayerCompetence {
+  playerId     String @map("player_id")
+  competenceId String @map("competence_id")
+
+  player     Player     @relation(fields: [playerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  competence Competence @relation(fields: [competenceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([playerId, competenceId])
+  @@index([competenceId])
+  @@map("player_competences")
+}
+
+model PlayerMiscellaneous {
+  playerId        String @map("player_id")
+  miscellaneousId String @map("miscellaneous_id")
+
+  player        Player        @relation(fields: [playerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  miscellaneous Miscellaneous @relation(fields: [miscellaneousId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([playerId, miscellaneousId])
+  @@index([miscellaneousId])
+  @@map("player_miscellaneous")
+}
+
+model PlayerRole {
+  playerId      String @map("player_id")
+  discordRoleId String @map("discord_role_id")
+
+  player      Player      @relation(fields: [playerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  discordRole DiscordRole @relation(fields: [discordRoleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([playerId, discordRoleId])
+  @@index([discordRoleId])
+  @@map("player_roles")
 }
 
 model Event {
@@ -149,14 +339,14 @@ model EventLogLine {
 }
 
 model PlayerSession {
-  id                  String    @id @default(cuid())
-  eventParticipantId  String    @map("event_participant_id")
-  connectLineId       String    @unique @map("connect_line_id")
-  disconnectLineId    String?   @unique @map("disconnect_line_id")
-  connectedAt         DateTime  @map("connected_at") @db.Timestamp(0)
-  disconnectedAt      DateTime? @map("disconnected_at") @db.Timestamp(0)
-  durationSeconds     Int?      @map("duration_seconds")
-  createdAt           DateTime  @default(now()) @map("created_at")
+  id                 String    @id @default(cuid())
+  eventParticipantId String    @map("event_participant_id")
+  connectLineId      String    @unique @map("connect_line_id")
+  disconnectLineId   String?   @unique @map("disconnect_line_id")
+  connectedAt        DateTime  @map("connected_at") @db.Timestamp(0)
+  disconnectedAt     DateTime? @map("disconnected_at") @db.Timestamp(0)
+  durationSeconds    Int?      @map("duration_seconds")
+  createdAt          DateTime  @default(now()) @map("created_at")
 
   eventParticipant EventParticipant @relation(fields: [eventParticipantId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   connectLine      EventLogLine     @relation("SessionConnectLine", fields: [connectLineId], references: [id], onDelete: Restrict, onUpdate: Cascade)

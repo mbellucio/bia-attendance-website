@@ -114,7 +114,7 @@ export async function GET(request: NextRequest) {
     response.cookies.delete(STEAM_STATE_COOKIE);
     response.cookies.set(SESSION_COOKIE, token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: new URL(origin).protocol === "https:",
       sameSite: "lax",
       path: "/",
       maxAge: SESSION_MAX_AGE_SECONDS,
@@ -124,5 +124,6 @@ export async function GET(request: NextRequest) {
     return redirectToError(request, "unavailable");
   }
 }
+
 
 
