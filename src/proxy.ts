@@ -4,7 +4,7 @@ import { readSessionToken, SESSION_COOKIE } from "@/lib/auth/session";
 import { errorResponse } from "@/lib/errors/server";
 
 const STEAM_AUTH_PATHS = new Set(["/api/auth/steam", "/api/auth/steam/callback"]);
-const MEMBER_PAGE_PATHS = ["/player-dashboard", "/attendance"];
+const MEMBER_PAGE_PATHS = ["/player-dashboard", "/attendance", "/admin-panel"];
 
 function withHeaders(response: Response, values: Record<string, string>): Response {
   const headers = new Headers(response.headers);
@@ -68,5 +68,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/api/:path*", "/player-dashboard/:path*", "/attendance/:path*"],
+  matcher: ["/", "/api/:path*", "/player-dashboard/:path*", "/attendance/:path*", "/admin-panel/:path*"],
 };

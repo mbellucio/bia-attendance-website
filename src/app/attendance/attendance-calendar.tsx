@@ -35,9 +35,8 @@ export default function AttendanceDashboard({ period }: DashboardProps) {
 }
 
 function AttendanceCalendar({ data, period }: { data: AttendanceResponse; period?: string }) {
-  const { user, events } = data;
-  const { steamId, player } = user;
-  const name = player?.nickname ?? user.displayName ?? "Player";
+  const { events } = data;
+  const { player } = data.user;
   const availablePeriods = [...new Set(events.map(({ eventDate }) => periodFor(eventDate)))];
   const periodsByYear = availablePeriods.reduce<Record<string, string[]>>((groups, key) => {
     const year = key.slice(0, 4);
@@ -61,18 +60,9 @@ function AttendanceCalendar({ data, period }: { data: AttendanceResponse; period
 
   return <SiteShell>
     <SiteHeader variant="member">
-      <MemberNavigation active="attendance" />
+      <MemberNavigation active="attendance" isAdmin={data.user.isAdmin} />
 
     </SiteHeader>
-    <section className="-mx-[clamp(20px,6.25vw,104px)] border-b border-white/10 bg-[linear-gradient(110deg,#171b18_0%,#202820_64%,#293229_100%)] px-[clamp(20px,7.45vw,124px)] py-7 sm:py-8 md:py-9">
-      <p className="mb-3 text-[9px] font-semibold uppercase tracking-[.19em] text-[#b6c781] sm:text-[10px]">BIA MEMBER PORTAL <span className="mx-2 text-[#a8bc7a]">/</span> PERSONNEL RECORD</p>
-      <h1 className="m-0 text-[clamp(42px,5.2vw,72px)] font-medium leading-none tracking-[-.065em] text-[#f6f4e9]">{name}</h1>
-      <p className="mt-3 max-w-xl text-sm leading-6 text-[#c4c8bd]">Your service record, event attendance and connection history.</p>
-      <div className="mt-5 inline-flex flex-col gap-1 border-l border-[#a8bc7a] pl-3">
-        <span className="text-[8px] uppercase tracking-[.14em] text-[#b6b9ad]">STEAM ACCOUNT</span>
-        <strong className="font-mono text-[11px] text-[#f1f0e7]">{steamId}</strong>
-      </div>
-    </section>
     {!player ? <EmptyState label="NO PERSONNEL MATCH" title="Your Steam account is verified.">There is no player record linked to this account yet. Contact an administrator to connect your attendance history.</EmptyState> : <>
       <section className="flex flex-col gap-5 py-7 sm:flex-row sm:items-end sm:justify-between sm:py-8">
         <div className="border-l-4 border-[#a8bc7a] pl-4">

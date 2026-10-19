@@ -26,6 +26,8 @@ services:
         condition: service_healthy
     env_file:
       - ./discord-bot/.env
+    ports:
+      - "127.0.0.1:${DISCORD_BOT_SYNC_PORT:-3100}:3100"
     environment:
       DB_HOST: db
       DB_PORT: "5432"

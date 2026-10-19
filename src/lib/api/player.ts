@@ -16,6 +16,7 @@ export type AttendanceResponse = {
   user: {
     steamId: string;
     displayName: string | null;
+    isAdmin: boolean;
     player: { nickname: string | null } | null;
   };
   events: AttendanceRecord[];
@@ -46,6 +47,7 @@ export type SoldierFaction = "US" | "GERMANY" | "SOVIET_UNION";
 export type ModelPreference = { faction: SoldierFaction; modelPath: string };
 export type DashboardResponse = {
   steamId: string;
+  isAdmin: boolean;
   name: string;
   nickname: string | null;
   createdAt: string | null;

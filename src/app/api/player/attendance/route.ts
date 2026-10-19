@@ -9,7 +9,7 @@ export const GET = withSteamSession(async (_request, _context, session) => {
     const prisma = getPrisma();
     const user = await prisma.user.findUnique({
       where: { steamId: session.steamId },
-      select: { displayName: true, player: { select: { id: true, nickname: true } } },
+      select: { displayName: true, admin: true, player: { select: { id: true, nickname: true } } },
     });
     const events = user?.player ? await prisma.event.findMany({
       select: {
@@ -26,6 +26,7 @@ export const GET = withSteamSession(async (_request, _context, session) => {
       user: {
         steamId: session.steamId,
         displayName: user?.displayName ?? null,
+        isAdmin: user?.admin ?? false,
         player: user?.player ? { nickname: user.player.nickname } : null,
       },
       events: events.map((event) => ({ ...event, eventDate: serializeDatabaseDate(event.eventDate) })),

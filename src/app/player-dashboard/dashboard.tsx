@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SiteBanner } from "@/components/layout/site-banner";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MemberNavigation } from "@/components/layout/member-navigation";
 import { SoldierModel } from "@/components/dashboard/soldier-model";
@@ -22,23 +23,11 @@ export default function UserDashboard() {
 }
 
 function DashboardContent({ data }: { data: DashboardResponse }) {
-  const { steamId, name, nickname, attendedOperations, rosterLinked, selectedFaction, modelPath } = data;
+  const { name, nickname, attendedOperations, rosterLinked, selectedFaction, modelPath } = data;
   const createdAt = data.createdAt ? new Date(data.createdAt) : null;
   return <SiteShell>
-    <SiteHeader variant="member"><MemberNavigation active="dashboard" /></SiteHeader>
-    <section className="-mx-[clamp(20px,6.25vw,104px)] border-b border-white/10 bg-[linear-gradient(110deg,#171b18_0%,#202820_64%,#293229_100%)] px-[clamp(20px,7.45vw,124px)] py-8 sm:py-10 md:py-12">
-      <p className="mb-3 text-[9px] font-semibold uppercase tracking-[.19em] text-[#b6c781] sm:text-[10px]">BIA MEMBER PORTAL <span className="mx-2 text-[#a8bc7a]">/</span> PERSONNEL DASHBOARD</p>
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="m-0 text-[clamp(42px,5.2vw,72px)] font-medium leading-none tracking-[-.065em] text-[#f6f4e9]">{name}</h1>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-[#c4c8bd]">Your service record, operations and honours at a glance.</p>
-        </div>
-        <div className="inline-flex flex-col gap-1 border-l border-[#a8bc7a] pl-3">
-          <span className="text-[8px] uppercase tracking-[.14em] text-[#b6b9ad]">STEAM ACCOUNT</span>
-          <strong className="font-mono text-[11px] text-[#f1f0e7]">{steamId}</strong>
-        </div>
-      </div>
-    </section>
+    <SiteHeader variant="member"><MemberNavigation active="dashboard" isAdmin={data.isAdmin} /></SiteHeader>
+    <SiteBanner eyebrow="BIA MEMBER PORTAL / PERSONNEL DASHBOARD" title={name} description="Your service record, operations and honours at a glance." />
 
     <section className="grid gap-5 py-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] md:gap-7 md:py-8" aria-label="Personnel overview">
       <div className="flex flex-col gap-5">

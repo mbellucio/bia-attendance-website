@@ -7,7 +7,7 @@ export const GET = withSteamSession(async (_request, _context, session) => {
   const user = await prisma.user.findUnique({
     where: { steamId: session.steamId },
     select: {
-      displayName: true, createdAt: true,
+      displayName: true, createdAt: true, admin: true,
       player: { select: { id: true, nickname: true } },
       modelPreference: { select: { faction: true, modelPath: true } },
     },
@@ -20,6 +20,7 @@ export const GET = withSteamSession(async (_request, _context, session) => {
   }) : null;
   const result: DashboardResponse = {
     steamId: session.steamId,
+    isAdmin: user?.admin ?? false,
     name: user?.player?.nickname ?? user?.displayName ?? "BIA Member",
     nickname: user?.player?.nickname ?? null,
     createdAt: user?.createdAt.toISOString() ?? null,
