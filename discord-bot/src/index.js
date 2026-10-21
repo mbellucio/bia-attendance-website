@@ -27,53 +27,134 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
 
+async function syncLinkedMember(discordUserId, member) {
+  const linked = await database.query(
+    "SELECT u.id AS user_id, p.id AS player_id FROM users u JOIN players p ON p.user_id=u.id WHERE u.discord_user_id=$1",
+    [discordUserId],
+  );
+  const user = linked.rows[0];
+  if (!user) return false;
+
+  const result = await database.query(`SELECT dr.discord_role_id,dr.name AS discord_role_name,dr.id AS catalog_role_id,d.id AS department_id,r.id AS rank_id,r.sort_order AS rank_order,ts.id AS time_served_id,ts.sort_order AS time_served_order,rb.id AS ribbon_id,c.id AS competence_id,m.id AS miscellaneous_id FROM discord_roles dr LEFT JOIN departments d ON d.discord_role_id=dr.id LEFT JOIN ranks r ON r.discord_role_id=dr.id LEFT JOIN time_served ts ON ts.discord_role_id=dr.id LEFT JOIN ribbons rb ON rb.discord_role_id=dr.id LEFT JOIN competences c ON c.discord_role_id=dr.id LEFT JOIN miscellaneous m ON m.discord_role_id=dr.id`);
+  const byDiscordId = new Map(result.rows.map((row) => {
+    const leadingNumber = row.discord_role_name.match(/^\s*(\d+)/);
+    return [row.discord_role_id, { ...row, time_served_order: leadingNumber ? Number(leadingNumber[1]) : row.time_served_order }];
+  }));
+  const assigned = [...member.roles.cache.keys()].map((id) => byDiscordId.get(id)).filter(Boolean);
+  const rank = assigned.filter((item) => item.rank_id).sort((a, b) => b.rank_order - a.rank_order)[0];
+  const served = assigned.filter((item) => item.time_served_id).sort((a, b) => b.time_served_order - a.time_served_order)[0];
+  const discordDisplayName = member.nickname ?? member.user.globalName ?? member.user.username;
+  const connection = await database.connect();
+  try {
+    await connection.query("BEGIN");
+    for (const table of ["player_roles", "player_departments", "player_ribbons", "player_competences", "player_miscellaneous"]) {
+      await connection.query(`DELETE FROM ${table} WHERE player_id=$1`, [user.player_id]);
+    }
+    await connection.query("UPDATE players SET rank_id=$2,time_served_id=$3,updated_at=NOW() WHERE id=$1", [user.player_id, rank?.rank_id ?? null, served?.time_served_id ?? null]);
+    await connection.query("UPDATE users SET display_name=$2,updated_at=NOW() WHERE id=$1", [user.user_id, discordDisplayName]);
+    for (const item of assigned) {
+      await connection.query("INSERT INTO player_roles (player_id,discord_role_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id, item.catalog_role_id]);
+      if (item.department_id) await connection.query("INSERT INTO player_departments (player_id,department_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id, item.department_id]);
+      if (item.ribbon_id) await connection.query("INSERT INTO player_ribbons (player_id,ribbon_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id, item.ribbon_id]);
+      if (item.competence_id) await connection.query("INSERT INTO player_competences (player_id,competence_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id, item.competence_id]);
+      if (item.miscellaneous_id) await connection.query("INSERT INTO player_miscellaneous (player_id,miscellaneous_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id, item.miscellaneous_id]);
+    }
+    await connection.query("COMMIT");
+    return true;
+  } catch (error) {
+    await connection.query("ROLLBACK").catch(() => undefined);
+    throw error;
+  } finally {
+    connection.release();
+  }
+}
+
+async function readDiscordUserId(request) {
+  let body = "";
+  for await (const chunk of request) {
+    body += chunk.toString();
+    if (body.length > 256) return null;
+  }
+  try {
+    const value = JSON.parse(body);
+    return typeof value.discordUserId === "string" && /^\d{17,20}$/.test(value.discordUserId) ? value.discordUserId : null;
+  } catch {
+    return null;
+  }
+}
 const syncServer = createServer(async (request, response) => {
-  if (request.method !== "POST" || request.url !== "/internal/sync/roles") {
-    response.writeHead(404).end();
-    return;
-  }
-
-  const providedHeader = request.headers["x-discord-sync-secret"];
-  const providedSecret = Buffer.from(Array.isArray(providedHeader) ? providedHeader[0] ?? "" : providedHeader ?? "");
-  const expectedSecret = Buffer.from(syncSecret);
-  if (providedSecret.length !== expectedSecret.length || !timingSafeEqual(providedSecret, expectedSecret)) {
-    response.writeHead(401).end();
-    return;
-  }
-  if (!client.isReady()) {
-    response.writeHead(503).end();
-    return;
-  }
-
-  let transaction;
+  const path = request.url ?? "";
+  if (request.method !== "POST" || !["/internal/sync/roles", "/internal/sync/members", "/internal/sync/member"].includes(path)) { response.writeHead(404).end(); return; }
+  const raw = request.headers["x-discord-sync-secret"];
+  const supplied = Buffer.from(Array.isArray(raw) ? raw[0] ?? "" : raw ?? "");
+  const expected = Buffer.from(syncSecret);
+  if (supplied.length !== expected.length || !timingSafeEqual(supplied, expected)) { response.writeHead(401).end(); return; }
+  if (!client.isReady()) { response.writeHead(503).end(); return; }
+  let connection;
   try {
     const guild = await client.guilds.fetch(guildId);
-    const roles = await guild.roles.fetch();
-    transaction = await database.connect();
-    await transaction.query("BEGIN");
-
-    for (const role of roles.values()) {
-      const iconPath = role.icon ? `https://cdn.discordapp.com/role-icons/${role.id}/${role.icon}.png` : null;
-      await transaction.query(
-        `INSERT INTO discord_roles (id, discord_role_id, name, icon_path, created_at, updated_at)
-         VALUES ($1, $2, $3, $4, NOW(), NOW())
-         ON CONFLICT (discord_role_id) DO UPDATE SET name = EXCLUDED.name, icon_path = EXCLUDED.icon_path, updated_at = NOW()`,
-        [randomUUID(), role.id, role.name, iconPath],
-      );
+    if (path === "/internal/sync/roles") {
+      const roles = await guild.roles.fetch();
+      connection = await database.connect();
+      await connection.query("BEGIN");
+      for (const role of roles.values()) {
+        const iconPath = role.icon ? `https://cdn.discordapp.com/role-icons/${role.id}/${role.icon}.png` : null;
+        await connection.query(`INSERT INTO discord_roles (id, discord_role_id, name, icon_path, created_at, updated_at) VALUES ($1,$2,$3,$4,NOW(),NOW()) ON CONFLICT (discord_role_id) DO UPDATE SET name=EXCLUDED.name, icon_path=EXCLUDED.icon_path, updated_at=NOW()`, [randomUUID(), role.id, role.name, iconPath]);
+      }
+      await connection.query("COMMIT"); connection.release(); connection = undefined;
+      response.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" }).end(JSON.stringify({ syncedCount: roles.size })); return;
     }
-    await transaction.query("COMMIT");
-
-    response.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" });
-    response.end(JSON.stringify({ syncedCount: roles.size }));
+    if (path === "/internal/sync/member") {
+      const discordUserId = await readDiscordUserId(request);
+      if (!discordUserId) { response.writeHead(400).end(); return; }
+      let member;
+      try { member = await guild.members.fetch(discordUserId); }
+      catch (error) {
+        if (error?.code === 10007) {
+          response.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" }).end(JSON.stringify({ syncedCount: 0, skippedCount: 1 }));
+          return;
+        }
+        throw error;
+      }
+      const synced = await syncLinkedMember(discordUserId, member);
+      response.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" }).end(JSON.stringify({ syncedCount: synced ? 1 : 0, skippedCount: synced ? 0 : 1 }));
+      return;
+    }
+    const members = await guild.members.fetch();
+    const linked = await database.query("SELECT u.id AS user_id, u.discord_user_id, p.id AS player_id FROM users u JOIN players p ON p.user_id=u.id WHERE u.discord_user_id IS NOT NULL");
+    const result = await database.query(`SELECT dr.discord_role_id,dr.name AS discord_role_name,dr.id AS catalog_role_id,d.id AS department_id,r.id AS rank_id,r.sort_order AS rank_order,ts.id AS time_served_id,ts.sort_order AS time_served_order,rb.id AS ribbon_id,c.id AS competence_id,m.id AS miscellaneous_id FROM discord_roles dr LEFT JOIN departments d ON d.discord_role_id=dr.id LEFT JOIN ranks r ON r.discord_role_id=dr.id LEFT JOIN time_served ts ON ts.discord_role_id=dr.id LEFT JOIN ribbons rb ON rb.discord_role_id=dr.id LEFT JOIN competences c ON c.discord_role_id=dr.id LEFT JOIN miscellaneous m ON m.discord_role_id=dr.id`);
+    const byDiscordId = new Map(result.rows.map((row) => { const leadingNumber = row.discord_role_name.match(/^\s*(\d+)/); return [row.discord_role_id, { ...row, time_served_order: leadingNumber ? Number(leadingNumber[1]) : row.time_served_order }]; }));
+    let syncedCount = 0, skippedCount = 0;
+    for (const user of linked.rows) {
+      const member = members.get(user.discord_user_id);
+      if (!member) { skippedCount++; continue; }
+      const assigned = [...member.roles.cache.keys()].map((id) => byDiscordId.get(id)).filter(Boolean);
+      const discordDisplayName = member.nickname ?? member.user.globalName ?? member.user.username;
+      const rank = assigned.filter((item) => item.rank_id).sort((a,b) => b.rank_order-a.rank_order)[0];
+      const served = assigned.filter((item) => item.time_served_id).sort((a,b) => b.time_served_order-a.time_served_order)[0];
+      connection = await database.connect();
+      try {
+        await connection.query("BEGIN");
+        for (const table of ["player_roles","player_departments","player_ribbons","player_competences","player_miscellaneous"]) await connection.query(`DELETE FROM ${table} WHERE player_id=$1`, [user.player_id]);
+        await connection.query("UPDATE players SET rank_id=$2,time_served_id=$3,updated_at=NOW() WHERE id=$1", [user.player_id,rank?.rank_id ?? null,served?.time_served_id ?? null]);
+        await connection.query("UPDATE users SET display_name=$2,updated_at=NOW() WHERE id=$1", [user.user_id, discordDisplayName]);
+        for (const item of assigned) {
+          await connection.query("INSERT INTO player_roles (player_id,discord_role_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id,item.catalog_role_id]);
+          if (item.department_id) await connection.query("INSERT INTO player_departments (player_id,department_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id,item.department_id]);
+          if (item.ribbon_id) await connection.query("INSERT INTO player_ribbons (player_id,ribbon_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id,item.ribbon_id]);
+          if (item.competence_id) await connection.query("INSERT INTO player_competences (player_id,competence_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id,item.competence_id]);
+          if (item.miscellaneous_id) await connection.query("INSERT INTO player_miscellaneous (player_id,miscellaneous_id) VALUES ($1,$2) ON CONFLICT DO NOTHING", [user.player_id,item.miscellaneous_id]);
+        }
+        await connection.query("COMMIT"); syncedCount++;
+      } catch (error) { await connection.query("ROLLBACK").catch(()=>undefined); throw error; }
+      finally { connection.release(); connection = undefined; }
+    }
+    response.writeHead(200, { "Content-Type":"application/json", "Cache-Control":"no-store" }).end(JSON.stringify({syncedCount,skippedCount}));
   } catch (error) {
-    if (transaction) await transaction.query("ROLLBACK").catch(() => undefined);
-    console.error("Discord role synchronization failed.", error);
-    response.writeHead(503).end();
-  } finally {
-    transaction?.release();
+    if (connection) { await connection.query("ROLLBACK").catch(()=>undefined); connection.release(); }
+    console.error("Discord synchronization failed.", error); response.writeHead(503).end();
   }
 });
-
 client.once(Events.ClientReady, async (readyClient) => {
   console.info(`Connected to Discord as ${readyClient.user.tag}.`);
 
