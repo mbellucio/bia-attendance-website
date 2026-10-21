@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Roboto_Slab } from "next/font/google";
+import { Roboto_Slab, Stardos_Stencil } from "next/font/google";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import { Notifications } from "@/components/providers/notifications";
+
+const stardosStencil = Stardos_Stencil({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-bia-title",
+  display: "swap",
+});
 
 const fieldSerif = Roboto_Slab({
   subsets: ["latin"],
@@ -18,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={fieldSerif.variable}>
+    <html lang="en" className={`${fieldSerif.variable} ${stardosStencil.variable}`}>
       <body>{children}<Notifications /></body>
     </html>
   );
