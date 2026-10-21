@@ -26,7 +26,7 @@ function pageSecurityPolicy(request: NextRequest): NextResponse {
       ? "style-src 'self' 'unsafe-inline'"
       : "style-src 'self' 'nonce-" + nonce + "'",
     "style-src-attr 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: https://cdn.discordapp.com",
     "font-src 'self' data:",
     "connect-src 'self' blob:" + (isDevelopment ? " ws:" : ""),
     "media-src 'self' blob:",
