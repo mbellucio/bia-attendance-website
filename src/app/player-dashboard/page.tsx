@@ -8,6 +8,7 @@ import UserDashboard from "./components/dashboard";
 async function DashboardContent() {
   const session = await getSteamSession();
   if (!session) redirect("/");
+  if (!session.discordLinked) redirect("/discord-login");
   return <UserDashboard />;
 }
 
