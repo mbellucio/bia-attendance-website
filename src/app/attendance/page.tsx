@@ -2,8 +2,8 @@ import { connection } from "next/server";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getSteamSession } from "@/lib/auth/current-user";
-import AttendanceDashboard from "./attendance-calendar";
-import { DashboardSkeleton } from "@/components/ui/page-skeleton";
+import AttendanceDashboard from "./components/attendance-calendar";
+import { DashboardSkeleton } from "@/components/ui/layout/page-skeleton";
 
 type Props = { searchParams: Promise<{ period?: string }> };
 

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { BrandWordmark } from "@/components/ui/brand-wordmark";
+import { BrandWordmark } from "@/components/ui/branding/brand-wordmark";
 
 type SiteHeaderProps = { variant?: "auth" | "member"; children?: ReactNode; status?: string };
 

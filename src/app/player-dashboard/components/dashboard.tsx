@@ -1,21 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
+import { notifyError } from "@/lib/notifications";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteBanner } from "@/components/layout/site-banner";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MemberNavigation } from "@/components/layout/member-navigation";
-import { SoldierModel } from "@/components/dashboard/soldier-model";
+import { SoldierModel } from "@/app/player-dashboard/components/soldier-model";
 import { useApiResource } from "@/hooks/use-api-resource";
 import { endpoints } from "@/lib/api/endpoints";
 import type { DashboardResponse } from "@/lib/api/player";
-import { ApiErrorState } from "@/components/ui/api-error-state";
-import { UserDashboardSkeleton } from "@/components/ui/page-skeleton";
+import { ApiErrorState } from "@/components/ui/feedback/api-error-state";
+import { UserDashboardSkeleton } from "@/components/ui/layout/page-skeleton";
 
 const dateFormatter = new Intl.DateTimeFormat("en", { dateStyle: "medium", timeZone: "UTC" });
 
 export default function UserDashboard() {
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("discordSync") !== "pending") return;
+    notifyError("Discord was linked, but role synchronization could not finish. An administrator can retry it from Manage Users.");
+    url.searchParams.delete("discordSync");
+    window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+  }, []);
   const { data, error, retry } = useApiResource<DashboardResponse>(endpoints.player.dashboard);
   if (error) return <ApiErrorState error={error} onRetry={retry} />;
   if (!data) return <UserDashboardSkeleton />;

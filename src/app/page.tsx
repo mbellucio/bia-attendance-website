@@ -5,9 +5,9 @@ import { endpoints } from "@/lib/api/endpoints";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteShell } from "@/components/layout/site-shell";
-import { SteamMark } from "@/components/ui/steam-mark";
-import { ErrorNotification } from "@/components/ui/error-notification";
-import { LoginPanelSkeleton } from "@/components/ui/page-skeleton";
+import { SteamMark } from "@/components/ui/branding/steam-mark";
+import { ErrorNotification } from "@/components/ui/feedback/error-notification";
+import { LoginPanelSkeleton } from "@/components/ui/layout/page-skeleton";
 
 type HomeProps = { searchParams: Promise<{ error?: string }> };
 const errorMessages: Record<string, string> = {

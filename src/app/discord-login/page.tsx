@@ -6,7 +6,7 @@ import { endpoints } from "@/lib/api/endpoints";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteShell } from "@/components/layout/site-shell";
-import { ErrorNotification } from "@/components/ui/error-notification";
+import { ErrorNotification } from "@/components/ui/feedback/error-notification";
 
 const errorMessages: Record<string, string> = {
   config: "Discord sign-in is not configured yet. Please contact the BIA administrator.",

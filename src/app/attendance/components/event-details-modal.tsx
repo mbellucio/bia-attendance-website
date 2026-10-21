@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowUpRightIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useAnimatedDialog } from "@/hooks/use-animated-dialog";
-import { AttendanceBadge } from "@/components/ui/attendance-badge";
+import { AttendanceBadge } from "@/components/ui/data-display/attendance-badge";
 import { eventTypeLabel } from "@/lib/event-types";
 import { formatSerializedServerClockAsGmt } from "@/lib/server-log-time";
 
