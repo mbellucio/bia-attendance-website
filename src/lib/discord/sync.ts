@@ -65,14 +65,21 @@ export async function synchronizeDiscordRoles(): Promise<number> {
   const roles = await discordGet<DiscordRole[]>(`/guilds/${guildId}/roles`, token);
   if (!Array.isArray(roles)) throw new Error("Discord returned an invalid roles response.");
   const prisma = getPrisma();
-  await prisma.$transaction(roles.map((role) => {
-    assertDiscordId(role.id);
-    return prisma.discordRole.upsert({
-      where: { discordRoleId: role.id },
-      create: { discordRoleId: role.id, name: role.name, iconPath: iconUrl(role) },
-      update: { name: role.name, iconPath: iconUrl(role) },
-    });
-  }));
+  // Keep role writes out of one long transaction. Large guilds can exceed
+  // Prisma's default 5-second transaction timeout when every role is upserted
+  // inside a single batch transaction.
+  const batchSize = 10;
+  for (let offset = 0; offset < roles.length; offset += batchSize) {
+    const batch = roles.slice(offset, offset + batchSize);
+    await Promise.all(batch.map((role) => {
+      assertDiscordId(role.id);
+      return prisma.discordRole.upsert({
+        where: { discordRoleId: role.id },
+        create: { discordRoleId: role.id, name: role.name, iconPath: iconUrl(role) },
+        update: { name: role.name, iconPath: iconUrl(role) },
+      });
+    }));
+  }
   return roles.length;
 }
 
