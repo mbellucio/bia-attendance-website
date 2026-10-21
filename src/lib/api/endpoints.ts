@@ -11,5 +11,9 @@ export const endpoints = {
     syncDiscordRoles: "/api/admin/discord-roles/sync",
     mapDiscordRole: "/api/admin/discord-roles/mapping",
     deleteDiscordRole: (roleId: string) => `/api/admin/discord-roles?roleId=${encodeURIComponent(roleId)}`,
+    orderDiscordRole: "/api/admin/discord-roles/order",
+    users: "/api/admin/users",
+    syncUsers: "/api/admin/users/sync",
+    userAdmin: "/api/admin/users/admin",
   },
 } as const;

@@ -37,10 +37,16 @@ export const POST = withAdminSession(async (request) => {
     if (current === 4) await tx.timeServed.updateMany({ where: { discordRoleId: roleId }, data: { discordRoleId: null } });
     if (current === 5) await tx.miscellaneous.updateMany({ where: { discordRoleId: roleId }, data: { discordRoleId: null } });
     if (category === "department") await tx.department.create({ data: { name: role.name, discordRoleId: roleId } });
-    if (category === "rank") await tx.rank.create({ data: { name: role.name, code: rankCode(role.name, roleId), discordRoleId: roleId } });
+    if (category === "rank") {
+      const highest = await tx.rank.aggregate({ _max: { sortOrder: true } });
+      await tx.rank.create({ data: { name: role.name, code: rankCode(role.name, roleId), discordRoleId: roleId, sortOrder: (highest._max.sortOrder ?? -1) + 1 } });
+    }
     if (category === "ribbon") await tx.ribbon.create({ data: { name: role.name, discordRoleId: roleId } });
     if (category === "competence") await tx.competence.create({ data: { name: role.name, discordRoleId: roleId } });
-    if (category === "timeServed") await tx.timeServed.create({ data: { name: role.name, discordRoleId: roleId } });
+    if (category === "timeServed") {
+      const leadingNumber = role.name.match(/^\s*(\d+)/);
+      await tx.timeServed.create({ data: { name: role.name, discordRoleId: roleId, sortOrder: leadingNumber ? Number(leadingNumber[1]) : 0 } });
+    }
     if (category === "miscellaneous") await tx.miscellaneous.create({ data: { name: role.name, discordRoleId: roleId } });
   });
   return Response.json({ success: true }, { headers: { "Cache-Control": "private, no-store" } });
