@@ -50,9 +50,11 @@ export type DashboardResponse = {
   isAdmin: boolean;
   name: string;
   nickname: string | null;
-  createdAt: string | null;
-  attendedOperations: number | null;
   rosterLinked: boolean;
+  rank: { name: string; iconPath: string | null } | null;
+  departments: { name: string; iconPath: string | null }[];
+  ribbons: { name: string; iconPath: string | null }[];
+  competences: { name: string; iconPath: string | null }[];
   selectedFaction: SoldierFaction;
   modelPath: string;
 };
