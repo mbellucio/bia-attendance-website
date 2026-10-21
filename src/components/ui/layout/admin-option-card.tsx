@@ -1,0 +1,6 @@
+import Link from "next/link";
+import type { ReactNode } from "react";
+type AdminOptionCardProps = { href: string; label: string; title: string; description: string; icon: ReactNode };
+export function AdminOptionCard({ href, label, title, description, icon }: AdminOptionCardProps) {
+  return <Link href={href} className="group flex min-h-40 items-center gap-5 border border-white/10 bg-[#1a1e1b] p-5 transition-colors hover:border-[#a8bc7a]/70 hover:bg-[#202720] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a8bc7a] sm:p-6"><span className="grid size-14 shrink-0 place-items-center border border-[#a8bc7a]/30 bg-[#506846]/20 text-[#a8bc7a] transition-colors group-hover:bg-[#506846]/40" aria-hidden="true">{icon}</span><span className="min-w-0 flex-1"><span className="block text-[9px] font-semibold uppercase tracking-[.14em] text-[#a8bc7a]">{label}</span><span className="mt-1 block text-lg font-semibold text-[#f3f1e8]">{title}</span><span className="mt-2 block text-xs leading-5 text-[#aeb5a7]">{description}</span></span><span className="text-xl text-[#9da598] transition-transform group-hover:translate-x-1 group-hover:text-[#a8bc7a]" aria-hidden="true">→</span></Link>;
+}

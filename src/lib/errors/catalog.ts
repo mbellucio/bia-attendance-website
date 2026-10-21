@@ -1,5 +1,6 @@
 export const errorCatalog = {
   AUTH_REQUIRED: { status: 401, message: "Please sign in through Steam to continue." },
+  DISCORD_LINK_REQUIRED: { status: 403, message: "Connect your Discord account to continue." },
   FORBIDDEN: { status: 403, message: "You do not have permission to access this resource." },
   ACCOUNT_NOT_FOUND: { status: 404, message: "Your account record could not be found." },
   PLAYER_NOT_FOUND: { status: 404, message: "Your Steam account has no linked player record." },

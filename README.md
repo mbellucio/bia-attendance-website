@@ -1,11 +1,11 @@
 # BIA Attendance
 
-A Next.js app with Steam-only sign-in and a Prisma/PostgreSQL attendance model.
+A Next.js app with Steam sign-in, required Discord account linking, and a Prisma/PostgreSQL attendance model.
 
 ## Local setup
 
 1. Install dependencies with `npm install`.
-2. The local `.env` is created and ignored by Git. On a fresh checkout, copy `.env.example` to `.env`, then set `AUTH_SECRET` to a random value of at least 32 characters and `POSTGRES_PASSWORD` to a random hex password. Use the same password in both local database URLs.
+2. The local `.env` is created and ignored by Git. On a fresh checkout, copy `.env.example` to `.env`, then set `AUTH_SECRET` to a random value of at least 32 characters, the Discord OAuth application credentials, and `POSTGRES_PASSWORD` to a random hex password. Use the same password in both local database URLs. Set `APP_URL` to the local address you use for development and register `{APP_URL}/api/auth/discord/callback` as a redirect URI in the Discord Developer Portal.
 3. Start local PostgreSQL with `docker compose up -d db`.
 4. Create or update the database schema with `npm run db:migrate`.
 5. On a fresh database, preview the bundled historical archive with `npm run db:import-logs`, then import it with `npm run db:import-logs -- --apply`.
@@ -18,17 +18,17 @@ The Compose service listens only on your own computer, and PostgreSQL data persi
 
 The raw archive and duration/identity lookup files are bundled in `data/archive`, so the production build does not read folders from the developer's computer. The Vercel build command runs `prisma migrate deploy`, imports the bundled archive, then builds Next.js. It runs the database steps only on Production; Preview builds skip them.
 
-Set `DATABASE_URL` in Vercel Production to the hosted Postgres URL. If your provider offers a separate direct connection for schema changes, set `DIRECT_URL` too; Prisma uses it for migrations. Also set the app's existing `AUTH_SECRET` and `APP_URL` values. The production migration and import are idempotent for unchanged source files.
+Set `DATABASE_URL` in Vercel Production to the hosted Postgres URL. If your provider offers a separate direct connection for schema changes, set `DIRECT_URL` too; Prisma uses it for migrations. Also set `AUTH_SECRET`, `APP_URL`, `DISCORD_CLIENT_ID`, and `DISCORD_CLIENT_SECRET`. Register `{APP_URL}/api/auth/discord/callback` as a redirect URI in the Discord Developer Portal. The production migration and import are idempotent for unchanged source files.
 
 The archive includes player names and SteamID64s. Keep the source repository private if those records should not be public. Do not put database credentials in Git; configure them as Vercel environment variables.
 
 See [the deployment runbook](docs/DEPLOYMENT.md) for the exact build sequence.
 
-## Steam identity and sessions
+## Steam and Discord identity
 
 Steam signs the visitor in on Steam's own site and returns an OpenID 2.0 assertion. The callback verifies the assertion with Steam before creating a signed, HTTP-only, secure-in-production session cookie. No Steam password is received by this app.
 
-Basic Steam OpenID sign-in provides the SteamID64. It does not provide an email address or profile details, so email is nullable. Historical log import creates both a User and a linked Player for each resolvable Steam ID and stores the most recently observed nickname. The User table has an `admin` flag; `data/admin-users.json` bootstraps Seedorf as the initial admin.
+Steam OpenID sign-in provides the SteamID64. Users without a linked Discord ID must authorize Discord before accessing member pages or private APIs. The app stores the Discord account ID on the same User record; Discord passwords are never shared with BIA. The Discord bot reads server roles separately. Historical log import creates both a User and a linked Player for each resolvable Steam ID and stores the most recently observed nickname. The User table has an `admin` flag; `data/admin-users.json` bootstraps Seedorf as the initial admin.
 
 ## Prisma and attendance data
 
@@ -44,6 +44,8 @@ Imported timestamps preserve the server's logged wall-clock time. The logs do no
 
 - `GET /api/auth/steam` starts Steam OpenID sign-in.
 - `GET /api/auth/steam/callback` verifies the assertion and establishes a session.
+- `GET /api/auth/discord` starts Discord account linking for a Steam-authenticated user.
+- `GET /api/auth/discord/callback` verifies Discord authorization and links its account ID to the current User.
 - The sign-out button clears the session cookie.
 
-Only Steam sign-in is offered. This is identity verification, not BIA membership or role authorization; access restrictions can be added when the attendance workflows are designed.
+Discord linking is required before member pages and private APIs are available. OAuth requests only the `identify` scope; the BIA Discord bot reads server roles separately.

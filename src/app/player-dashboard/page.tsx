@@ -2,8 +2,8 @@ import { connection } from "next/server";
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getSteamSession } from "@/lib/auth/current-user";
-import { UserDashboardSkeleton } from "@/components/ui/page-skeleton";
-import UserDashboard from "./dashboard";
+import { UserDashboardSkeleton } from "@/components/ui/layout/page-skeleton";
+import UserDashboard from "./components/dashboard";
 
 async function DashboardContent() {
   const session = await getSteamSession();

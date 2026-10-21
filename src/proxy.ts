@@ -4,7 +4,7 @@ import { readSessionToken, SESSION_COOKIE } from "@/lib/auth/session";
 import { errorResponse } from "@/lib/errors/server";
 
 const STEAM_AUTH_PATHS = new Set(["/api/auth/steam", "/api/auth/steam/callback"]);
-const MEMBER_PAGE_PATHS = ["/player-dashboard", "/attendance"];
+const MEMBER_PAGE_PATHS = ["/player-dashboard", "/attendance", "/admin-panel"];
 
 function withHeaders(response: Response, values: Record<string, string>): Response {
   const headers = new Headers(response.headers);
@@ -26,7 +26,7 @@ function pageSecurityPolicy(request: NextRequest): NextResponse {
       ? "style-src 'self' 'unsafe-inline'"
       : "style-src 'self' 'nonce-" + nonce + "'",
     "style-src-attr 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: https://cdn.discordapp.com",
     "font-src 'self' data:",
     "connect-src 'self' blob:" + (isDevelopment ? " ws:" : ""),
     "media-src 'self' blob:",
@@ -68,5 +68,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/api/:path*", "/player-dashboard/:path*", "/attendance/:path*"],
+  matcher: ["/", "/api/:path*", "/player-dashboard/:path*", "/attendance/:path*", "/admin-panel/:path*"],
 };

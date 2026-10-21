@@ -88,6 +88,8 @@ export async function GET(request: NextRequest) {
 
     const steamId = claimedMatch[1];
 
+    let discordLinked = false;
+
     if (process.env.DATABASE_URL) {
       try {
         const prisma = getPrisma();
@@ -99,6 +101,7 @@ export async function GET(request: NextRequest) {
             profileUrl: "https://steamcommunity.com/profiles/" + steamId,
           },
         });
+        discordLinked = Boolean(user.discordUserId);
         await prisma.player.upsert({
           where: { userId: user.id },
           update: {},
@@ -109,12 +112,12 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const token = await createSessionToken(steamId);
-    const response = NextResponse.redirect(new URL("/player-dashboard", origin));
+    const token = await createSessionToken(steamId, discordLinked);
+    const response = NextResponse.redirect(new URL(discordLinked ? "/player-dashboard" : "/discord-login", origin));
     response.cookies.delete(STEAM_STATE_COOKIE);
     response.cookies.set(SESSION_COOKIE, token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: new URL(origin).protocol === "https:",
       sameSite: "lax",
       path: "/",
       maxAge: SESSION_MAX_AGE_SECONDS,
@@ -124,5 +127,6 @@ export async function GET(request: NextRequest) {
     return redirectToError(request, "unavailable");
   }
 }
+
 
 

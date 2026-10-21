@@ -36,6 +36,14 @@ button {
   font: inherit;
 }
 
+button:not(:disabled), a[href], [role="button"], summary, select {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 /* Native dialog opening and closing transitions. */
 @keyframes calendar-arrive {
   from { opacity: .45; transform: translateY(8px); }

@@ -7,24 +7,42 @@ export const GET = withSteamSession(async (_request, _context, session) => {
   const user = await prisma.user.findUnique({
     where: { steamId: session.steamId },
     select: {
-      displayName: true, createdAt: true,
-      player: { select: { id: true, nickname: true } },
+      displayName: true, admin: true,
+      player: {
+        select: {
+          id: true,
+          nickname: true,
+          rank: { select: { name: true, discordRole: { select: { iconPath: true } } } },
+          departments: { select: { department: { select: { name: true, discordRole: { select: { iconPath: true } } } } } },
+          ribbons: { select: { ribbon: { select: { name: true, discordRole: { select: { iconPath: true } } } } } },
+          competences: { select: { competence: { select: { name: true, discordRole: { select: { iconPath: true } } } } } },
+        },
+      },
       modelPreference: { select: { faction: true, modelPath: true } },
     },
   });
-  const attendedOperations = user?.player ? await prisma.eventParticipant.count({
-    where: {
-      playerId: user.player.id,
-      OR: [{ attendanceOverride: true }, { attendanceOverride: null, attendanceGranted: true }],
-    },
-  }) : null;
   const result: DashboardResponse = {
     steamId: session.steamId,
+    isAdmin: user?.admin ?? false,
     name: user?.player?.nickname ?? user?.displayName ?? "BIA Member",
     nickname: user?.player?.nickname ?? null,
-    createdAt: user?.createdAt.toISOString() ?? null,
-    attendedOperations,
     rosterLinked: Boolean(user?.player),
+    rank: user?.player?.rank ? {
+      name: user.player.rank.name,
+      iconPath: user.player.rank.discordRole?.iconPath ?? null,
+    } : null,
+    departments: user?.player?.departments.map(({ department }) => ({
+      name: department.name,
+      iconPath: department.discordRole?.iconPath ?? null,
+    })) ?? [],
+    ribbons: user?.player?.ribbons.map(({ ribbon }) => ({
+      name: ribbon.name,
+      iconPath: ribbon.discordRole?.iconPath ?? null,
+    })) ?? [],
+    competences: user?.player?.competences.map(({ competence }) => ({
+      name: competence.name,
+      iconPath: competence.discordRole?.iconPath ?? null,
+    })) ?? [],
     selectedFaction: user?.modelPreference?.faction ?? "US",
     modelPath: user?.modelPreference?.modelPath ?? "/models/ww2/us-rifleman.glb",
   };

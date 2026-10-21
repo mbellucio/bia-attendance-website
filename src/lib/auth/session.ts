@@ -2,6 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 
 export const SESSION_COOKIE = "bia_attendance_session";
 export const STEAM_STATE_COOKIE = "bia_steam_state";
+export const DISCORD_STATE_COOKIE = "bia_discord_state";
 export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 14;
 export const STEAM_STATE_MAX_AGE_SECONDS = 60 * 10;
 
@@ -15,15 +16,15 @@ function signingKey(): Uint8Array {
   return new TextEncoder().encode(secret);
 }
 
-export async function createSessionToken(steamId: string): Promise<string> {
-  return new SignJWT({ steamId })
+export async function createSessionToken(steamId: string, discordLinked: boolean): Promise<string> {
+  return new SignJWT({ steamId, discordLinked })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("14d")
     .sign(signingKey());
 }
 
-export async function readSessionToken(token: string): Promise<{ steamId: string } | null> {
+export async function readSessionToken(token: string): Promise<{ steamId: string; discordLinked: boolean } | null> {
   try {
     const { payload } = await jwtVerify(token, signingKey(), {
       algorithms: ["HS256"],
@@ -33,7 +34,7 @@ export async function readSessionToken(token: string): Promise<{ steamId: string
       return null;
     }
 
-    return { steamId: payload.steamId };
+    return { steamId: payload.steamId, discordLinked: payload.discordLinked === true };
   } catch {
     return null;
   }

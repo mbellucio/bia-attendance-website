@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { SectionLabel } from "@/components/ui/section-label";
+import { SectionLabel } from "@/components/ui/layout/section-label";
 
 type EmptyStateProps = { label: string; title: string; children: ReactNode };
 

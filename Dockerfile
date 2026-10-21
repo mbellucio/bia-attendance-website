@@ -7,7 +7,7 @@ COPY prisma ./prisma
 COPY prisma.config.ts ./prisma.config.ts
 RUN npm ci
 COPY . .
-RUN npm run build
+RUN npm run build && npm prune --omit=dev --ignore-scripts
 
 # Run Next.js and Nginx together under Supervisor.
 FROM node:22-alpine AS runner
@@ -27,6 +27,9 @@ WORKDIR /app
 COPY --from=builder --chown=node:node /app/.next/standalone ./
 COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 COPY --from=builder --chown=node:node /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/default.conf.template docker/tls.conf.template docker/proxy-common.conf /app/docker/
 COPY docker/supervisord.conf /app/docker/supervisord.conf
