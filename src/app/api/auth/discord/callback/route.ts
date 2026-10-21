@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSteamSession } from "@/lib/auth/current-user";
 import { createSessionToken, DISCORD_STATE_COOKIE, SESSION_COOKIE, SESSION_MAX_AGE_SECONDS } from "@/lib/auth/session";
 import { getPrisma } from "@/lib/db";
+import { synchronizeDiscordMember } from "@/lib/discord/sync";
 
 const DISCORD_API = "https://discord.com/api/v10";
 const DISCORD_ID_PATTERN = /^\d{17,20}$/;
@@ -103,30 +104,15 @@ export async function GET(request: NextRequest) {
     }
 
     let syncPending = false;
-    const botUrl = process.env.DISCORD_BOT_SYNC_URL?.trim();
-    const syncSecret = process.env.DISCORD_BOT_SYNC_SECRET?.trim();
-    if (!botUrl || !syncSecret) {
-      console.error("Discord account linked, but automatic role sync is not configured.");
-      syncPending = true;
-    } else {
-      try {
-        const syncResponse = await fetch(new URL("/internal/sync/member", botUrl), {
-          method: "POST",
-          headers: { "x-discord-sync-secret": syncSecret, "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ discordUserId: discordUser.id }),
-          cache: "no-store",
-          redirect: "error",
-          signal: AbortSignal.timeout(20_000),
-        });
-        const syncResult = syncResponse.ok ? await syncResponse.json() as { syncedCount?: number } : null;
-        if (syncResult?.syncedCount !== 1) {
-          console.error(`Discord account linked, but the member was not synchronized (HTTP ${syncResponse.status}).`);
-          syncPending = true;
-        }
-      } catch (cause) {
-        console.error("Discord account linked, but automatic role sync failed.", cause);
+    try {
+      const syncResult = await synchronizeDiscordMember(discordUser.id);
+      if (syncResult.syncedCount !== 1) {
+        console.error("Discord account linked, but the member was not found in the configured server or has no player record.");
         syncPending = true;
       }
+    } catch (cause) {
+      console.error("Discord account linked, but automatic role sync failed.", cause);
+      syncPending = true;
     }
     const sessionToken = await createSessionToken(session.steamId, true);
     const dashboardUrl = new URL("/player-dashboard", origin);
