@@ -13,6 +13,7 @@ export const GET = withSteamSession(async (_request, _context, session) => {
           id: true,
           nickname: true,
           rank: { select: { name: true, discordRole: { select: { iconPath: true } } } },
+          timeServed: { select: { name: true, discordRole: { select: { iconPath: true } } } },
           departments: { select: { department: { select: { name: true, discordRole: { select: { iconPath: true } } } } } },
           ribbons: { select: { ribbon: { select: { name: true, discordRole: { select: { iconPath: true } } } } } },
           competences: { select: { competence: { select: { name: true, discordRole: { select: { iconPath: true } } } } } },
@@ -35,6 +36,10 @@ export const GET = withSteamSession(async (_request, _context, session) => {
       name: department.name,
       iconPath: department.discordRole?.iconPath ?? null,
     })) ?? [],
+    timeServed: user?.player?.timeServed ? {
+      name: user.player.timeServed.name,
+      iconPath: user.player.timeServed.discordRole?.iconPath ?? null,
+    } : null,
     ribbons: user?.player?.ribbons.map(({ ribbon }) => ({
       name: ribbon.name,
       iconPath: ribbon.discordRole?.iconPath ?? null,

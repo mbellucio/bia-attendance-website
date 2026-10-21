@@ -53,8 +53,15 @@ function DashboardContent({ data }: { data: DashboardResponse }) {
 
     <section className="grid gap-5 py-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] md:gap-7 md:py-8" aria-label="Personnel overview">
       <div className="flex flex-col gap-5">
-        <article className="border border-white/10 border-t-2 border-t-[#a8bc7a] bg-[#1a1e1b] p-5 sm:p-7">
+        <article className="relative border border-white/10 border-t-2 border-t-[#a8bc7a] bg-[#1a1e1b] p-5 sm:p-7">
           <p className="m-0 text-[9px] font-semibold uppercase tracking-[.16em] text-[#a8bc7a]">SERVICE PROFILE</p>
+          {data.timeServed && <div className="absolute right-5 top-5 flex max-w-[45%] items-center gap-2 border border-white/10 bg-black/10 px-3 py-2 text-right sm:right-7 sm:top-7">
+            <div className="min-w-0">
+              <p className="m-0 text-[8px] font-semibold uppercase tracking-[.13em] text-[#9da598]">TIME SERVED</p>
+              <p className="mt-1 break-words text-xs font-medium text-[#e7e7dc]">{data.timeServed.name}</p>
+            </div>
+            <RoleIcon role={data.timeServed} size={36} />
+          </div>}
           <div className="mt-5 flex items-center gap-4">
             {data.rank?.iconPath && <div className="flex size-16 shrink-0 items-center justify-center border border-white/10 bg-black/20"><RoleIcon role={data.rank} size={48} /></div>}
             <div className="min-w-0">

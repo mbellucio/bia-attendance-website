@@ -54,6 +54,7 @@ export type DashboardResponse = {
   rank: { name: string; iconPath: string | null } | null;
   departments: { name: string; iconPath: string | null }[];
   ribbons: { name: string; iconPath: string | null }[];
+  timeServed: { name: string; iconPath: string | null } | null;
   competences: { name: string; iconPath: string | null }[];
   selectedFaction: SoldierFaction;
   modelPath: string;

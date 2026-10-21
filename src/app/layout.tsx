@@ -12,8 +12,8 @@ const fieldSerif = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  title: "BIA Attendance | Field Roster",
-  description: "Review your BIA event attendance and connection records.",
+  title: "Brothers in Arms",
+  description: "The home of the Brothers in Arms community.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
